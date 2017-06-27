@@ -3,16 +3,18 @@ import java.util.*;
 /**
  * Created by Wiktor Łazarski on 27.06.2017.
  */
+
+//Enumeration list of attributes used to have easy access to Map of Form's data
+enum HeadAttrib{
+    NAME,
+    SURNAME,
+    TITLE,
+    KEYWORDS,
+    DESCRIPTION,
+    CHARSET
+}
+
 public class Form {
-    //Enumeration list of attributes used to have easy access to Map of Form's data
-    private enum HeadAttrib{
-        NAME,
-        SURNAME,
-        TITLE,
-        KEYWORDS,
-        DESCRIPTION,
-        CHARSET
-    }
 
     //Map for all the Form's data
     private Map<HeadAttrib, String> formData;
@@ -24,7 +26,10 @@ public class Form {
         formData = new HashMap<>();
 
         //simple fast test if everything is correnct
-        formData.put(HeadAttrib.CHARSET, "SDSD");
-        System.out.println(formData);
+        formData.put(HeadAttrib.NAME, "Wiktor");
+       // System.out.println(formData);
     }
+
+    //map getter
+    Map<HeadAttrib, String> returnFormData() {return formData;}
 }
