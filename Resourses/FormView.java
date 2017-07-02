@@ -17,9 +17,22 @@ public class FormView extends JFrame {
     //textareas
     private ArrayList<JTextField> textFields;
 
-    private void createAndAddComponents(ArrayList<String> queries){
+    private void createAndAddNorthComponents(){
+        JPanel northPanel = new JPanel();
+
+        //create title label
+        JLabel jLabel = new JLabel("HTML Page Editor");
+        jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 40));
+
+        //add panel
+        northPanel.setBackground(Color.white);
+        northPanel.add(jLabel, SwingConstants.CENTER);
+        add(northPanel, BorderLayout.NORTH);
+    }
+
+    private void createAndAddCenterComponents(ArrayList<String> queries){
         JPanel centerPanel = new JPanel();
-        centerPanel.setBackground(new Color(238, 163, 65));
+        centerPanel.setBackground(Color.white);
         centerPanel.setLayout(new GridLayout(6, 2));
 
         //init textarea's array
@@ -27,7 +40,7 @@ public class FormView extends JFrame {
 
         //create components loop
         for(int i = 0; i < 6; i++){
-            centerPanel.add(new JLabel(queries.get(i), JLabel.LEFT));
+            centerPanel.add(new JLabel(queries.get(i), JLabel.CENTER));
 
             //add TextField to ArrayList and centerPanel
             textFields.add(new JTextField());
@@ -35,6 +48,29 @@ public class FormView extends JFrame {
         }
 
         add(centerPanel, BorderLayout.CENTER);
+    }
+
+    private void createAndAddSouthComponents(){
+        JPanel southPanel = new JPanel();
+        southPanel.setBackground(Color.white);
+
+        //create button
+        JButton jButton = new JButton("Next step");
+        jButton.addActionListener(event -> {
+            //TODO LIST :
+            /*
+            Init download map by FormController
+            FormController will check if user input datas are correct
+            FormController will send data to FormModel which will create Map with data
+            Next step Konrad's method will create <head> section based on FormModel's Map
+            (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
+             */
+            System.out.println("ok");
+        });
+
+        //add button
+        southPanel.add(jButton);
+        add(southPanel, BorderLayout.SOUTH);
     }
 
     private void setDefaultOption(){
@@ -47,8 +83,7 @@ public class FormView extends JFrame {
         setLocationByPlatform(true);
 
         //set others default opt
-        getContentPane().setBackground(new Color(238, 163, 65));
-        setTitle("Page Creator - <head> section");
+        setTitle("HTML Page Creator - <head> section");
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -56,7 +91,7 @@ public class FormView extends JFrame {
 
     //Window constructor
     FormView(){
-        //create ArrayList
+        //init ArrayList
         queries = new ArrayList<>(6);
         //filling queries ArrayList
         queries.add("Authors name : ");
@@ -66,7 +101,10 @@ public class FormView extends JFrame {
         queries.add("Page description : ");
         queries.add("Page charset : ");
 
-        createAndAddComponents(queries);
+        //create window's components
+        createAndAddNorthComponents();
+        createAndAddCenterComponents(queries);
+        createAndAddSouthComponents();
         setDefaultOption();
 
         //set icon
