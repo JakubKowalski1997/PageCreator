@@ -60,7 +60,7 @@ public class FormView extends JFrame {
             //TODO LIST :
             /*
             Init download map by FormController
-            FormController will check if user input datas are correct
+            FormController will check if user input datas are correct(FormValidator)
             FormController will send data to FormModel which will create Map with data
             Next step Konrad's method will create <head> section based on FormModel's Map
             (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
@@ -108,9 +108,8 @@ public class FormView extends JFrame {
         setDefaultOption();
 
         //set icon
-        /*
-        * Image image = new ImageIcon(Path).getImage();
-        * setIconImage(image);
-        * */
+        Image image = new ImageIcon("html-icon.png").getImage();
+        setIconImage(image);
+
     }
 }
