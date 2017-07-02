@@ -33,17 +33,21 @@ public class FormView extends JFrame {
     private void createAndAddCenterComponents(ArrayList<String> queries){
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.white);
-        centerPanel.setLayout(new GridLayout(6, 2));
+        centerPanel.setLayout(new GridLayout(6, 2, 10, 30));
 
         //init textarea's array
         textFields = new ArrayList<>();
 
         //create components loop
         for(int i = 0; i < 6; i++){
-            centerPanel.add(new JLabel(queries.get(i), JLabel.CENTER));
+            JLabel jLabel = new JLabel(queries.get(i), JLabel.CENTER);
+            jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
+            centerPanel.add(jLabel);
 
             //add TextField to ArrayList and centerPanel
             textFields.add(new JTextField());
+            textFields.get(i).setMargin(new Insets(0, 10, 0, 0));
+            textFields.get(i).setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
             centerPanel.add(textFields.get(i));
         }
 
@@ -65,7 +69,7 @@ public class FormView extends JFrame {
             Next step Konrad's method will create <head> section based on FormModel's Map
             (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
              */
-            System.out.println("ok");
+            System.exit(0);
         });
 
         //add button

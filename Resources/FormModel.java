@@ -14,13 +14,13 @@ enum HeadAttrib{
     CHARSET
 }
 
-public class Form {
+public class FormModel {
 
     //Map for all the Form's data
     private Map<HeadAttrib, String> formData;
 
     //constructor
-    public Form(/*FormWindow with textfields will be argument*/)
+    public FormModel(/*FormWindow with textfields will be argument*/)
     {
         //init Map
         formData = new HashMap<>();
