@@ -40,7 +40,7 @@ public class FormView extends JFrame {
 
         //create components loop
         for(int i = 0; i < 6; i++){
-            JLabel jLabel = new JLabel(queries.get(i), JLabel.CENTER);
+            JLabel jLabel = new JLabel("  " + queries.get(i), JLabel.LEFT);
             jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
             centerPanel.add(jLabel);
 
