@@ -5,6 +5,7 @@ package HTMLHandlerClasses;
 
 import javax.swing.text.html.HTML;
 import java.util.List;
+import java.util.jar.Attributes;
 
 //BUG: cycle reference results with stack overflow
 
@@ -97,7 +98,7 @@ public class HTMLDocumentHandler {
         if (found == null )
             throw new Exception("Cannot find such tag");
 
-        found.getParent().eraseNestedTag(pos);
+        found.eraseNestedTag(pos);
     }
 
     public void eraseTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts)
@@ -113,23 +114,7 @@ public class HTMLDocumentHandler {
         if (found == null )
             throw new Exception("Cannot find such tag");
 
-        found.getParent().popNestedTag();
-    }
-
-    public void eraseTag(HTMLDocument doc, HTMLTag tagToErase, int pos)
-            throws Exception {
-
-        ContainerTag found;
-        if (doc.getRootTag() == tagToErase) {
-            found = doc.getRootTag();
-        } else {
-            found = findTag(doc.getRootTag(), tagToErase);
-        }
-
-        if (found == null )
-            throw new Exception("Cannot find such tag");
-
-        found.getParent().eraseNestedTag(pos);
+        found.popNestedTag();
     }
 
     public void eraseTag(HTMLDocument doc, HTMLTag tagToErase)
@@ -146,6 +131,22 @@ public class HTMLDocumentHandler {
             throw new Exception("Cannot find such tag");
 
         found.getParent().popNestedTag();
+    }
+
+    public HTMLTag getTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
+            throws Exception {
+
+        ContainerTag found;
+        if (isFound(doc.getRootTag(), kind, atts)) {
+            found = doc.getRootTag();
+        } else {
+            found = findTag(doc.getRootTag(), kind, atts);
+        }
+
+        if (found == null )
+            throw new Exception("Cannot find such tag");
+
+        return found.getNestedTag(pos);
     }
 
     static private ContainerTag findTag(ContainerTag parent, HTMLContainerTags kind, List<TagAttribute> atts) {

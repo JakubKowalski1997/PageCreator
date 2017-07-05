@@ -31,7 +31,6 @@ public class TextTag extends HTMLTag {
     }
 
     /**
-     *
      * @return String representation of a tag
      */
     @Override
@@ -54,4 +53,9 @@ public class TextTag extends HTMLTag {
         stringRep.append(rightTagParenthesis);
         return stringRep.toString();
     }
+
+    public HTMLTextTags getKind() {
+        return name;
+    }
+
 }

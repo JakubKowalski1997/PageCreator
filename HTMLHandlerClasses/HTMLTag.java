@@ -15,6 +15,7 @@ public abstract class HTMLTag {
     protected final char rightTagParenthesis = '>';
     protected final char tagClosingChar = '/';
 
+
     public HTMLTag(List<TagAttribute> attributes) {
         this.atts = (ArrayList<TagAttribute>) attributes;
     }
@@ -36,6 +37,10 @@ public abstract class HTMLTag {
         }
 
         return true;
+    }
+
+    public List<TagAttribute> getAttributes() {
+        return atts;
     }
 
     public void addAttribute(int pos, TagAttribute attribute) {

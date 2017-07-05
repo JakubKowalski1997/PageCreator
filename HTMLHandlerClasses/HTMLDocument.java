@@ -12,7 +12,7 @@ public class HTMLDocument {
         rootTag = new ContainerTag(HTMLContainerTags.HTML);
     }
 
-    public ContainerTag getRootTag() {
+    ContainerTag getRootTag() {
         return rootTag;
     }
 

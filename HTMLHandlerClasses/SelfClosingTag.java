@@ -34,4 +34,9 @@ public class SelfClosingTag extends HTMLTag {
 
         return stringRep.toString();
     }
+
+    public HTMLSelfClosingTags getKind() {
+        return name;
+    }
+
 }
