@@ -83,7 +83,12 @@ public class FormView extends JFrame {
                 /*TODO
                 * GOTO SECOND STEP OF APPLICATION LIFETIME
                 * */
+                System.exit(0);
             }
+
+            //INFO FOR USER TO CORRECT DATA
+            JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         });
 
         //add button

@@ -20,10 +20,9 @@ public class FormController {
         }
 
         //check for correctness of input data
-        if(!FormValidator.getInstance().validate(formUserInputs)) {
-            System.err.println("FormEditor : Invalid input data");
+        if(!FormValidator.getInstance().validate(formUserInputs))
             formUserInputs = null;
-        }
+
     }
 
     public ArrayList<String> getPageMetaData(){return formUserInputs;}
