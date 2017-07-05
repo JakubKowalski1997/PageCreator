@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
@@ -83,10 +85,12 @@ public class FormView extends JFrame {
                 /*TODO
                 * GOTO SECOND STEP OF APPLICATION LIFETIME
                 * */
+
+                System.out.println(metaData.returnFormData());
                 System.exit(0);
             }
 
-            //INFO FOR USER TO CORRECT DATA
+            //info for user to correct data
             JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         });

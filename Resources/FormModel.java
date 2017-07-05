@@ -24,6 +24,14 @@ public class FormModel {
     {
         //init Map
         formData = new HashMap<>();
+
+        //fill map
+        formData.put(HeadAttrib.NAME, data.get(0));
+        formData.put(HeadAttrib.SURNAME, data.get(1));
+        formData.put(HeadAttrib.TITLE, data.get(2));
+        formData.put(HeadAttrib.KEYWORDS, data.get(3));
+        formData.put(HeadAttrib.DESCRIPTION, data.get(4));
+        formData.put(HeadAttrib.CHARSET, data.get(5));
     }
 
     //map getter
