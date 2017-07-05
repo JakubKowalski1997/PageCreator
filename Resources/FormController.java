@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ public class FormController {
     //user inputs keeper
     private ArrayList<String> formUserInputs;
 
-    public FormController(FormView view){
+    public FormController(FormView view) throws IOException {
         formUserInputs = new ArrayList<>();
 
         //grab data from FormView
@@ -18,7 +19,9 @@ public class FormController {
             formUserInputs.add(textField.getText());
         }
 
-
+        //check for correctness of input data
+        if(FormValidator.getInstance().validate(formUserInputs))
+            throw new IOException("FormEditor : Invalid input data");
     }
 
 }
