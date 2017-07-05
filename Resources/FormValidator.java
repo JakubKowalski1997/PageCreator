@@ -12,12 +12,22 @@ public class FormValidator {
 
     private FormValidator() {}
 
-    public static boolean validate(ArrayList<String> data){
-        /*
-        * TODO:
-        * Valid data
-        * if textfield is not null
-        * if name and surname doesn't contain digits*/
+    public boolean validate(ArrayList<String> data){
+
+        //check if fields are filled
+        for (String input : data) {
+            if(input.isEmpty())
+                return false;
+        }
+
+        //check if name and surname doesn't contain digits
+        for(int i = 0; i < 2; i++){
+            for(char c : data.get(i).toCharArray()){
+                if(Character.isDigit(c))
+                    return false;
+            }
+        }
+
         return true;
     }
 }
