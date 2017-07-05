@@ -11,7 +11,7 @@ public class FormController {
     //user inputs keeper
     private ArrayList<String> formUserInputs;
 
-    public FormController(FormView view) throws IOException {
+    public FormController(FormView view){
         formUserInputs = new ArrayList<>();
 
         //grab data from FormView
@@ -20,8 +20,11 @@ public class FormController {
         }
 
         //check for correctness of input data
-        if(FormValidator.getInstance().validate(formUserInputs))
-            throw new IOException("FormEditor : Invalid input data");
+        if(!FormValidator.getInstance().validate(formUserInputs)) {
+            System.err.println("FormEditor : Invalid input data");
+            formUserInputs = null;
+        }
     }
 
+    public ArrayList<String> getPageMetaData(){return formUserInputs;}
 }

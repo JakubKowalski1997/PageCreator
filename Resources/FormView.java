@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -7,15 +8,11 @@ import java.util.ArrayList;
  */
 public class FormView extends JFrame {
 
-    //textarea dimensions
-    private static final int TEXTAREA_ROWS = 8;
-    private static final int TEXTAREA_COLUMNS = 20;
-
     //queries used in JLabels
     private ArrayList<String> queries;
 
     //textareas
-    private ArrayList<JTextField> textFields;
+    public ArrayList<JTextField> textFields;
 
     private void createAndAddNorthComponents(){
         JPanel northPanel = new JPanel();
@@ -54,6 +51,18 @@ public class FormView extends JFrame {
         add(centerPanel, BorderLayout.CENTER);
     }
 
+    //"Next Step" button's callback
+    private FormModel onExitHeadSection(){
+        //collect, valid input data
+        FormController formController = new FormController(this);
+
+        if(formController.getPageMetaData() == null)
+            return null;
+
+        //create FormModel
+        return new FormModel(formController.getPageMetaData());
+    }
+
     private void createAndAddSouthComponents(){
         JPanel southPanel = new JPanel();
         southPanel.setBackground(Color.white);
@@ -61,15 +70,17 @@ public class FormView extends JFrame {
         //create button
         JButton jButton = new JButton("Next step");
         jButton.addActionListener(event -> {
+
+            FormModel metaData = onExitHeadSection();
+
             //TODO LIST :
             /*
-            Init download map by FormController
-            FormController will check if user input datas are correct(FormValidator)
-            FormController will send data to FormModel which will create Map with data
             Next step Konrad's method will create <head> section based on FormModel's Map
             (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
              */
-            System.exit(0);
+
+            /*
+            * GOTO SECOND STEP OF APPLICATION LIFETIME*/
         });
 
         //add button
@@ -109,6 +120,7 @@ public class FormView extends JFrame {
         createAndAddNorthComponents();
         createAndAddCenterComponents(queries);
         createAndAddSouthComponents();
+
         setDefaultOption();
 
         //set icon

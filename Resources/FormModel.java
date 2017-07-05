@@ -20,14 +20,10 @@ public class FormModel {
     private Map<HeadAttrib, String> formData;
 
     //constructor
-    public FormModel(/*FormWindow with textfields will be argument*/)
+    public FormModel(ArrayList<String> data)
     {
         //init Map
         formData = new HashMap<>();
-
-        //simple fast test if everything is correnct
-        formData.put(HeadAttrib.NAME, "Wiktor");
-        System.out.println(formData.get(HeadAttrib.NAME));
     }
 
     //map getter
