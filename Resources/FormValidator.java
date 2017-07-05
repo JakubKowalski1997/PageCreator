@@ -12,7 +12,7 @@ public class FormValidator {
 
     private FormValidator() {}
 
-    public static boolean validate(Map<HeadAttrib, String> data){
+    public static boolean validate(ArrayList<String> data){
         /*
         * TODO:
         * Valid data
