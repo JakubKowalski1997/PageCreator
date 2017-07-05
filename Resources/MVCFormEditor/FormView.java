@@ -1,9 +1,8 @@
+package MVCFormEditor;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
@@ -54,7 +53,7 @@ public class FormView extends JFrame {
     }
 
     //"Next Step" button's callback
-    private FormModel onExitHeadSection(){
+    private MVCFormEditor.FormModel onExitHeadSection(){
         //collect, valid input data
         FormController formController = new FormController(this);
 
@@ -62,7 +61,7 @@ public class FormView extends JFrame {
             return null;
 
         //create FormModel
-        return new FormModel(formController.getPageMetaData());
+        return new MVCFormEditor.FormModel(formController.getPageMetaData());
     }
 
     private void createAndAddSouthComponents(){

@@ -1,6 +1,6 @@
+package MVCFormEditor;
+
 import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +20,7 @@ public class FormController {
         }
 
         //check for correctness of input data
-        if(!FormValidator.getInstance().validate(formUserInputs))
+        if(!MVCFormEditor.FormValidator.getInstance().validate(formUserInputs))
             formUserInputs = null;
 
     }
