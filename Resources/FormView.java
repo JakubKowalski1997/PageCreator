@@ -79,8 +79,11 @@ public class FormView extends JFrame {
             (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
              */
 
-            /*
-            * GOTO SECOND STEP OF APPLICATION LIFETIME*/
+            if(metaData != null) {
+                /*TODO
+                * GOTO SECOND STEP OF APPLICATION LIFETIME
+                * */
+            }
         });
 
         //add button
