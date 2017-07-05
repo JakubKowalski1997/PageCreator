@@ -28,25 +28,25 @@ public class ContainerTag extends HTMLTag {
         this.nested = nestedTags;
     }
 
-    void addNestedTag(HTMLTag newTag) {
+    public void addNestedTag(HTMLTag newTag) {
         nested.add(newTag);
         newTag.setParent(this);
     }
 
-    void addNestedTag(int pos, HTMLTag newTag) {
+    public void addNestedTag(int pos, HTMLTag newTag) {
         nested.add(pos, newTag);
         newTag.setParent(this);
     }
 
-    void eraseNestedTag(HTMLTag tagToErase) {
+    public void eraseNestedTag(HTMLTag tagToErase) {
         nested.remove(tagToErase);
     }
 
-    void eraseNestedTag(int pos) {
+    public void eraseNestedTag(int pos) {
         nested.remove(pos);
     }
 
-    void popNestedTag() {
+    public void popNestedTag() {
         nested.remove(nested.size() - 1);
     }
 
