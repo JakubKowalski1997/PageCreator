@@ -1,12 +1,20 @@
+package HTMLHandlerClasses;
 /**
  * Created by Konrad on 2017-06-28.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TextTag extends HTMLTag {
     private HTMLTextTags name;
     private String text;
+
+    public TextTag(HTMLTextTags kind, String text) {
+        super(new ArrayList<TagAttribute>());
+        this.name = kind;
+        this.text = text;
+    }
 
     public TextTag(HTMLTextTags kind, List<TagAttribute> attributes, String text) {
         super(attributes);
@@ -32,12 +40,7 @@ public class TextTag extends HTMLTag {
 
         //print left marker
         stringRep.append(leftTagParenthesis);
-        try {
-            stringRep.append(name.toString(name));
-        }
-        catch (Exception e) {
-            System.out.println(e.getCause());
-        }
+        stringRep.append(name.toString());
         stringRep.append(super.attributeListToString());
         stringRep.append(super.rightTagParenthesis);
 
@@ -47,12 +50,7 @@ public class TextTag extends HTMLTag {
         //print right marker
         stringRep.append(super.leftTagParenthesis);
         stringRep.append(super.tagClosingChar);
-        try {
-            stringRep.append(name.toString(name));
-        }
-        catch (Exception e) {
-            System.out.println(e.getCause());
-        }
+        stringRep.append(name.toString());
         stringRep.append(rightTagParenthesis);
         return stringRep.toString();
     }

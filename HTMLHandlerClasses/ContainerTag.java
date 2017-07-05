@@ -1,3 +1,4 @@
+package HTMLHandlerClasses;
 /**
  * Created by Konrad on 2017-06-28.
  */
@@ -12,11 +13,13 @@ public class ContainerTag extends HTMLTag {
     public ContainerTag(HTMLContainerTags kind) {
         super(new ArrayList<TagAttribute>());
         this.name = kind;
+        nested = new ArrayList<HTMLTag>();
     }
 
     public ContainerTag(HTMLContainerTags kind, List<TagAttribute> attributes) {
         super(attributes);
         this.name = kind;
+        nested = new ArrayList<HTMLTag>();
     }
 
     public ContainerTag(HTMLContainerTags kind, List<TagAttribute> attributes, List<HTMLTag> nestedTags) {
@@ -27,10 +30,54 @@ public class ContainerTag extends HTMLTag {
 
     public void addNestedTag(HTMLTag newTag) {
         nested.add(newTag);
+        newTag.setParent(this);
+    }
+
+    public void addNestedTag(int pos, HTMLTag newTag) {
+        nested.add(pos, newTag);
+        newTag.setParent(this);
     }
 
     public void eraseNestedTag(HTMLTag tagToErase) {
         nested.remove(tagToErase);
+    }
+
+    public void eraseNestedTag(int pos) {
+        nested.remove(pos);
+    }
+
+    public void popNestedTag() {
+        nested.remove(nested.size() - 1);
+    }
+
+    public int getNumberOfChilds() {
+        return nested.size();
+    }
+
+    public HTMLTag getNestedTag(int pos) {
+        return nested.get(pos);
+    }
+
+    public HTMLContainerTags getKind() {
+        return name;
+    }
+
+    /**
+     *
+     * @param str
+     * @return str with added \t at the beginning of every line
+     */
+    private String tabulateString(String str) {
+        StringBuilder newStr = new StringBuilder();
+
+        newStr.append('\t');
+        for (int i = 0; i < str.length(); ++i) {
+            newStr.append(str.charAt(i));
+            if (str.charAt(i) == '\n') {
+                newStr.append('\t');
+            }
+        }
+        return newStr.toString();
     }
 
     /**
@@ -43,32 +90,24 @@ public class ContainerTag extends HTMLTag {
 
         //print left marker
         stringRep.append(super.leftTagParenthesis);
-        try {
-            stringRep.append(name.toString(name));
-        }
-        catch (Exception e) {
-            System.out.println(e.getCause());
-        }
+        stringRep.append(name.toString());
         stringRep.append(super.attributeListToString());
         stringRep.append(super.rightTagParenthesis);
 
-
-        stringRep.append('\n');
         //print content
         for (HTMLTag tag : nested) {
-            stringRep.append('\t' + tag.toString());
+            stringRep.append('\n');
+            String nestedTagRepr = tag.toString();
+            stringRep.append(tabulateString(nestedTagRepr));
         }
-        stringRep.append('\n');
+
+        if (nested.size() != 0)
+            stringRep.append('\n');
 
         //print right marker
         stringRep.append(super.leftTagParenthesis);
         stringRep.append(super.tagClosingChar);
-        try {
-            stringRep.append(name.toString(name));
-        }
-        catch (Exception e) {
-            System.out.println(e.getCause());
-        }
+        stringRep.append(name.toString());
         stringRep.append(super.rightTagParenthesis);
 
         return stringRep.toString();
