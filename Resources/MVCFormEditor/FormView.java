@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import java.util.Map;
+import HTMLHandlerClasses.*;
+
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
  */
@@ -64,6 +67,62 @@ public class FormView extends JFrame {
         return new MVCFormEditor.FormModel(formController.getPageMetaData());
     }
 
+    private HTMLDocument getHTMLDoc(Map<HeadAttrib, String> formData) {
+        HTMLDocument doc = new HTMLDocument();
+        HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
+        java.util.List<HTMLTag> tagsToInsert = getTagsBasedOnInput(formData);
+
+        try {
+            handler.addTag(doc, new ContainerTag(HTMLContainerTags.HEAD), HTMLContainerTags.HTML);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage()); //for debugging
+        }
+
+        for (int i = 0; i < tagsToInsert.size(); ++i) {
+            try {
+                handler.addTag(doc, tagsToInsert.get(i), HTMLContainerTags.HEAD);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage()); //for debugging
+            }
+        }
+
+        return doc;
+    }
+
+    private java.util.List<HTMLTag> getTagsBasedOnInput(Map<HeadAttrib, String> formData) {
+        java.util.List<HTMLTag> tags = new ArrayList<HTMLTag>();
+
+        //add author's data
+        java.util.List<TagAttribute> authorAtts = new ArrayList<TagAttribute>();
+        authorAtts.add(new TagAttribute("name", "author"));
+        authorAtts.add(new TagAttribute("content", formData.get(HeadAttrib.NAME) + " " + formData.get(HeadAttrib.SURNAME)));
+        tags.add(new SelfClosingTag(HTMLSelfClosingTags.META, authorAtts));
+
+        //add page title
+        tags.add(new TextTag(HTMLTextTags.TITLE, formData.get(HeadAttrib.TITLE)));
+
+        //add keywords
+        java.util.List<TagAttribute> keywordsAtts = new ArrayList<TagAttribute>();
+        keywordsAtts.add(new TagAttribute("name", "keywords"));
+        keywordsAtts.add(new TagAttribute("content", formData.get(HeadAttrib.KEYWORDS)));
+        tags.add(new SelfClosingTag(HTMLSelfClosingTags.META, keywordsAtts));
+
+        //add description
+        java.util.List<TagAttribute> descriptionAtts = new ArrayList<TagAttribute>();
+        descriptionAtts.add(new TagAttribute("name", "decription"));
+        descriptionAtts.add(new TagAttribute("content", formData.get(HeadAttrib.DESCRIPTION)));
+        tags.add(new SelfClosingTag(HTMLSelfClosingTags.META, descriptionAtts));
+
+        //add charset
+        java.util.List<TagAttribute> charsetAtts = new ArrayList<TagAttribute>();
+        charsetAtts.add(new TagAttribute("charset", formData.get(HeadAttrib.CHARSET)));
+        tags.add(new SelfClosingTag(HTMLSelfClosingTags.META, charsetAtts));
+
+        return tags;
+    }
+
     private void createAndAddSouthComponents(){
         JPanel southPanel = new JPanel();
         southPanel.setBackground(Color.white);
@@ -80,12 +139,15 @@ public class FormView extends JFrame {
             (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
              */
 
+            HTMLDocument document = getHTMLDoc(metaData.returnFormData());
+
             if(metaData != null) {
                 /*TODO
                 * GOTO SECOND STEP OF APPLICATION LIFETIME
                 * */
 
                 System.out.println(metaData.returnFormData());
+                System.out.println(document.toString());
                 System.exit(0);
             }
 
@@ -116,7 +178,7 @@ public class FormView extends JFrame {
     }
 
     //Window constructor
-    FormView(){
+    public FormView(){
         //init ArrayList
         queries = new ArrayList<>(6);
         //filling queries ArrayList

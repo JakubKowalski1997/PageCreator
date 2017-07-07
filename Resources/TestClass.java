@@ -4,6 +4,9 @@ import java.awt.*;
 /**
  * Created by Wiktor Łazarski on 27.06.2017.
  */
+
+import MVCFormEditor.FormView;
+
 public class TestClass {
 
     public static void main(String[] args){
