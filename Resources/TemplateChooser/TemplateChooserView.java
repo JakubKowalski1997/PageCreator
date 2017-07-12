@@ -8,12 +8,15 @@ import java.awt.*;
  */
 public class TemplateChooserView extends JFrame {
 
+    //radio buttons
+    private ButtonGroup radioButtons;
+
     private void createAndAddNorthComponents(){
         JPanel northPanel = new JPanel();
 
         //create title label
         JLabel jLabel = new JLabel("Choose template to edit : ");
-        jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 40));
+        jLabel.setFont(new Font("Courier New", Font.PLAIN, 40));
 
         //add panel
         northPanel.setBackground(Color.white);
@@ -21,16 +24,39 @@ public class TemplateChooserView extends JFrame {
         add(northPanel, BorderLayout.NORTH);
     }
 
+    //to destroy
+    private void createAndAddSouthComponents(){
+        JPanel southPanel = new JPanel();
+        //init ButtonGroup radioButtons
+        radioButtons = new ButtonGroup();
+
+        //add radio buttons
+        addRadioButton("First", true, southPanel);
+        addRadioButton("Second", true, southPanel);
+        addRadioButton("Third", true, southPanel);
+
+        //add panel
+        southPanel.setBackground(Color.white);
+        add(southPanel, BorderLayout.SOUTH);
+    }
+
+    //create and add radioButton
+    private void addRadioButton(String name, boolean selected, JPanel panel){
+        JRadioButton button = new JRadioButton(name, selected);
+        button.setBackground(Color.white);
+        radioButtons.add(button);
+        panel.add(button);
+
+    }
+
     private void setDefaultOption(){
         //check screen size
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
 
-        //default size
+        //default size and location
         setSize(screenSize.width / 2, screenSize.height / 2);
-
-        //set window full screen
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocation((screenSize.width / 2) - (screenSize.width / 4), (screenSize.height / 2) - (screenSize.height / 4));
 
         //set others default opt
         setTitle("HTML Page Creator");
@@ -42,6 +68,7 @@ public class TemplateChooserView extends JFrame {
     public TemplateChooserView(){
         //create components and set their location
         createAndAddNorthComponents();
+        createAndAddSouthComponents();
 
         setDefaultOption();
 

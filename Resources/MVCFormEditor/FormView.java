@@ -23,8 +23,8 @@ public class FormView extends JFrame {
         JPanel northPanel = new JPanel();
 
         //create title label
-        JLabel jLabel = new JLabel("HTML Page Editor");
-        jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 40));
+        JLabel jLabel = new JLabel("HTML Page metadata");
+        jLabel.setFont(new Font("Courier New", Font.PLAIN, 40));
 
         //add panel
         northPanel.setBackground(Color.white);
@@ -43,7 +43,7 @@ public class FormView extends JFrame {
         //create components loop
         for(int i = 0; i < 6; i++){
             JLabel jLabel = new JLabel("  " + queries.get(i), JLabel.LEFT);
-            jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
+            jLabel.setFont(new Font("Courier New", Font.PLAIN, 20));
             centerPanel.add(jLabel);
 
             //add TextField to ArrayList and centerPanel
