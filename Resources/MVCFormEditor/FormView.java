@@ -133,27 +133,26 @@ public class FormView extends JFrame {
 
             FormModel metaData = onExitHeadSection();
 
-            //TODO LIST :
-            /*
-            Next step Konrad's method will create <head> section based on FormModel's Map
-            (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
-             */
-
-            HTMLDocument document = getHTMLDoc(metaData.returnFormData());
-
             if(metaData != null) {
-                /*TODO
-                * GOTO SECOND STEP OF APPLICATION LIFETIME
-                * */
+                HTMLDocument document = getHTMLDoc(metaData.returnFormData());
 
-                System.out.println(metaData.returnFormData());
+                /*
+                TODO:
+                Write it to DocumentWriter - class to keep tracking on HTML code writing
+                 */
                 System.out.println(document.toString());
-                System.exit(0);
-            }
 
-            //info for user to correct data
-            JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                //close current Form's window
+                this.dispose();
+
+                //start a new TemplateChooser's window
+
+            }
+            else {
+                //info for user to correct data
+                JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         //add button
