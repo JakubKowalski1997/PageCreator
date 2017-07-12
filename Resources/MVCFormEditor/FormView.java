@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import java.util.Map;
 import HTMLHandlerClasses.*;
+import TemplateChooser.TemplateChooserView;
 
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
@@ -146,7 +147,7 @@ public class FormView extends JFrame {
                 this.dispose();
 
                 //start a new TemplateChooser's window
-
+                JFrame templateChooserView = new TemplateChooserView();
             }
             else {
                 //info for user to correct data
@@ -165,12 +166,12 @@ public class FormView extends JFrame {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
 
-        //set window dimension and location on screen
+        //set window dimension and location on screen - center
         setSize(screenSize.width / 2, screenSize.height / 2);
-        setLocationByPlatform(true);
+        setLocation((screenSize.width / 2) - (screenSize.width / 4), (screenSize.height / 2) - (screenSize.height / 4));
 
         //set others default opt
-        setTitle("HTML Page Creator - <head> section");
+        setTitle("HTML Page Creator");
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
