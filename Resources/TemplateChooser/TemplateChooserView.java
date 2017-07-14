@@ -5,6 +5,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.util.ArrayList;
 
 /**
  * Created by Wiktor Łazarski on 12.07.2017.
@@ -13,6 +14,7 @@ public class TemplateChooserView extends JFrame {
 
     //radio buttons
     private ButtonGroup radioButtons;
+    private ArrayList<JRadioButton> radioButtonsArray;
 
     private void createAndAddNorthComponents(){
         JPanel northPanel = new JPanel();
@@ -50,6 +52,16 @@ public class TemplateChooserView extends JFrame {
             todo :
             after choosing upload template in HTML code
              */
+            if(radioButtonsArray.get(0).isSelected()){
+                // constructor for first template
+            }
+            else if(radioButtonsArray.get(1).isSelected()){
+                // constructor for second template
+            }
+            else if(radioButtonsArray.get(2).isSelected()){
+                // constructor for third template
+            }
+
             System.exit(0);
         });
         southPanel.add(button);
@@ -88,6 +100,7 @@ public class TemplateChooserView extends JFrame {
 
         //create and customise radio button
         JRadioButton button = new JRadioButton(name, selected);
+        radioButtonsArray.add(button);
         button.setBackground(Color.white);
         radioButtons.add(button);
 
@@ -111,6 +124,9 @@ public class TemplateChooserView extends JFrame {
 
     //window constructor
     public TemplateChooserView(){
+        //init radioBurronsArray
+        radioButtonsArray = new ArrayList<>();
+
         //create components and set their location
         createAndAddNorthComponents();
         createAndAddImage();
@@ -122,5 +138,4 @@ public class TemplateChooserView extends JFrame {
         Image icon = new ImageIcon("html-icon.png").getImage();
         setIconImage(icon);
     }
-
 }
