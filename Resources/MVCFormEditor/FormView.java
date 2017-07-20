@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import java.util.Map;
 import HTMLHandlerClasses.*;
+
 import TemplateHandlerClasses.TemplateHandler;
 
 /**
@@ -23,8 +24,8 @@ public class FormView extends JFrame {
         JPanel northPanel = new JPanel();
 
         //create title label
-        JLabel jLabel = new JLabel("HTML Page Editor");
-        jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 40));
+        JLabel jLabel = new JLabel("HTML Page metadata");
+        jLabel.setFont(new Font("Courier New", Font.PLAIN, 40));
 
         //add panel
         northPanel.setBackground(Color.white);
@@ -43,7 +44,7 @@ public class FormView extends JFrame {
         //create components loop
         for(int i = 0; i < 6; i++){
             JLabel jLabel = new JLabel("  " + queries.get(i), JLabel.LEFT);
-            jLabel.setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
+            jLabel.setFont(new Font("Courier New", Font.PLAIN, 20));
             centerPanel.add(jLabel);
 
             //add TextField to ArrayList and centerPanel
@@ -127,16 +128,8 @@ public class FormView extends JFrame {
 
             FormModel metaData = onExitHeadSection();
 
-            //TODO LIST :
-            /*
-            Next step Konrad's method will create <head> section based on FormModel's Map
-            (to download Map Konrad use returnFormData() - FormModel method which return Map of data)
-             */
-
             if(metaData != null) {
-                /*TODO
-                * GOTO SECOND STEP OF APPLICATION LIFETIME
-                * */
+                HTMLDocument document = getHTMLDoc(metaData.returnFormData());
 
                 TemplateHandler.getInstance().setHeadSection(getHeadSection(metaData.returnFormData()));
 
@@ -144,9 +137,17 @@ public class FormView extends JFrame {
                 System.exit(0);
             }
 
-            //info for user to correct data
-            JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                //close current Form's window
+                this.dispose();
+
+                //start a new TemplateChooser's window
+                JFrame templateChooserView = new TemplateChooserView();
+            }
+            else {
+                //info for user to correct data
+                JOptionPane.showMessageDialog(null, "Invalid input data!\nPlease, check correctness",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         //add button
@@ -159,12 +160,12 @@ public class FormView extends JFrame {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
 
-        //set window dimension and location on screen
+        //set window dimension and location on screen - center
         setSize(screenSize.width / 2, screenSize.height / 2);
-        setLocationByPlatform(true);
+        setLocation((screenSize.width / 2) - (screenSize.width / 4), (screenSize.height / 2) - (screenSize.height / 4));
 
         //set others default opt
-        setTitle("HTML Page Creator - <head> section");
+        setTitle("HTML Page Creator");
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
