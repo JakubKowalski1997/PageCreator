@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import java.util.Map;
 import HTMLHandlerClasses.*;
+import TemplateHandlerClasses.TemplateHandler;
 
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
@@ -67,28 +68,21 @@ public class FormView extends JFrame {
         return new MVCFormEditor.FormModel(formController.getPageMetaData());
     }
 
-    private HTMLDocument getHTMLDoc(Map<HeadAttrib, String> formData) {
-        HTMLDocument doc = new HTMLDocument();
-        HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
+    private ContainerTag getHeadSection(Map<HeadAttrib, String> formData) {
+        ContainerTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
         java.util.List<HTMLTag> tagsToInsert = getTagsBasedOnInput(formData);
 
-        try {
-            handler.addTag(doc, new ContainerTag(HTMLContainerTags.HEAD), HTMLContainerTags.HTML);
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage()); //for debugging
-        }
 
         for (int i = 0; i < tagsToInsert.size(); ++i) {
             try {
-                handler.addTag(doc, tagsToInsert.get(i), HTMLContainerTags.HEAD);
+                headTag.addNestedTag(tagsToInsert.get(i));
             }
             catch (Exception e) {
-                System.out.println(e.getMessage()); //for debugging
+                e.printStackTrace();
             }
         }
 
-        return doc;
+        return headTag;
     }
 
     private java.util.List<HTMLTag> getTagsBasedOnInput(Map<HeadAttrib, String> formData) {
@@ -144,10 +138,9 @@ public class FormView extends JFrame {
                 * GOTO SECOND STEP OF APPLICATION LIFETIME
                 * */
 
-                HTMLDocument document = getHTMLDoc(metaData.returnFormData());
+                TemplateHandler.getInstance().setHeadSection(getHeadSection(metaData.returnFormData()));
 
                 System.out.println(metaData.returnFormData());
-                System.out.println(document.toString());
                 System.exit(0);
             }
 

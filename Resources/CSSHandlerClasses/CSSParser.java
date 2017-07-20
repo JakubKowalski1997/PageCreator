@@ -7,7 +7,7 @@ package CSSHandlerClasses;
 import Utils.ParserUtils.Parser;
 
 public class CSSParser implements Parser {
-    public Object parse(String textRep, int pos) throws Exception {
+    public CSSDocument parse(String textRep, int pos) throws Exception {
         return CSSDocument.parseFromString(textRep);
     }
 }

@@ -7,7 +7,7 @@ import Utils.ParserUtils.Parser;
  */
 
 public class HTMLDocumentParser implements Parser {
-    public Object parse(String textRep, int pos) throws Exception {
+    public HTMLDocument parse(String textRep, int pos) throws Exception {
         return HTMLDocument.parseFromString(textRep);
     }
 }
