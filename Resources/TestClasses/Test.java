@@ -8,7 +8,7 @@ public abstract class Test {
     private String unitName;
     private int errCnt = 0;
 
-    Test(String unit) {
+    public Test(String unit) {
         unitName = unit;
     }
 

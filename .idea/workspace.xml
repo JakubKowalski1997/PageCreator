@@ -2,34 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fc13b10-1213-4034-9b4b-3b3a60019178" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\ContainerTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLContainerTags.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLDocument.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLDocumentHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLSelfClosingTags.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\HTMLTextTags.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\SelfClosingTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\TagAttribute.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLHandlerClasses\TextTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\HTMLSelfClosingTags.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\SelfClosingTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\TestClasses\Test.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\TestClasses\TestContainerTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\TestClasses\TestHTMLDocumentHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\TestClasses\TestSelfClosingTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\TestClasses\TestTextTag.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\out\production\PageCreator\FormController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\out\production\PageCreator\FormModel.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\out\production\PageCreator\FormValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\out\production\PageCreator\FormView.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\out\production\PageCreator\HeadAttrib.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PageCreator/TestClass.class" afterPath="$PROJECT_DIR$/out/production/PageCreator/TestClass.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Templates.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/main.css" />
+      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\Resources\TestClasses\TestContainerTag.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\Resources\TestClasses\TestHTMLDocumentHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\Resources\TestClasses\TestSelfClosingTag.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konrad\IdeaProjects\PageCreatorVCS\Resources\TestClasses\TestTextTag.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSParser.java" afterPath="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java" afterPath="$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TestClass.java" afterPath="$PROJECT_DIR$/Resources/TestClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentParser.java" afterPath="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,18 +39,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FormView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
+      <file leaf-file-name="PageTemplate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5897887">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3094#3103#0" expanded="true" />
-                <element signature="e#3199#3213#0" expanded="true" />
-                <element signature="e#3676#3690#0" expanded="true" />
-                <element signature="e#4021#4035#0" expanded="true" />
-                <element signature="e#4372#4386#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemplateFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemplateHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6784452">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#545#546#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
+              <folding>
+                <element signature="method#getTagsBasedOnInput#0;class#FormView#0" expanded="false" />
                 <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
                 <element signature="method#FormView#0;class#FormView#0" expanded="false" />
               </folding>
@@ -69,18 +91,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTMLDocument.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocument.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HTMLContainerTags.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLContainerTags.java">
+      <file leaf-file-name="Templates.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/Templates.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
@@ -89,76 +101,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTMLDocumentHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentHandler.java">
+      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/ParserFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding>
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#642#656#0" expanded="true" />
-                <element signature="e#1165#1179#0" expanded="true" />
+                <element signature="docComment;class#ParserFactory#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTMLSelfClosingTags.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLSelfClosingTags.java">
+      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+              <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+              <folding>
+                <element signature="method#findFirstCharOccurence#0;class#Parser#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplyParsing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/ApplyParsing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelfClosingTag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTag.java">
+      <file leaf-file-name="CSSDocumentHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSDocumentHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-              <folding />
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="e#234#235#0" expanded="false" />
+                <element signature="e#265#266#0" expanded="false" />
+                <element signature="e#329#330#0" expanded="false" />
+                <element signature="e#372#373#0" expanded="false" />
+                <element signature="e#430#431#0" expanded="false" />
+                <element signature="e#475#476#0" expanded="false" />
+                <element signature="e#548#549#0" expanded="false" />
+                <element signature="e#601#602#0" expanded="false" />
+                <element signature="e#648#649#0" expanded="false" />
+                <element signature="e#718#719#0" expanded="false" />
+                <element signature="e#774#775#0" expanded="false" />
+                <element signature="e#816#817#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextTag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTag.java">
+      <file leaf-file-name="CSSParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HTMLTextTags.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTextTags.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestTextTag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/TestClasses/TestTextTag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FormModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -170,6 +174,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -190,27 +196,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Resourses/FormValidator.java" />
-        <option value="$PROJECT_DIR$/Resourses/Form.java" />
-        <option value="$PROJECT_DIR$/Resourses/TestClass.java" />
-        <option value="$PROJECT_DIR$/Resourses/FormModel.java" />
-        <option value="$PROJECT_DIR$/Resourses/FormController.java" />
-        <option value="$PROJECT_DIR$/Resourses/FormView.java" />
-        <option value="$PROJECT_DIR$/Resources/FormView.java" />
-        <option value="$PROJECT_DIR$/Resources/FormModel.java" />
-        <option value="$PROJECT_DIR$/Resources/FormValidator.java" />
-        <option value="$PROJECT_DIR$/Resources/FormController.java" />
-        <option value="$PROJECT_DIR$/HTMLHandlerClasses/HTMLSelfClosingTags.java" />
-        <option value="$PROJECT_DIR$/HTMLHandlerClasses/SelfClosingTag.java" />
-        <option value="$PROJECT_DIR$/Resources/TestClass.java" />
-        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTag.java" />
-        <option value="$PROJECT_DIR$/Resources/TestClasses/TestSelfClosingTag.java" />
-        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLSelfClosingTags.java" />
         <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTextTags.java" />
-        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTag.java" />
         <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentHandler.java" />
+        <option value="$PROJECT_DIR$/Resources/ObjectWriter.java" />
+        <option value="$PROJECT_DIR$/Resources/DocWriter.java" />
+        <option value="$PROJECT_DIR$/Resources/DocumentWriter.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSSelectors.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSSelectorTypes.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/Test.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSDocumentHandler.java" />
+        <option value="$PROJECT_DIR$/Resources/DocumentUtils/Document.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestCSSAttribute.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestCSSDocument.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestElement.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestSelector.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestTagAttribute.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestHTMLTag.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestSelfClosingTag.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestTextTag.java" />
+        <option value="$PROJECT_DIR$/Resources/ParserUtils/Parser.java" />
+        <option value="$PROJECT_DIR$/Resources/ParserUtils/ApplyParsing.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTagParser.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTagParser.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTagParserFactory.java" />
+        <option value="$PROJECT_DIR$/Resources/ParserUtils/ParserFactory.java" />
+        <option value="$PROJECT_DIR$/Resources/EnumUtils.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/EnumUtils.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTagParserFactory.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestContainerTag.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/ParserUtils/ApplyParsing.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java" />
+        <option value="$PROJECT_DIR$/Resources/TestClasses/DocumentIOTestClasses/TestIO.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSSelector.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSElement.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSDocument.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSAttribute.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/TagAttribute.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTag.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocument.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTag.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/ContainerTagParser.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/ContainerTag.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTag.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentReader.java" />
+        <option value="$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentParser.java" />
+        <option value="$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSParser.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/ParserUtils/Parser.java" />
+        <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Templates.java" />
+        <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateFactory.java" />
+        <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java" />
+        <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateHandler.java" />
         <option value="$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
@@ -244,9 +288,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TestClasses" />
+              <option name="myItemId" value="TemplateHandlerClasses" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -313,28 +356,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="MVCFormEditor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MVCFormEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FormModel.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -355,8 +376,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageCreatorVCS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageCreatorVCS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CSSHandlerClasses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,10 +405,95 @@
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Application.TestClass">
-    <configuration default="false" name="TestClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="TestClass" />
+  <component name="RunManager" selected="Application.TestTextTag">
+    <configuration default="false" name="TestTagAttribute" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="TestClasses.HTMLTestClasses.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="TestClasses.HTMLTestClasses.TestTagAttribute" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PageCreator" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestHTMLTag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="TestClasses.HTMLTestClasses.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="TestClasses.HTMLTestClasses.TestHTMLTag" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PageCreator" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestTextTag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="TestClasses.HTMLTestClasses.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="TestClasses.HTMLTestClasses.TestTextTag" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PageCreator" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestSelfClosingTag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="TestClasses.HTMLTestClasses.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="TestClasses.HTMLTestClasses.TestSelfClosingTag" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PageCreator" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestContainerTag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="TestClasses.HTMLTestClasses.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="TestClasses.HTMLTestClasses.TestContainerTag" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -530,12 +655,20 @@
       <listeners />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Application.TestClass" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.TestTagAttribute" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TestHTMLTag" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TestTextTag" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TestSelfClosingTag" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TestContainerTag" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.TestClass" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.TestTextTag" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestContainerTag" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TestSelfClosingTag" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TestHTMLTag" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TestTagAttribute" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -578,6 +711,19 @@
       <option name="number" value="Default" />
       <updated>1498595330821</updated>
     </task>
+    <task id="LOCAL-00001" summary="End of first phase">
+      <created>1499435864072</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1499435864072</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added css structure, html and css parsers and document io">
+      <created>1500120958263</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500120958263</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -592,7 +738,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3185941" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3185941" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26796326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -600,7 +746,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -611,7 +757,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -656,9 +802,14 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="End of first phase" />
+    <MESSAGE value="Added css structure, html and css parsers and document io" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added css structure, html and css parsers and document io" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -672,15 +823,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3094#3103#0" expanded="true" />
-            <element signature="e#3199#3213#0" expanded="true" />
-            <element signature="e#3676#3690#0" expanded="true" />
-            <element signature="e#4021#4035#0" expanded="true" />
-            <element signature="e#4372#4386#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#getHeadSection#0;class#FormView#0" expanded="false" />
+            <element signature="method#getTagsBasedOnInput#0;class#FormView#0" expanded="false" />
             <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
             <element signature="method#FormView#0;class#FormView#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -688,156 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3094#3103#0" expanded="true" />
-            <element signature="e#3199#3213#0" expanded="true" />
-            <element signature="e#3676#3690#0" expanded="true" />
-            <element signature="e#4021#4035#0" expanded="true" />
-            <element signature="e#4372#4386#0" expanded="true" />
-            <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
-            <element signature="method#FormView#0;class#FormView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3094#3103#0" expanded="true" />
-            <element signature="e#3199#3213#0" expanded="true" />
-            <element signature="e#3676#3690#0" expanded="true" />
-            <element signature="e#4021#4035#0" expanded="true" />
-            <element signature="e#4372#4386#0" expanded="true" />
-            <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
-            <element signature="method#FormView#0;class#FormView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3094#3103#0" expanded="true" />
-            <element signature="e#3199#3213#0" expanded="true" />
-            <element signature="e#3676#3690#0" expanded="true" />
-            <element signature="e#4021#4035#0" expanded="true" />
-            <element signature="e#4372#4386#0" expanded="true" />
-            <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
-            <element signature="method#FormView#0;class#FormView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/ContainerTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34040046">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TagAttribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/TestContainerTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16018845">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/TestHTMLDocumentHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1401649">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/TestSelfClosingTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44051826">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/TestTextTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,39 +850,184 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLSelfClosingTags.java">
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestCSSAttribute.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
+          <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTag.java">
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestSelector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSSelectorTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestTagAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTMLCreator.mdj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestSelfClosingTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTagParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTextTags.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/EnumUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestHTMLTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTagParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/DocumentIOTestClasses/TestIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/CSSTestClasses/TestCSSDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TagAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <folding>
+            <element signature="method#toString#0;class#TagAttribute#0" expanded="false" />
+            <element signature="method#equals#0;class#TagAttribute#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestHTMLDocumentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTagParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocument.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -885,44 +1035,227 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestContainerTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="55" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/ContainerTagParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/TextTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="115" selection-start-line="86" selection-start-column="115" selection-end-line="86" selection-end-column="115" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#677#678#0" expanded="false" />
+            <element signature="e#708#709#0" expanded="false" />
+            <element signature="e#740#741#0" expanded="false" />
+            <element signature="e#2808#2809#0" expanded="false" />
+            <element signature="e#2835#2836#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/SelfClosingTag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/ContainerTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1188#1189#0" expanded="false" />
+            <element signature="e#1229#1230#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1306#1307#0" expanded="false" />
+            <element signature="e#1340#1341#0" expanded="false" />
+            <element signature="e#1388#1389#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1499#1500#0" expanded="false" />
+            <element signature="e#1537#1538#0" expanded="false" />
+            <element signature="e#1579#1580#0" expanded="false" />
+            <element signature="e#1606#1607#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSSelector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TestClasses/HTMLTestClasses/TestTextTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLDocumentHandler.java">
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSDocumentHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#642#656#0" expanded="true" />
-            <element signature="e#1165#1179#0" expanded="true" />
+            <element signature="e#234#235#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#329#330#0" expanded="false" />
+            <element signature="e#372#373#0" expanded="false" />
+            <element signature="e#430#431#0" expanded="false" />
+            <element signature="e#475#476#0" expanded="false" />
+            <element signature="e#548#549#0" expanded="false" />
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#718#719#0" expanded="false" />
+            <element signature="e#774#775#0" expanded="false" />
+            <element signature="e#816#817#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/CSSHandlerClasses/CSSParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/ParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="docComment;class#ParserFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/ApplyParsing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/ParserUtils/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+          <folding>
+            <element signature="method#findFirstCharOccurence#0;class#Parser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/Templates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/HTMLHandlerClasses/HTMLSelfClosingTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.080094226">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/MVCFormEditor/FormView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5897887">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3094#3103#0" expanded="true" />
-            <element signature="e#3199#3213#0" expanded="true" />
-            <element signature="e#3676#3690#0" expanded="true" />
-            <element signature="e#4021#4035#0" expanded="true" />
-            <element signature="e#4372#4386#0" expanded="true" />
+            <element signature="method#getTagsBasedOnInput#0;class#FormView#0" expanded="false" />
             <element signature="method#setDefaultOption#0;class#FormView#0" expanded="false" />
             <element signature="method#FormView#0;class#FormView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/TemplateHandlerClasses/TemplateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6784452">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
           </folding>
         </state>
       </provider>

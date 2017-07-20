@@ -6,6 +6,11 @@ package HTMLHandlerClasses;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utils.ParserUtils.Parser;
+import javafx.util.Pair;
+
+import javax.swing.text.html.HTML;
+
 public class SelfClosingTag extends HTMLTag {
     private HTMLSelfClosingTags name;
 
@@ -47,6 +52,31 @@ public class SelfClosingTag extends HTMLTag {
 
         return stringRep.toString();
     }
+
+    public static Pair<SelfClosingTag, Integer> parseFromString(String textRep, int initPos) throws Exception {
+        if (textRep.charAt(initPos) != leftTagParenthesis)
+            throw new Exception("Error. " + leftTagParenthesis + " expected");
+
+        int i = ++initPos;
+
+        //omit whitespaces
+        i = Parser.omitWhitespaces(textRep, i);
+
+        //get tag name
+        Pair<String, Integer> tagNamePair = ContainerTagParser.getTagName(textRep, i);
+        HTMLSelfClosingTags tagName = HTMLSelfClosingTags.valueOf(tagNamePair.getKey().toUpperCase());
+        i = tagNamePair.getValue();
+
+        Pair<List<TagAttribute>, Integer> parsedAttributes = HTMLTag.parseAttributesFromString(textRep, i);
+        i = parsedAttributes.getValue();
+
+        //if position is at / character adjust position to > character
+        if (textRep.charAt(i) == tagClosingChar)
+            ++i;
+
+        return new Pair<SelfClosingTag, Integer>(new SelfClosingTag(tagName, parsedAttributes.getKey()), i);
+    }
+
     public HTMLSelfClosingTags getKind() {
         return name;
     }

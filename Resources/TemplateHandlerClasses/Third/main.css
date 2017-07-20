@@ -1,0 +1,39 @@
+body
+{
+    min-width: 640px;
+    max-width: 1820px;
+    background-color: bisque;
+}
+
+.naglowek
+{
+    width: 100%;
+    background-color: aqua;
+}
+
+.dziecko1
+{
+    background-color: blueviolet; 
+    width:25%;
+    float: left;   
+}
+
+.dziecko2
+{
+    background-color: green;
+    width:50%;
+    float: left;   
+}
+
+.dziecko3
+{
+    background-color: gray;
+    width:25%;
+    float: left;   
+}
+
+.dolny
+{
+    width: 100%;
+    background-color: gold;
+}

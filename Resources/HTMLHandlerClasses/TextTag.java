@@ -6,6 +6,9 @@ package HTMLHandlerClasses;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utils.ParserUtils.Parser;
+import javafx.util.Pair;
+
 public class TextTag extends HTMLTag {
     private HTMLTextTags name;
     private String text;
@@ -52,6 +55,41 @@ public class TextTag extends HTMLTag {
         stringRep.append(name.toString());
         stringRep.append(rightTagParenthesis);
         return stringRep.toString();
+    }
+
+    public static Pair<TextTag, Integer> parseFromString(String textRep, int initPos) throws Exception {
+        if (textRep.charAt(initPos) != leftTagParenthesis)
+            throw new Exception("Error. Expected " + leftTagParenthesis);
+
+        int i = ++initPos;
+
+        //omit whitespaces
+        i = Parser.omitWhitespaces(textRep, i);
+
+        //get tag name
+        Pair<String, Integer> tagNamePair = ContainerTagParser.getTagName(textRep, i);
+        HTMLTextTags tagName = HTMLTextTags.valueOf(tagNamePair.getKey().toUpperCase());
+        i = tagNamePair.getValue();
+
+        Pair<List<TagAttribute>, Integer> parsed = HTMLTag.parseAttributesFromString(textRep, i);
+
+        i = parsed.getValue();
+        ++i;
+
+        StringBuilder contentBuilder = new StringBuilder();
+        while (textRep.charAt(i) != leftTagParenthesis) {
+            contentBuilder.append(textRep.charAt(i));
+            ++i;
+        }
+
+        String text = contentBuilder.toString();
+
+        Pair<Boolean, Integer> isClosingCorrect = ContainerTagParser.isClosingCorrect(textRep, tagName.toString(), i);
+        if (!isClosingCorrect.getKey())
+            throw new Exception("Bad closing");
+        i = isClosingCorrect.getValue();
+
+        return new Pair<TextTag, Integer>(new TextTag(tagName, parsed.getKey(), text), i);
     }
 
     public HTMLTextTags getKind() {

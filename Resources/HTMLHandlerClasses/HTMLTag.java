@@ -3,17 +3,17 @@ package HTMLHandlerClasses;
  * Created by Konrad on 2017-06-28.
  */
 
-import javax.swing.text.html.HTML;
 import java.util.List;
 import java.util.ArrayList;
+import javafx.util.Pair;
 
 public abstract class HTMLTag {
     private ArrayList<TagAttribute> atts;
     private ContainerTag parent = null;
 
-    protected final char leftTagParenthesis = '<';
-    protected final char rightTagParenthesis = '>';
-    protected final char tagClosingChar = '/';
+    protected static final char leftTagParenthesis = '<';
+    protected static final char rightTagParenthesis = '>';
+    protected static final char tagClosingChar = '/';
 
 
     public HTMLTag(List<TagAttribute> attributes) {
@@ -23,7 +23,8 @@ public abstract class HTMLTag {
     protected String attributeListToString() {
         StringBuilder list = new StringBuilder();
         for (TagAttribute attribute : atts) {
-            list.append(" " + attribute.name + "=" + "\"" + attribute.value + "\"");
+            list.append(" ");
+            list.append(attribute.toString());
         }
 
         return list.toString();
@@ -37,6 +38,29 @@ public abstract class HTMLTag {
         }
 
         return true;
+    }
+
+    public static Pair<List<TagAttribute>, Integer> parseAttributesFromString(String textRep, int initPos) throws Exception {
+        final Character terminator1 = '/';
+        final Character terminator2 = '>';
+
+        ArrayList<TagAttribute> tagAttributes = new ArrayList<>();
+
+        int i = initPos;
+        while (textRep.charAt(i) != terminator1 &&
+                textRep.charAt(i) != terminator2) {
+            if (Character.isWhitespace(textRep.charAt(i))) {
+                ++i;
+                continue;
+            }
+
+            Pair<TagAttribute, Integer> parsed = TagAttribute.parseFromString(textRep, i);
+            tagAttributes.add(parsed.getKey());
+            i = parsed.getValue();
+            ++i;
+        }
+
+        return new Pair<List<TagAttribute>, Integer>(tagAttributes, i);
     }
 
     public List<TagAttribute> getAttributes() {
