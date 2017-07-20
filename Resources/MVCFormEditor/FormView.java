@@ -134,8 +134,6 @@ public class FormView extends JFrame {
             if(metaData != null) {
                 TemplateHandler.getInstance().setHeadSection(getHeadSection(metaData.returnFormData()));
 
-                System.out.println(metaData.returnFormData());
-
                 //close current Form's window
                 this.dispose();
 
