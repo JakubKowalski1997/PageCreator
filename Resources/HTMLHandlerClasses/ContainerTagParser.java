@@ -14,7 +14,8 @@ public class ContainerTagParser implements Parser {
 
     public static Pair<String, Integer> getTagName(String textRep, int pos) {
         StringBuilder tagNameBuilder = new StringBuilder();
-        while (!Character.isWhitespace(textRep.charAt(pos)) && textRep.charAt(pos) != '>') {
+        while (!Character.isWhitespace(textRep.charAt(pos)) && textRep.charAt(pos) != '>' &&
+                textRep.charAt(pos) != '/') {
             tagNameBuilder.append(textRep.charAt(pos));
             ++pos;
         }

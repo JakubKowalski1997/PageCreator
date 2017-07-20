@@ -10,6 +10,11 @@ import java.util.ArrayList;
 /**
  * Created by Wiktor Łazarski on 12.07.2017.
  */
+
+import TemplateHandlerClasses.TemplateFactory;
+import TemplateHandlerClasses.TemplateHandler;
+import TemplateHandlerClasses.Templates;
+
 public class TemplateChooserView extends JFrame {
 
     //radio buttons
@@ -53,13 +58,13 @@ public class TemplateChooserView extends JFrame {
             after choosing upload template in HTML code
              */
             if(radioButtonsArray.get(0).isSelected()){
-                // constructor for first template
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
             }
             else if(radioButtonsArray.get(1).isSelected()){
-                // constructor for second template
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.SECOND));
             }
             else if(radioButtonsArray.get(2).isSelected()){
-                // constructor for third template
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
             }
 
             System.exit(0);

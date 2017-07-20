@@ -51,7 +51,7 @@ public class HTMLDocument {
             docDeclBuilder.append(textRep.charAt(i));
         }
 
-        if (docDeclBuilder.toString().equals(docDeclaration)) {
+        if (!docDeclBuilder.toString().equals(docDeclaration)) {
             throw new Exception(badDocDeclMsg);
         }
 

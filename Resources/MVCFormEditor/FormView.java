@@ -12,6 +12,9 @@ import TemplateHandlerClasses.TemplateHandler;
 /**
  * Created by Wiktor Łazarski on 02.07.2017.
  */
+
+import TemplateChooser.TemplateChooserView;
+
 public class FormView extends JFrame {
 
     //queries used in JLabels
@@ -129,13 +132,9 @@ public class FormView extends JFrame {
             FormModel metaData = onExitHeadSection();
 
             if(metaData != null) {
-                HTMLDocument document = getHTMLDoc(metaData.returnFormData());
-
                 TemplateHandler.getInstance().setHeadSection(getHeadSection(metaData.returnFormData()));
 
                 System.out.println(metaData.returnFormData());
-                System.exit(0);
-            }
 
                 //close current Form's window
                 this.dispose();

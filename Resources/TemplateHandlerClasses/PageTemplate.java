@@ -45,6 +45,7 @@ public class PageTemplate {
     public String getHtmlPath() {
         return htmlPath;
     }
+
     public String getCssPath() {
         return cssPath;
     }

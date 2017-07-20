@@ -2,29 +2,24 @@ body
 {
     min-width: 640px;
     max-width: 1820px;
-    background-color: bisque;
 }
 
 .naglowek
 {
     width: 100%;
-    background-color: aqua;
 }
 
 .dziecko1
 {
-    background-color: blueviolet; 
     width:100%;  
 }
 
 .dziecko2
 {
-    background-color: green;
     width:100%;
 }
 
 .dolny
 {
     width: 100%;
-    background-color: gold;
 }

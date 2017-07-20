@@ -44,7 +44,6 @@ public class TemplateHandler {
         catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void addCSSLink() {

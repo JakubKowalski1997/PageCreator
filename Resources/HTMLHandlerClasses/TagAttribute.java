@@ -3,6 +3,7 @@ package HTMLHandlerClasses;
  * Created by Konrad on 2017-06-28.
  */
 
+import Utils.ParserUtils.Parser;
 import javafx.util.Pair;
 
 /**
@@ -66,6 +67,8 @@ public class TagAttribute {
         ++i;
 
         name = nameBuilder.toString();
+
+        i = Parser.omitWhitespaces(textRep, i);
 
         if (textRep.charAt(i) != valueSeparator)
             throw new Exception("Error. Expected \" before value");
