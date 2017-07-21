@@ -35,6 +35,7 @@ public class MainEditorWindow extends JFrame{
 
         setJMenuBar(menuBar);
 
+        //file operations
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
@@ -49,7 +50,26 @@ public class MainEditorWindow extends JFrame{
         });
         fileMenu.add(save);
 
-        fileMenu.addSeparator();
+        //information
+        JMenu infosMenu = new JMenu("Help");
+        menuBar.add(infosMenu);
+
+        JMenuItem tutorial = new JMenuItem("Basic tutorial");
+        tutorial.addActionListener(event->{
+            /*todo:
+            PRINT SMALL TUTORIAL IN JOptionPane
+             */
+        });
+
+        JMenuItem about = new JMenuItem("About program");
+        about.addActionListener(event->{
+            /*todo:
+            PRINT infos about program IN JOptionPane
+             */
+        });
+
+        infosMenu.add(tutorial);
+        infosMenu.add(about);
     }
 
     public MainEditorWindow(){
