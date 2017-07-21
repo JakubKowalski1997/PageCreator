@@ -34,7 +34,13 @@ public class TitleView extends JPanel {
         //Font size
         createAndAddComboBoxFontSizes(editComponentsPanel, "Font size : ");
         //Font color - in the future
-        createAndAddComboBoxFontNames(editComponentsPanel, "Font color: ");
+        createAndAddComboBoxFontNames(editComponentsPanel, "Font color : ");
+        //Font style
+        createAndAddComponentsFontStyle(editComponentsPanel, "Font style : ");
+        //Background color - in the future
+        createAndAddComboBoxFontNames(editComponentsPanel, "Background color : ");
+        //Text Position
+        createAndAddComponentsTextPosition(editComponentsPanel, "Text position : ");
 
         editComponentsPanel.setBackground(Color.white);
         return editComponentsPanel;
@@ -108,6 +114,62 @@ public class TitleView extends JPanel {
         });
 
         fullComponent.add(fontSizes);
+        container.add(fullComponent);
+    }
+
+    private void createAndAddComponentsFontStyle(JPanel container, String label){
+        JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fullComponent.setBackground(Color.white);
+        fullComponent.add(new JLabel(label));
+
+        JCheckBox bold = new JCheckBox("BOLD");
+        bold.setBackground(Color.white);
+        JCheckBox italic = new JCheckBox("ITALIC");
+        italic.setBackground(Color.white);
+        JCheckBox plain = new JCheckBox("PLAIN");
+        plain.setBackground(Color.white);
+
+        /*
+        TODO :
+        CREATE AND ADD ACTION LISTENER WHERE titleController will do his job refreash visualPanel and
+        set proper value to titleModel
+         */
+
+        fullComponent.add(bold);
+        fullComponent.add(italic);
+        fullComponent.add(plain);
+
+        container.add(fullComponent);
+    }
+
+    private void createAndAddComponentsTextPosition(JPanel container, String label){
+        JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fullComponent.setBackground(Color.white);
+        fullComponent.add(new JLabel(label));
+
+        ButtonGroup radioButtons = new ButtonGroup();
+
+        JRadioButton left = new JRadioButton("LEFT");
+        left.setBackground(Color.white);
+        JRadioButton center = new JRadioButton("CENTER");
+        center.setBackground(Color.white);
+        JRadioButton right = new JRadioButton("RIGHT");
+        right.setBackground(Color.white);
+
+        radioButtons.add(left);
+        radioButtons.add(center);
+        radioButtons.add(right);
+
+        /*
+        TODO :
+        CREATE AND ADD ACTION LISTENER WHERE titleController will do his job refreash visualPanel and
+        set proper value to titleModel
+         */
+
+        fullComponent.add(left);
+        fullComponent.add(center);
+        fullComponent.add(right);
+
         container.add(fullComponent);
     }
 }
