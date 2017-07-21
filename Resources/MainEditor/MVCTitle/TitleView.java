@@ -1,7 +1,5 @@
 package MainEditor.MVCTitle;
 
-import javafx.geometry.VerticalDirection;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -15,6 +13,7 @@ public class TitleView extends JPanel {
     private Dimension screenSize;
     private String[] fonts;
     private int[] fontSizes;
+    private HTMLTitlePreviewPanel visualizingPanel;
 
     //edit components
     private JPanel editComponents(){
@@ -22,7 +21,7 @@ public class TitleView extends JPanel {
 
         //create and set border
         Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "Edit title");
+        Border title = BorderFactory.createTitledBorder(etched, "Title atributes");
         editComponentsPanel.setBorder(title);
 
         //set size
@@ -46,17 +45,19 @@ public class TitleView extends JPanel {
         return editComponentsPanel;
     }
 
-    //visualizing components
+    //visualizing HTML page title components
     private JPanel visualComponents(){
-        JPanel visualComponentsPanel = new JPanel();
+        JPanel visualComponentsPanel = new JPanel(new GridLayout(1,1));
 
         //temporary to see positioning  : create and set border
         Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "TITLE");
+        Border title = BorderFactory.createTitledBorder(etched, "Title current view");
         visualComponentsPanel.setBorder(title);
 
         //set size
         visualComponentsPanel.setPreferredSize(new Dimension((int)(screenSize.width / 1.53), screenSize.height / 5));
+
+        visualizingPanel = new HTMLTitlePreviewPanel(visualComponentsPanel);
 
         return visualComponentsPanel;
     }
@@ -149,11 +150,11 @@ public class TitleView extends JPanel {
 
         ButtonGroup radioButtons = new ButtonGroup();
 
-        JRadioButton left = new JRadioButton("LEFT");
+        JRadioButton left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
-        JRadioButton center = new JRadioButton("CENTER");
+        JRadioButton center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
-        JRadioButton right = new JRadioButton("RIGHT");
+        JRadioButton right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
 
         radioButtons.add(left);

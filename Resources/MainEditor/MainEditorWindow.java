@@ -41,7 +41,6 @@ public class MainEditorWindow extends JFrame{
         add(new TitleView(this));
 
         setDefaultOptions();
-
     }
 
 }

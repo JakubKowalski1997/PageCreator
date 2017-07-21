@@ -15,23 +15,32 @@ public class TitleModel {
     //font
     private String fontName;
     private int fontSize;
-    private Color fontColor;
+    private String fontColor;
     private int fontStyle;
 
     //background
-    private Color backgroundColor;
+    private String backgroundColor;
 
     //position
     private Position position;
 
     TitleModel(){
         //set default options
+        fontName = "Agency FB";
+        fontSize = 8;
+        //fontColor =
+        fontStyle = 0;
+        //backgroundColor =
+        position = Position.LEFT;
     }
 
     //getters
     public Font getFont(){return new Font(fontName, fontStyle, fontSize);}
-    public Color getFontColor(){return fontColor;}
-    public Color getBackgroundColor(){return backgroundColor;}
+
+    public String getFontColor(){return fontColor;}
+
+    public String getBackgroundColor(){return backgroundColor;}
+
     public Position getPosition(){return position;}
 
     //setters
@@ -43,7 +52,7 @@ public class TitleModel {
         this.fontSize = fontSize;
     }
 
-    public void setFontColor(Color fontColor) {
+    public void setFontColor(String fontColor) {
         this.fontColor = fontColor;
     }
 
@@ -51,7 +60,7 @@ public class TitleModel {
         this.fontStyle = fontStyle;
     }
 
-    public void setBackgroundColor(Color backgroundColor) {
+    public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
