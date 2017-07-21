@@ -9,7 +9,7 @@ import java.awt.*;
 public class HTMLTitlePreviewPanel extends JPanel{
 
     private JTextField text;
-    public Color background;
+    private Color background;
 
     HTMLTitlePreviewPanel(JPanel container){
         background = Color.white;
@@ -18,7 +18,7 @@ public class HTMLTitlePreviewPanel extends JPanel{
 
         text = new JTextField("TITLE");
         text.setHorizontalAlignment(JTextField.LEFT);
-        text.setFont(new Font("Agency FB", Font.PLAIN, 80));
+        text.setFont(new Font("Agency FB", Font.PLAIN, 72));
         text.setForeground(Color.black);
         text.setBackground(background);
         text.setBorder(null);
@@ -29,4 +29,5 @@ public class HTMLTitlePreviewPanel extends JPanel{
         container.add(this);
     }
 
+    public JTextField getTextField(){return text;}
 }
