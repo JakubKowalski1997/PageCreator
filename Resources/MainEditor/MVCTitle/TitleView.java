@@ -210,6 +210,8 @@ public class TitleView extends JPanel {
         fullComponent.add(new JLabel(label));
 
         JColorComboBox colorComboBox = new JColorComboBox();
+        if(!foreground)
+            colorComboBox.setSelectedItem(0);
         colorComboBox.addActionListener(event->{
             if(foreground){
                 visualizingPanel.getTextField().setForeground(colorComboBox.getSelectedColor());
