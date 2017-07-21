@@ -38,6 +38,8 @@ public class JColorComboBox extends JComboBox {
         }
         if(obj.toString().equals("YELLOW"))
             setForeground(Color.blue);
+        if(obj.toString().equals("WHITE"))
+            setForeground(Color.BLACK);
     }
     public Color getSelectedColor(){
         return colors.get(this.getSelectedItem());
@@ -83,6 +85,8 @@ public class JColorComboBox extends JComboBox {
             }
             if(name.equals("YELLOW"))
                 setForeground(Color.blue);
+            if(name.equals("WHITE"))
+                setForeground(Color.BLACK);
 
             return this;
         }
