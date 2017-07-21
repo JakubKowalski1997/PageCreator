@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Created by Wiktor Łazarski on 12.07.2017.
  */
 
+import MainEditor.MainEditorWindow;
 import TemplateHandlerClasses.TemplateFactory;
 import TemplateHandlerClasses.TemplateHandler;
 import TemplateHandlerClasses.Templates;
@@ -53,10 +54,7 @@ public class TemplateChooserView extends JFrame {
         //Next step button
         JButton button = new JButton("Next step");
         button.addActionListener(event -> {
-            /*
-            todo :
-            after choosing upload template in HTML code
-             */
+
             if(radioButtonsArray.get(0).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
             }
@@ -67,7 +65,11 @@ public class TemplateChooserView extends JFrame {
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
             }
 
-            System.exit(0);
+            //hiding current window
+            this.dispose();
+
+            //starting next window
+            JFrame next = new MainEditorWindow();
         });
         southPanel.add(button);
 

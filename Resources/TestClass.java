@@ -6,6 +6,7 @@ import java.awt.*;
  */
 
 import MVCFormEditor.FormView;
+import MainEditor.MainEditorWindow;
 
 public class TestClass {
 
@@ -14,7 +15,7 @@ public class TestClass {
         //main loop
         EventQueue.invokeLater(()->
         {
-            JFrame formEditor = new FormView();
+            JFrame formEditor = new MainEditorWindow();
         });
     }
 }
