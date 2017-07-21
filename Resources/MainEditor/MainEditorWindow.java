@@ -15,11 +15,9 @@ public class MainEditorWindow extends JFrame{
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screen = kit.getScreenSize();
 
-        //full screen
-        setExtendedState(MAXIMIZED_BOTH);
-
         //set default screen size
         setBounds(0, 0, screen.width, screen.height);
+        setResizable(false);
 
         //set on close operation
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

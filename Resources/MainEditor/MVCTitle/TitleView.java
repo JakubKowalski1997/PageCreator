@@ -9,6 +9,9 @@ import java.awt.*;
  */
 public class TitleView extends JPanel {
 
+    //screen's dimensions
+    Dimension screenSize;
+
     //edit components
     private JPanel editComponents(){
         //new GridLayout(3, 1)
@@ -19,7 +22,7 @@ public class TitleView extends JPanel {
         Border title = BorderFactory.createTitledBorder(etched, "Edit title");
         editComponentsPanel.setBorder(title);
 
-        editComponentsPanel.setPreferredSize(new Dimension(400, 300));
+        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, screenSize.height / 5));
 
         return editComponentsPanel;
     }
@@ -33,12 +36,16 @@ public class TitleView extends JPanel {
         Border title = BorderFactory.createTitledBorder(etched, "TITLE");
         visualComponentsPanel.setBorder(title);
 
-        visualComponentsPanel.setPreferredSize(new Dimension(1500, 300));
+        visualComponentsPanel.setPreferredSize(new Dimension((int)(screenSize.width / 1.53), screenSize.height / 5));
 
         return visualComponentsPanel;
     }
 
     public TitleView(JFrame window){
+        //get screen size
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        screenSize = kit.getScreenSize();
+
         setLayout(new FlowLayout(FlowLayout.LEFT, 5 , 5));
 
         //add components
