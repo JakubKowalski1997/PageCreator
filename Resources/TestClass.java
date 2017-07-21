@@ -6,6 +6,7 @@ import java.awt.*;
  */
 
 import MVCFormEditor.FormView;
+import MainEditor.MainEditorWindow;
 
 public class TestClass {
 
