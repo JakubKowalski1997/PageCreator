@@ -171,10 +171,24 @@ public class TitleView extends JPanel {
 
         JRadioButton left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
+        left.addActionListener(event->{
+            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.LEFT);
+            visualizingPanel.repaint();
+        });
+
         JRadioButton center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
+        center.addActionListener(event->{
+            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.CENTER);
+            visualizingPanel.repaint();
+        });
+
         JRadioButton right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
+        right.addActionListener(event->{
+            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.RIGHT);
+            visualizingPanel.repaint();
+        });
 
         radioButtons.add(left);
         radioButtons.add(center);
