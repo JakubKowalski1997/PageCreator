@@ -46,6 +46,10 @@ public class TemplateHandler {
         }
     }
 
+    public PageTemplate getPageTemplate() {
+        return pageTemplate;
+    }
+
     public void addCSSLink() {
         ArrayList<TagAttribute> attributes = new ArrayList<>();
         Collections.addAll(attributes, new TagAttribute("rel", "stylesheet"),
