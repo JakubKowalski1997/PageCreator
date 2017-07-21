@@ -1,5 +1,7 @@
 package MainEditor.MVCTitle;
 
+import MainEditor.JColorComboBox;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -35,11 +37,11 @@ public class TitleView extends JPanel {
         //Font size
         createAndAddComboBoxFontSizes(editComponentsPanel, "Font size : ");
         //Font color - in the future
-        createAndAddComboBoxFontNames(editComponentsPanel, "Font color : ");
+        createAndAddColorComboBox(editComponentsPanel, "Font color : ", true);
         //Font style
         createAndAddComponentsFontStyle(editComponentsPanel, "Font style : ");
         //Background color - in the future
-        createAndAddComboBoxFontNames(editComponentsPanel, "Background color : ");
+        createAndAddColorComboBox(editComponentsPanel, "Background color : ", false);
         //Text Position
         createAndAddComponentsTextPosition(editComponentsPanel, "Text position : ");
 
@@ -194,15 +196,31 @@ public class TitleView extends JPanel {
         radioButtons.add(center);
         radioButtons.add(right);
 
-        /*
-        TODO :
-        CREATE AND ADD ACTION LISTENER WHERE titleController will do his job refreash visualPanel and
-        set proper value to titleModel
-         */
-
         fullComponent.add(left);
         fullComponent.add(center);
         fullComponent.add(right);
+
+        container.add(fullComponent);
+    }
+
+    private void createAndAddColorComboBox(JPanel container, String label, boolean foreground){
+        JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fullComponent.setBackground(Color.white);
+        fullComponent.add(new JLabel(label));
+
+        JColorComboBox colorComboBox = new JColorComboBox();
+        colorComboBox.addActionListener(event->{
+            if(foreground){
+                visualizingPanel.getTextField().setForeground(colorComboBox.getSelectedColor());
+                visualizingPanel.repaint();
+            }
+            else{
+                visualizingPanel.getTextField().setBackground(colorComboBox.getSelectedColor());
+                visualizingPanel.repaint();
+            }
+        });
+
+        fullComponent.add(colorComboBox);
 
         container.add(fullComponent);
     }
