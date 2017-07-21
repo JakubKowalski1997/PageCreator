@@ -15,7 +15,7 @@ public class TestClass {
         //main loop
         EventQueue.invokeLater(()->
         {
-            JFrame formEditor = new MainEditorWindow();
+            JFrame formEditor = new FormView();
         });
     }
 }

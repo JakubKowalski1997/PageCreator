@@ -17,6 +17,7 @@ public class TitleView extends JPanel {
     private Dimension screenSize;
     private String[] fonts;
     private int[] fontSizes;
+    //all infos to create model will be taken from that panel
     private HTMLTitlePreviewPanel visualizingPanel;
 
     //edit components

@@ -30,14 +30,36 @@ public class MainEditorWindow extends JFrame{
         setIconImage(icon);
     }
 
+    private void createMenu(){
+        JMenuBar menuBar = new JMenuBar();
+
+        setJMenuBar(menuBar);
+
+        JMenu fileMenu = new JMenu("File");
+        menuBar.add(fileMenu);
+
+        JMenuItem save = new JMenuItem("Save as");
+        save.addActionListener(event->{
+
+            /*TODO:
+            THIS IS THE PLACE WHERE ALL CONTROLLERS WILL CREATE MODEL AND RIGHT AFTER HTML PAGE WILL BE CREATED
+            BASED ON THAT MODELS
+
+             */
+        });
+        fileMenu.add(save);
+
+        fileMenu.addSeparator();
+    }
+
     public MainEditorWindow(){
         //setting layout manager
         setLayout(new FlowLayout(FlowLayout.CENTER));
         getContentPane().setBackground(Color.white);
 
+        createMenu();
+
         //adding title, manu and content panels
-        add(new TitleView(this));
-        add(new TitleView(this));
         add(new TitleView(this));
 
         setDefaultOptions();
