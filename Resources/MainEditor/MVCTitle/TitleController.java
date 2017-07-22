@@ -42,7 +42,8 @@ public class TitleController {
                 HTMLTitleEditor.getBackgroundColorEditor(model.getBackgroundColor().toLowerCase()),
                 HTMLTitleEditor.getTextColorEditor(model.getFontColor().toLowerCase()),
                 HTMLTitleEditor.getFontEditor(model.getFont()),
-                HTMLTitleEditor.getPositionEditor(model.getPosition())
+                HTMLTitleEditor.getPositionEditor(model.getPosition()),
+                HTMLTitleEditor.getTextEditor(model.getTitle())
         );
 
         for (TemplateEditor editor : editors) {
