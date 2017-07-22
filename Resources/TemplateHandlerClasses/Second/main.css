@@ -1,12 +1,19 @@
 body
 {
+    margin : 0px;
     min-width: 640px;
     max-width: 1820px;
 }
 
 .Title
 {
+    margin : 0px;
     width: 100%;
+}
+
+.TitleText
+{
+    margin : 0px;
 }
 
 .dziecko1

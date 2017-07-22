@@ -67,24 +67,29 @@ public class HTMLTitleEditor {
         };
     }
 
-    private static ArrayList<String> getFontStyleValues(int fontStyle) {
+    private static String getFontStyleValues(int fontStyle) {
         ArrayList<String> values = new ArrayList<>();
         switch (fontStyle) {
             case 0:
-                values.add("plain");
-                break;
-            case 1:
-                values.add("bold");
-                break;
-            case 2:
-                values.add("italic");
-                break;
+                return "plain";
             case 3:
-                values.add("bold");
-                values.add("italic");
+            case 2:
+                return "italic";
         }
 
-        return values;
+        return null;
+    }
+
+    private static boolean isBold(int fontStyle) {
+        return fontStyle == 1 || fontStyle == 3;
+    }
+
+    private static boolean isItalic(int fontStyle) {
+        return fontStyle == 2 || fontStyle == 3;
+    }
+
+    private static boolean isPlain(int fontStyle) {
+        return fontStyle == 0;
     }
 
     public static TemplateEditor getFontEditor(Font font) {
@@ -92,6 +97,7 @@ public class HTMLTitleEditor {
             final String fontFamilyAttributeName = "font-family";
             final String fontSizeAttributeName = "font-size";
             final String fontStyleAttributeName = "font-style";
+            final String fontWeightAttributeName = "font-weight";
 
             CSSDocument cssDoc = template.getCSSDoc();
             CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
@@ -124,14 +130,31 @@ public class HTMLTitleEditor {
                 }
 
                 /**
+                 * setting font weight
+                 */
+                CSSAttribute weightAttribute = titleElement.getAttribute(fontWeightAttributeName);
+                if (isBold(font.getStyle())) {
+                    if (weightAttribute == null) {
+                        titleElement.addAttribute(new CSSAttribute(fontWeightAttributeName, "bold"));
+                    }
+                    else {
+                       weightAttribute.values.set(0, "bold");
+                    }
+                }
+                else if (weightAttribute != null){
+                    titleElement.eraseAttribute(titleElement.getAttribute(fontWeightAttributeName));
+                }
+
+                /**
                  * Setting font style
                  */
                 CSSAttribute fontStyleAttribute = titleElement.getAttribute(fontStyleAttributeName);
-                if (fontStyleAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(fontStyleAttributeName, getFontStyleValues(font.getStyle())));
-                }
-                else {
-                    fontStyleAttribute.values = getFontStyleValues(font.getStyle());
+                if (isItalic(font.getStyle()) || isPlain(font.getStyle())) {
+                    if (fontStyleAttribute == null) {
+                        titleElement.addAttribute(new CSSAttribute(fontStyleAttributeName, getFontStyleValues(font.getStyle())));
+                    } else {
+                        fontStyleAttribute.values.set(0, getFontStyleValues(font.getStyle()));
+                    }
                 }
             }
             catch (Exception e) {
@@ -142,7 +165,7 @@ public class HTMLTitleEditor {
 
     public static TemplateEditor getPositionEditor(String position) {
         return template -> {
-            final String positionAttributeName = "position";
+            final String positionAttributeName = "text-align";
 
             CSSDocument cssDoc = template.getCSSDoc();
             CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
