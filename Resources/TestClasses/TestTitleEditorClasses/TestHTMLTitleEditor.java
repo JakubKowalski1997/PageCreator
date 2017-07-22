@@ -2,9 +2,7 @@ package TestClasses.TestTitleEditorClasses;
 
 import TemplateEditor.TemplateEditor;
 import TemplateEditor.TitleEditor.HTMLTitleEditor;
-import TemplateEditor.Utils.Color;
-import TemplateEditor.Utils.Font;
-import TemplateEditor.Utils.Position;
+import java.awt.Font;
 import TemplateHandlerClasses.PageTemplate;
 import TemplateHandlerClasses.TemplateFactory;
 import TemplateHandlerClasses.Templates;
@@ -27,11 +25,11 @@ public class TestHTMLTitleEditor extends Test {
 
         ArrayList<TemplateEditor> editors = new ArrayList<>();
 
-        editors.add(HTMLTitleEditor.getInstance().getPositionEditor(Position.CENTER));
-        editors.add(HTMLTitleEditor.getInstance().getTextColorEditor(Color.BLUE));
-        editors.add(HTMLTitleEditor.getInstance().getBackgroundColorEditor(Color.GREEN));
-        editors.add(HTMLTitleEditor.getInstance().getFontEditor(new Font(Font.Family.ARIAL, 20)));
-        editors.add(HTMLTitleEditor.getInstance().getTextEditor("Text"));
+        editors.add(HTMLTitleEditor.getPositionEditor("center"));
+        editors.add(HTMLTitleEditor.getTextColorEditor("blue"));
+        editors.add(HTMLTitleEditor.getBackgroundColorEditor("green"));
+        editors.add(HTMLTitleEditor.getFontEditor(new Font("arial", Font.PLAIN, 20)));
+        editors.add(HTMLTitleEditor.getTextEditor("Text"));
 
         for (TemplateEditor editor : editors) {
             editor.edit(template);

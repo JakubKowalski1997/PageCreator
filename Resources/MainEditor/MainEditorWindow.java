@@ -3,6 +3,7 @@ package MainEditor;
 import MainEditor.MVCTitle.TitleController;
 import MainEditor.MVCTitle.TitleModel;
 import MainEditor.MVCTitle.TitleView;
+import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,10 +52,14 @@ public class MainEditorWindow extends JFrame{
             BASED ON THAT MODELS
              */
 
+
             TitleController titleController = new TitleController(titleView);
             //Konrad's input
-            TitleModel titleModel = titleController.getTitleModel();
+            titleController.editHTMLCSS();
+            System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
+            System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
 
+            TitleModel titleModel = titleController.getTitleModel();
         });
         fileMenu.add(save);
 
