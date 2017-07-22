@@ -63,6 +63,7 @@ public class TestHTMLTitleEditor extends Test {
                 "\tbackground-color : green;\n" +
                 "\tfont-family : arial;\n" +
                 "\tfont-size : 20px;\n" +
+                "\tfont-style : plain;\n" +
                 "}\n" +
                 "\n" +
                 ".dziecko1 {\n" +
