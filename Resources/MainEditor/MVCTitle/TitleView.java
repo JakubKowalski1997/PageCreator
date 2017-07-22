@@ -19,6 +19,12 @@ public class TitleView extends JPanel {
     private int[] fontSizes;
     //all infos to create model will be taken from that panel
     private HTMLTitlePreviewPanel visualizingPanel;
+    public HTMLTitlePreviewPanel returnVisualizingPanel(){return visualizingPanel;}
+    //JColorComboBox
+    private JColorComboBox fontColors;
+    private JColorComboBox backgroundColors;
+    public JColorComboBox getFontColors(){return fontColors;}
+    public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
     //edit components
     private JPanel editComponents(){
@@ -209,21 +215,27 @@ public class TitleView extends JPanel {
         fullComponent.setBackground(Color.white);
         fullComponent.add(new JLabel(label));
 
-        JColorComboBox colorComboBox = new JColorComboBox();
-        if(!foreground)
-            colorComboBox.setSelectedItem(0);
-        colorComboBox.addActionListener(event->{
-            if(foreground){
-                visualizingPanel.getTextField().setForeground(colorComboBox.getSelectedColor());
-                visualizingPanel.repaint();
-            }
-            else{
-                visualizingPanel.getTextField().setBackground(colorComboBox.getSelectedColor());
-                visualizingPanel.repaint();
-            }
-        });
 
-        fullComponent.add(colorComboBox);
+        if(foreground) {
+            fontColors = new JColorComboBox();
+            fontColors.setSelectedItem("BLACK");
+            fontColors.addActionListener(event->{
+                visualizingPanel.getTextField().setForeground(fontColors.getSelectedColor());
+                visualizingPanel.repaint();
+            });
+
+            fullComponent.add(fontColors);
+        }
+        else{
+            backgroundColors = new JColorComboBox();
+            backgroundColors.setSelectedItem("WHITE");
+            backgroundColors.addActionListener(event->{
+                visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
+                visualizingPanel.repaint();
+            });
+
+            fullComponent.add(backgroundColors);
+        }
 
         container.add(fullComponent);
     }
