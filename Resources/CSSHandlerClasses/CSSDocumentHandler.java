@@ -1,5 +1,8 @@
 package CSSHandlerClasses;
 
+import javax.swing.text.html.CSS;
+import java.util.ArrayList;
+
 /**
  * Created by Konrad on 2017-07-13.
  */
@@ -27,7 +30,19 @@ public class CSSDocumentHandler {
         doc.getElements().remove(doc.getElements().size() - 1);
     }
 
-    public void getElement(CSSDocument doc, int pos) {
-        doc.getElements().get(pos);
+    public CSSElement getElement(CSSDocument doc, int pos) {
+        return doc.getElements().get(pos);
+    }
+
+    public CSSElement getElement(CSSDocument doc, CSSSelector selector) throws Exception {
+        ArrayList<CSSElement> elements = doc.getElements();
+
+        for (CSSElement element : elements) {
+            if (element.selector.equals(selector)) {
+                return element;
+            }
+        }
+
+        throw new Exception("Element not found");
     }
 }
