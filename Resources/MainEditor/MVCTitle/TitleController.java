@@ -18,7 +18,7 @@ public class TitleController {
 
     public TitleController(TitleView view){
         HTMLTitlePreviewPanel currVals = view.returnVisualizingPanel();
-        Font currFont = currVals.getFont();
+        Font currFont = currVals.getTextField().getFont();
 
         //creating model based on View
         model = new TitleModel();
@@ -33,6 +33,7 @@ public class TitleController {
             case JTextField.RIGHT :
                 model.setPosition("right");break;
         }
+        System.out.println(model.getFont().toString());
     }
 
     public void editHTMLCSS() {
