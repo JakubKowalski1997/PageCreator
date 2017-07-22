@@ -1,5 +1,7 @@
 package MainEditor;
 
+import MainEditor.MVCTitle.TitleController;
+import MainEditor.MVCTitle.TitleModel;
 import MainEditor.MVCTitle.TitleView;
 
 import javax.swing.*;
@@ -10,14 +12,17 @@ import java.awt.*;
  */
 public class MainEditorWindow extends JFrame{
 
+    //panels
+    private TitleView titleView;
+
     private void setDefaultOptions(){
         //getting screen dimensions
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screen = kit.getScreenSize();
 
-        //set default screen size
+        //set default screen size and full screen on start
+        setExtendedState(MAXIMIZED_BOTH);
         setBounds(0, 0, screen.width, screen.height);
-        setResizable(false);
 
         //set on close operation
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -41,12 +46,15 @@ public class MainEditorWindow extends JFrame{
 
         JMenuItem save = new JMenuItem("Save as");
         save.addActionListener(event->{
-
             /*TODO:
             THIS IS THE PLACE WHERE ALL CONTROLLERS WILL CREATE MODEL AND RIGHT AFTER HTML PAGE WILL BE CREATED
             BASED ON THAT MODELS
-
              */
+
+            TitleController titleController = new TitleController(titleView);
+            //Konrad's input
+            TitleModel titleModel = titleController.getTitleModel();
+
         });
         fileMenu.add(save);
 
@@ -80,7 +88,8 @@ public class MainEditorWindow extends JFrame{
         createMenu();
 
         //adding title, manu and content panels
-        add(new TitleView(this));
+        titleView = new TitleView(this);
+        add(titleView);
 
         setDefaultOptions();
     }
