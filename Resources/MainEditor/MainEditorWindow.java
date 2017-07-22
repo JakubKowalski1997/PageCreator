@@ -58,8 +58,6 @@ public class MainEditorWindow extends JFrame{
             titleController.editHTMLCSS();
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
-
-            TitleModel titleModel = titleController.getTitleModel();
         });
         fileMenu.add(save);
 
