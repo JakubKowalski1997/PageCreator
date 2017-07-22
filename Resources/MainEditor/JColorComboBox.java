@@ -25,7 +25,6 @@ public class JColorComboBox extends JComboBox {
         setModel(model);
         setRenderer(new ColorRenderer());
         this.setOpaque(true);
-        this.setSelectedIndex(11);
     }
     @Override
     public void setSelectedItem(Object obj) {
