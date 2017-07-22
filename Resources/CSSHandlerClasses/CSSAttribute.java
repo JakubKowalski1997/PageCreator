@@ -5,17 +5,26 @@ package CSSHandlerClasses;
  */
 
 import javafx.util.Pair;
+import java.util.List;
+import java.util.ArrayList;
 
 public class CSSAttribute {
     public String name;
-    public String value;
+    public List<String> values;
 
     private static final Character nameValSep = ':';
     private static final Character terminator = ';';
+    private static final Character valuesSep = ',';
 
     public CSSAttribute(String nme, String val) {
         name = nme;
-        value = val;
+        values = new ArrayList<>();
+        values.add(val);
+    }
+
+    public CSSAttribute(String nme, List<String> vals) {
+        name = nme;
+        values = vals;
     }
 
     public String toString() {
@@ -24,7 +33,13 @@ public class CSSAttribute {
         strRep.append(' ');
         strRep.append(nameValSep);
         strRep.append(' ');
-        strRep.append(value);
+
+        for (int i = 0; i < values.size(); ++i) {
+            strRep.append(values.get(i));
+            if (i != values.size() - 1)
+                strRep.append(", ");
+        }
+
         strRep.append(terminator);
         return strRep.toString();
     }
@@ -50,19 +65,26 @@ public class CSSAttribute {
 
         name = nameBuilder.toString();
 
+        ArrayList<String> values = new ArrayList<>();
+
         //get value from String
         StringBuilder valueBuilder = new StringBuilder();
         while (textRep.charAt(i) != terminator) {
-            if (!Character.isWhitespace(textRep.charAt(i))) {
+            if (textRep.charAt(i) == valuesSep) {
+                //flush buffer
+                values.add(valueBuilder.toString());
+                valueBuilder.setLength(0);
+            }
+            else if (!Character.isWhitespace(textRep.charAt(i))) {
                 valueBuilder.append(textRep.charAt(i));
             }
 
             ++i;
         }
-        value = valueBuilder.toString();
 
+        values.add(valueBuilder.toString());
 
-        return new Pair<CSSAttribute, Integer>(new CSSAttribute(name, value), i);
+        return new Pair<CSSAttribute, Integer>(new CSSAttribute(name, values), i);
     }
 
 
@@ -79,6 +101,14 @@ public class CSSAttribute {
 
         CSSAttribute otherAtt = (CSSAttribute) o;
 
-        return this.name.equals(otherAtt.name) && this.value.equals(otherAtt.value);
+        if (!this.name.equals(otherAtt.name) || this.values.size() != otherAtt.values.size())
+            return false;
+
+        for (int i = 0; i < this.values.size(); ++i) {
+            if (!this.values.get(i).equals(otherAtt.values.get(i)))
+                return false;
+        }
+
+        return true;
     }
 }

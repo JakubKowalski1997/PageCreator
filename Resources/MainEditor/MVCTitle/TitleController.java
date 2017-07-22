@@ -2,6 +2,12 @@ package MainEditor.MVCTitle;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import TemplateEditor.TemplateEditor;
+import TemplateEditor.TitleEditor.HTMLTitleEditor;
+import TemplateHandlerClasses.TemplateHandler;
 
 /**
  * Created by Wiktor Łazarski on 21.07.2017.
@@ -28,6 +34,21 @@ public class TitleController {
                 model.setPosition("right");break;
         }
         model.setTitle(currVals.getTextField().getText());
+    }
+
+    public void editHTMLCSS() {
+        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        Collections.addAll(editors,
+                HTMLTitleEditor.getBackgroundColorEditor(model.getBackgroundColor().toLowerCase()),
+                HTMLTitleEditor.getTextColorEditor(model.getFontColor().toLowerCase()),
+                HTMLTitleEditor.getFontEditor(model.getFont()),
+                HTMLTitleEditor.getPositionEditor(model.getPosition()),
+                HTMLTitleEditor.getTextEditor(model.getTitle())
+        );
+
+        for (TemplateEditor editor : editors) {
+            editor.edit(TemplateHandler.getInstance().getPageTemplate());
+        }
     }
 
     //return created model

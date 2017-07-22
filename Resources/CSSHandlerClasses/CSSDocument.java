@@ -21,7 +21,7 @@ public class CSSDocument  {
 
         for (CSSElement element : elements) {
             stringRep.append(element.toString());
-            stringRep.append('\n');
+            stringRep.append("\n\n");
         }
 
         return stringRep.toString();

@@ -41,6 +41,20 @@ public class CSSElement {
         atts.remove(atts.size() - 1);
     }
 
+    public CSSAttribute getAttribute(int pos) {
+        return atts.get(pos);
+    }
+
+    public CSSAttribute getAttribute(String attributeName) {
+        for (CSSAttribute attribute : atts) {
+            if (attribute.name.equals(attributeName))
+                return attribute;
+        }
+
+        return null;
+    }
+
+    @Override
     public String toString() {
         StringBuilder stringRep = new StringBuilder();
 
@@ -61,6 +75,7 @@ public class CSSElement {
         return stringRep.toString();
     }
 
+    @Override
     public boolean equals(Object o ) {
         // self check
         if (this == o)

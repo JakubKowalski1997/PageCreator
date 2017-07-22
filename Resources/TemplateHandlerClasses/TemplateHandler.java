@@ -46,10 +46,14 @@ public class TemplateHandler {
         }
     }
 
+    public PageTemplate getPageTemplate() {
+        return pageTemplate;
+    }
+
     public void addCSSLink() {
         ArrayList<TagAttribute> attributes = new ArrayList<>();
         Collections.addAll(attributes, new TagAttribute("rel", "stylesheet"),
-                new TagAttribute("href", pageTemplate.getCssPath()));
+                new TagAttribute("href", "main.css"));
 
         SelfClosingTag linkTag = new SelfClosingTag(HTMLSelfClosingTags.LINK, attributes);
         headSection.addNestedTag(linkTag);

@@ -35,10 +35,10 @@ public class PageTemplate {
         }
     }
 
-    HTMLDocument getHTMLDoc() {
+    public HTMLDocument getHTMLDoc() {
         return htmlDoc;
     }
-    CSSDocument getCSSDoc() {
+    public CSSDocument getCSSDoc() {
         return cssDoc;
     }
 
