@@ -4,6 +4,8 @@ import CSSHandlerClasses.CSSAttribute;
 import TestClasses.Test;
 import javafx.util.Pair;
 
+import java.util.Arrays;
+
 /**
  * Created by Konrad on 2017-07-13.
  */
@@ -26,6 +28,21 @@ public class TestCSSAttribute extends Test {
         }
         catch (Exception e) {
             reportError("Bad input string");
+        }
+
+        String input2 = "font-style : bold, italic;";
+
+        CSSAttribute correctAtt2 = new CSSAttribute("font-style", Arrays.asList("bold", "italic"));
+
+        try {
+            Pair<CSSAttribute, Integer> parsed = CSSAttribute.parseFromString(input2, 0);
+            if (!correctAtt2.toString().equals(parsed.getKey().toString())) {
+                reportError("Expected: " + correctAtt2.toString() + " Got: " +
+                        parsed.getKey().toString());
+            }
+        }
+        catch (Exception e) {
+            reportError(e.getMessage());
         }
 
     }
