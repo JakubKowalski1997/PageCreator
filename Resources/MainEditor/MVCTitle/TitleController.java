@@ -27,6 +27,7 @@ public class TitleController {
             case JTextField.RIGHT :
                 model.setPosition("right");break;
         }
+        model.setTitle(currVals.getTextField().getText());
     }
 
     //return created model
