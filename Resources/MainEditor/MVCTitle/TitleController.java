@@ -33,6 +33,7 @@ public class TitleController {
             case JTextField.RIGHT :
                 model.setPosition("right");break;
         }
+        model.setTitle(currVals.getTextField().getText());
     }
 
     public void editHTMLCSS() {

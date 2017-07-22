@@ -7,6 +7,9 @@ import java.awt.*;
  */
 
 public class TitleModel {
+    //text
+    private String title;
+
     //font
     private Font font;
     private String fontColor;
@@ -29,6 +32,8 @@ public class TitleModel {
     }
 
     //getters
+    public String getTitle(){return title;}
+
     public Font getFont(){return font;}
 
     public String getFontColor(){return fontColor;}
@@ -38,6 +43,8 @@ public class TitleModel {
     public String getPosition(){return position;}
 
     //setters
+    public void setTitle(String title){this.title = title;}
+
     public void setFont(Font font){this.font = font;}
 
     public void setFontColor(String fontColor) {
