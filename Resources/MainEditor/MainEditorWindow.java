@@ -85,14 +85,15 @@ public class MainEditorWindow extends JFrame{
 
     public MainEditorWindow(){
         //setting layout manager
-        setLayout(new FlowLayout(FlowLayout.CENTER));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
         getContentPane().setBackground(Color.white);
 
         createMenu();
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        add(titleView);
+        add(new MenuControllerPanel(new JPanel(), (byte) 1));
+        add(new ContentControllPanel(new JPanel(), (byte) 1));
 
         setDefaultOptions();
     }

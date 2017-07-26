@@ -55,6 +55,9 @@ public class TemplateChooserView extends JFrame {
         JButton button = new JButton("Next step");
         button.addActionListener(event -> {
 
+            //hiding current window
+            this.dispose();
+
             if(radioButtonsArray.get(0).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
             }
@@ -64,9 +67,6 @@ public class TemplateChooserView extends JFrame {
             else if(radioButtonsArray.get(2).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
             }
-
-            //hiding current window
-            this.dispose();
 
             //starting next window
             JFrame next = new MainEditorWindow();
