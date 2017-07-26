@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Wiktor Łazarski on 26.07.2017.
  */
-public class ContentAddControllPanel extends JPanel {
+public class ContentAdsControllPanel extends JPanel {
 
     //attributes
     private Dimension screenSize;
