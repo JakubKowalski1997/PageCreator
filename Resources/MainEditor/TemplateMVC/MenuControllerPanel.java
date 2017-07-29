@@ -19,7 +19,8 @@ public class MenuControllerPanel extends JPanel {
     private String[] fonts;
     private int[] fontSizes;
     //panel which show changes in controller
-    private JPanel visulizingPanel;
+    private MenuVisualizingPanel visualizingPanel;
+    public MenuVisualizingPanel getVisulizingPanel(){return visualizingPanel;}
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
@@ -27,8 +28,8 @@ public class MenuControllerPanel extends JPanel {
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
     //constructor
-    public MenuControllerPanel(JPanel visulizingPanel){
-        this.visulizingPanel = visulizingPanel;
+    public MenuControllerPanel(MenuVisualizingPanel visualizingPanel){
+        this.visualizingPanel = visualizingPanel;
 
         //getting all options for comboboxes
         fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
@@ -86,12 +87,18 @@ public class MenuControllerPanel extends JPanel {
         JButton addBtn = new JButton(" Add ");
         addBtn.addActionListener(event->{
             //callback
+            visualizingPanel.add();
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
         });
         fullComponent.add(addBtn);
 
         JButton deleteBtn = new JButton(" Delete ");
-        addBtn.addActionListener(event->{
+        deleteBtn.addActionListener(event->{
             //callback
+            visualizingPanel.delete();
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
         });
         fullComponent.add(deleteBtn);
 
@@ -111,9 +118,12 @@ public class MenuControllerPanel extends JPanel {
         fontNames.setModel(fonts);
         //callback
         fontNames.addActionListener(event -> {
-            //Font curr = visualizingPanel.getTextField().getFont();
-            //visualizingPanel.getTextField().setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
-            //visualizingPanel.repaint();
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                Font curr = visualizingPanel.getFields().get(i).getFont();
+                visualizingPanel.getFields().get(i)
+                        .setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
+            }
+            visualizingPanel.repaint();
         });
 
         fullComponent.add(fontNames);
@@ -132,9 +142,12 @@ public class MenuControllerPanel extends JPanel {
         fontSizes.setSelectedItem(72);
         //callback
         fontSizes.addActionListener(event -> {
-            //Font curr = visualizingPanel.getTextField().getFont();
-            //visualizingPanel.getTextField().setFont(new Font(curr.getName(), curr.getStyle(), (int)fontSizes.getSelectedItem()));
-            //visualizingPanel.repaint();
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                Font curr = visualizingPanel.getFields().get(i).getFont();
+                visualizingPanel.getFields().get(i)
+                        .setFont(new Font(curr.getName(), curr.getStyle(), (int)fontSizes.getSelectedItem()));
+            }
+            visualizingPanel.repaint();
         });
 
         fullComponent.add(fontSizes);
@@ -161,9 +174,12 @@ public class MenuControllerPanel extends JPanel {
                 if (italic.isSelected())
                     mode += Font.ITALIC;
 
-                //Font curr = visualizingPanel.getTextField().getFont();
-                //visualizingPanel.getTextField().setFont(new Font(curr.getName(), mode, curr.getSize()));
-                //visualizingPanel.repaint();
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    Font curr = visualizingPanel.getFields().get(i).getFont();
+                    visualizingPanel.getFields().get(i)
+                            .setFont(new Font(curr.getName(), mode, curr.getSize()));
+                }
+                visualizingPanel.repaint();
             }
         };
 
@@ -186,22 +202,28 @@ public class MenuControllerPanel extends JPanel {
         JRadioButton left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
         left.addActionListener(event->{
-            //visualizingPanel.getTextField().setHorizontalAlignment(JTextField.LEFT);
-            //visualizingPanel.repaint();
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.LEFT);
+            }
+            visualizingPanel.repaint();
         });
 
         JRadioButton center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
         center.addActionListener(event->{
-            //visualizingPanel.getTextField().setHorizontalAlignment(JTextField.CENTER);
-            //visualizingPanel.repaint();
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.CENTER);
+            }
+            visualizingPanel.repaint();
         });
 
         JRadioButton right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
         right.addActionListener(event->{
-           // visualizingPanel.getTextField().setHorizontalAlignment(JTextField.RIGHT);
-            //visualizingPanel.repaint();
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.RIGHT);
+            }
+            visualizingPanel.repaint();
         });
 
         radioButtons.add(left);
@@ -225,8 +247,10 @@ public class MenuControllerPanel extends JPanel {
             fontColors = new JColorComboBox();
             fontColors.setSelectedItem("BLACK");
             fontColors.addActionListener(event->{
-                //visualizingPanel.getTextField().setForeground(fontColors.getSelectedColor());
-                //visualizingPanel.repaint();
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    visualizingPanel.getFields().get(i).setForeground(fontColors.getSelectedColor());
+                }
+                visualizingPanel.repaint();
             });
 
             fullComponent.add(fontColors);
@@ -235,6 +259,11 @@ public class MenuControllerPanel extends JPanel {
             backgroundColors = new JColorComboBox();
             backgroundColors.setSelectedItem("WHITE");
             backgroundColors.addActionListener(event->{
+
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    visualizingPanel.getFields().get(i).setBackground(backgroundColors.getSelectedColor());
+                }
+                visualizingPanel.repaint();
                 //visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
                 //visualizingPanel.repaint();
             });

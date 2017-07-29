@@ -108,16 +108,19 @@ public class MainEditorWindow extends JFrame{
         MenuVisualizingPanel menuVisualizingPanel =
                 new MenuVisualizingPanel((int)(screen.width / 1.53), 100, true);
 
+        MenuControllerPanel menuControllerPanel =
+                new MenuControllerPanel(menuVisualizingPanel);
+
         constraints.weightx = 0;
         constraints.weighty = 0;
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridheight = 2;
         constraints.anchor = GridBagConstraints.NORTH;
-        template02.add(new MenuControllerPanel(menuVisualizingPanel), constraints);
+        template02.add(menuControllerPanel, constraints);
 
         constraints.gridx = 1;
-        template02.add(menuVisualizingPanel);
+        template02.add(menuControllerPanel.getVisulizingPanel());
 
         //content
         ContentVisualizingPanel contentVisualizingPanel

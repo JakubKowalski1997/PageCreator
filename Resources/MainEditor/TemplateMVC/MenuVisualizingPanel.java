@@ -46,7 +46,7 @@ public class MenuVisualizingPanel extends JPanel {
         initial.setBackground(Color.white);
         fields.add(initial);
 
-        add(initial);
+        add(fields.get(0));
     }
 
     //add menu div
@@ -62,9 +62,10 @@ public class MenuVisualizingPanel extends JPanel {
         newField.setFont(currStyle.getFont());
         newField.setBackground(currStyle.getBackground());
         newField.setForeground(currStyle.getForeground());
+        newField.setHorizontalAlignment(currStyle.getHorizontalAlignment());
         fields.add(newField);
 
-        add(newField);
+        add(fields.get(gridN - 1));
     }
 
     //delete menu div
@@ -74,8 +75,7 @@ public class MenuVisualizingPanel extends JPanel {
 
         gridN--;
 
+        remove(fields.get(gridN));
         fields.remove(gridN);
     }
-
-
 }
