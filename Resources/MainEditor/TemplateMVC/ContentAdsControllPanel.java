@@ -24,15 +24,10 @@ public class ContentAdsControllPanel extends JPanel {
     private JColorComboBox backgroundColors;
     public JColorComboBox getFontColors(){return fontColors;}
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
-    //chosen style
-    private byte choosenTemplate;
 
     //constructor
-    public ContentControllPanel(JPanel visulizingPanel, byte choosenTemplate){
+    public ContentAdsControllPanel(JPanel visulizingPanel, String border){
         this.visulizingPanel = visulizingPanel;
-        if(choosenTemplate > 3 && choosenTemplate < 1)
-            System.exit(-1);
-        this.choosenTemplate = choosenTemplate;
 
         //getting all options for comboboxes
         fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
@@ -46,20 +41,20 @@ public class ContentAdsControllPanel extends JPanel {
         setBackground(Color.white);
 
         //add components
-        add(editComponents());
+        add(editComponents(border));
     }
 
     //edit components
-    private JPanel editComponents() {
+    private JPanel editComponents(String border) {
         JPanel editComponentsPanel = new JPanel(new GridLayout(6, 1));
 
         //create and set border
         Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "Content atributes");
+        Border title = BorderFactory.createTitledBorder(etched, border + " atributes");
         editComponentsPanel.setBorder(title);
 
         //set size
-        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.5)));
+        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.7)));
 
         //add components
         //Font type

@@ -25,15 +25,10 @@ public class MenuControllerPanel extends JPanel {
     private JColorComboBox backgroundColors;
     public JColorComboBox getFontColors(){return fontColors;}
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
-    //chosen style
-    private byte choosenTemplate;
 
     //constructor
-    public MenuControllerPanel(JPanel visulizingPanel, byte choosenTemplate){
+    public MenuControllerPanel(JPanel visulizingPanel){
         this.visulizingPanel = visulizingPanel;
-        if(choosenTemplate > 3 && choosenTemplate < 1)
-            System.exit(-1);
-        this.choosenTemplate = choosenTemplate;
 
         //getting all options for comboboxes
         fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
@@ -60,7 +55,7 @@ public class MenuControllerPanel extends JPanel {
         editComponentsPanel.setBorder(title);
 
         //set size
-        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4)));
+        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.3)));
 
         //add components
         //Add and delete menu div panel

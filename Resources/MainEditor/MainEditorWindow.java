@@ -1,17 +1,24 @@
 package MainEditor;
 
 import MainEditor.MVCTitle.TitleController;
-import MainEditor.MVCTitle.TitleModel;
 import MainEditor.MVCTitle.TitleView;
+import MainEditor.TemplateMVC.ContentAdsControllPanel;
+import MainEditor.TemplateMVC.ContentVisualizingPanel;
+import MainEditor.TemplateMVC.MenuControllerPanel;
+import MainEditor.TemplateMVC.MenuVisualizingPanel;
 import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 
 /**
  * Created by Wiktor Łazarski on 21.07.2017.
  */
 public class MainEditorWindow extends JFrame{
+    //screen size
+    Dimension screen = getToolkit().getScreenSize();
 
     //panels
     private TitleView titleView;
@@ -92,8 +99,40 @@ public class MainEditorWindow extends JFrame{
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        add(new MenuControllerPanel(new JPanel(), (byte) 1));
-        add(new ContentControllPanel(new JPanel(), (byte) 1));
+
+        JPanel template02 = new JPanel(new GridBagLayout());
+        template02.setBackground(Color.white);
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        //menu
+        MenuVisualizingPanel menuVisualizingPanel =
+                new MenuVisualizingPanel((int)(screen.width / 1.53), 100, true);
+
+        constraints.weightx = 0;
+        constraints.weighty = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridheight = 2;
+        constraints.anchor = GridBagConstraints.NORTH;
+        template02.add(new MenuControllerPanel(menuVisualizingPanel), constraints);
+
+        constraints.gridx = 1;
+        template02.add(menuVisualizingPanel);
+
+        //content
+        ContentVisualizingPanel contentVisualizingPanel
+                = new ContentVisualizingPanel((int)(screen.width / 1.53), (int)(screen.width / 3));
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        template02.add(new ContentAdsControllPanel(contentVisualizingPanel, "Content"), constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        template02.add(contentVisualizingPanel, constraints);
+
+        add(template02);
+
 
         setDefaultOptions();
     }
