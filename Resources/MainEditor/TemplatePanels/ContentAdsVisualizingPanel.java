@@ -1,4 +1,4 @@
-package MainEditor.TemplateMVC;
+package MainEditor.TemplatePanels;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by Wiktor Łazarski on 28.07.2017.
  */
-public class ContentVisualizingPanel extends JPanel {
+public class ContentAdsVisualizingPanel extends JPanel {
 
     private final int WIDTH;
     private final int HEIGHT;
@@ -16,7 +16,7 @@ public class ContentVisualizingPanel extends JPanel {
     private ArrayList<JTextArea> fields;
     public ArrayList<JTextArea> getFields(){return fields;}
 
-    public ContentVisualizingPanel(int width, int height){
+    public ContentAdsVisualizingPanel(int width, int height, String label){
         WIDTH = width;
         HEIGHT = height;
 
@@ -24,18 +24,21 @@ public class ContentVisualizingPanel extends JPanel {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         //create and add border
         Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "Content current view");
+        Border title = BorderFactory.createTitledBorder(etched, label + " current view");
+
         this.setBorder(title);
 
         //init Array of fields
         fields = new ArrayList<>();
-        JTextArea initial = new JTextArea("Content...");
+        JTextArea initial = new JTextArea(label);
         initial.setFont(new Font("Agency FB", Font.PLAIN, 72));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
         fields.add(initial);
 
-        add(initial);
+        JScrollPane scrollPane = new JScrollPane(initial);
+
+        add(scrollPane);
     }
 
 }

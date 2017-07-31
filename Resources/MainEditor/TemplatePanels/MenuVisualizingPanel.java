@@ -1,4 +1,4 @@
-package MainEditor.TemplateMVC;
+package MainEditor.TemplatePanels;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -74,6 +74,9 @@ public class MenuVisualizingPanel extends JPanel {
             return;
 
         gridN--;
+
+        if(!horizontally)
+            setLayout(new GridLayout(gridN, 1, 5, 5));
 
         remove(fields.get(gridN));
         fields.remove(gridN);

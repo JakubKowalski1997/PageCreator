@@ -2,15 +2,13 @@ package MainEditor;
 
 import MainEditor.MVCTitle.TitleController;
 import MainEditor.MVCTitle.TitleView;
-import MainEditor.TemplateMVC.ContentAdsControllPanel;
-import MainEditor.TemplateMVC.ContentVisualizingPanel;
-import MainEditor.TemplateMVC.MenuControllerPanel;
-import MainEditor.TemplateMVC.MenuVisualizingPanel;
+import MainEditor.TemplatePanels.ContentAdsControllPanel;
+import MainEditor.TemplatePanels.ContentAdsVisualizingPanel;
+import MainEditor.TemplatePanels.MenuControllerPanel;
+import MainEditor.TemplatePanels.MenuVisualizingPanel;
 import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicScrollBarUI;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 
 /**
@@ -99,7 +97,64 @@ public class MainEditorWindow extends JFrame{
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
+        createTemplate03();
 
+        setDefaultOptions();
+    }
+
+    private void createTemplate01(){
+        JPanel template011 = new JPanel(new GridBagLayout());
+        template011.setBackground(Color.white);
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        //menu
+        MenuVisualizingPanel menuVisualizingPanel =
+                new MenuVisualizingPanel(150, (int)(screen.height / 1.47), false);
+
+        MenuControllerPanel menuControllerPanel =
+                new MenuControllerPanel(menuVisualizingPanel);
+
+        //content
+        ContentAdsVisualizingPanel contentAdsVisualizingPanel
+                = new ContentAdsVisualizingPanel((int)(screen.width / 1.747), (int)(screen.height / 1.47),"Content...");
+
+        constraints.weightx = 0;
+        constraints.weighty = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridheight = 1;
+        constraints.anchor = GridBagConstraints.NORTH;
+        template011.add(menuControllerPanel, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        template011.add(new ContentAdsControllPanel(contentAdsVisualizingPanel, "Content"), constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        JPanel fillingPanel = new JPanel();
+        fillingPanel.setPreferredSize(new Dimension(1, screen.height / 5));
+        fillingPanel.setBackground(Color.white);
+        template011.add(fillingPanel, constraints);
+
+        add(template011);
+
+        JPanel template012 = new JPanel(new GridBagLayout());
+        template011.setBackground(Color.white);
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridheight = 1;
+        template012.add(menuControllerPanel.getVisulizingPanel());
+
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        template012.add(contentAdsVisualizingPanel, constraints);
+
+        add(template012);
+    }
+
+    private void createTemplate02(){
         JPanel template02 = new JPanel(new GridBagLayout());
         template02.setBackground(Color.white);
         GridBagConstraints constraints = new GridBagConstraints();
@@ -123,21 +178,73 @@ public class MainEditorWindow extends JFrame{
         template02.add(menuControllerPanel.getVisulizingPanel());
 
         //content
-        ContentVisualizingPanel contentVisualizingPanel
-                = new ContentVisualizingPanel((int)(screen.width / 1.53), (int)(screen.width / 3));
+        ContentAdsVisualizingPanel contentAdsVisualizingPanel
+                = new ContentAdsVisualizingPanel((int)(screen.width / 1.53), (int)(screen.width / 3),"Content...");
 
         constraints.gridx = 0;
         constraints.gridy = 2;
-        template02.add(new ContentAdsControllPanel(contentVisualizingPanel, "Content"), constraints);
+        template02.add(new ContentAdsControllPanel(contentAdsVisualizingPanel, "Content"), constraints);
 
         constraints.gridx = 1;
         constraints.gridy = 1;
-        template02.add(contentVisualizingPanel, constraints);
+        template02.add(contentAdsVisualizingPanel, constraints);
 
         add(template02);
-
-
-        setDefaultOptions();
     }
 
+    private void createTemplate03(){
+        JPanel template011 = new JPanel(new GridBagLayout());
+        template011.setBackground(Color.white);
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        //menu
+        MenuVisualizingPanel menuVisualizingPanel =
+                new MenuVisualizingPanel(150, (int)(screen.height / 1.47), false);
+
+        MenuControllerPanel menuControllerPanel =
+                new MenuControllerPanel(menuVisualizingPanel);
+
+        //content
+        ContentAdsVisualizingPanel contentVisualizingPanel
+                = new ContentAdsVisualizingPanel((int)(screen.width / 2.2), (int)(screen.height / 1.47), "Content");
+        //ads
+        ContentAdsVisualizingPanel adsVisualizingPanel
+                = new ContentAdsVisualizingPanel((int)(screen.width / 8.5), (int)(screen.height / 1.47), "Ads");
+
+        constraints.weightx = 0;
+        constraints.weighty = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridheight = 1;
+        constraints.anchor = GridBagConstraints.NORTH;
+        template011.add(menuControllerPanel, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        template011.add(new ContentAdsControllPanel(contentVisualizingPanel, "Content"), constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        template011.add(new ContentAdsControllPanel(adsVisualizingPanel, "Ads"), constraints);
+
+        add(template011);
+
+        JPanel template012 = new JPanel(new GridBagLayout());
+        template011.setBackground(Color.white);
+
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridheight = 1;
+        template012.add(menuControllerPanel.getVisulizingPanel());
+
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        template012.add(contentVisualizingPanel, constraints);
+
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        template012.add(adsVisualizingPanel, constraints);
+
+        add(template012);
+    }
 }

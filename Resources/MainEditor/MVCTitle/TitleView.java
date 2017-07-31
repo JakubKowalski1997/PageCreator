@@ -83,7 +83,7 @@ public class TitleView extends JPanel {
         Toolkit kit = Toolkit.getDefaultToolkit();
         screenSize = kit.getScreenSize();
 
-        setLayout(new FlowLayout(FlowLayout.LEFT, 5 , 5));
+        setLayout(new FlowLayout(FlowLayout.LEFT, 5 , 0));
         setBackground(Color.white);
 
         //add components

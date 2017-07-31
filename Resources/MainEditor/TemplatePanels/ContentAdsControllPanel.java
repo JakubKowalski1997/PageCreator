@@ -1,4 +1,4 @@
-package MainEditor.TemplateMVC;
+package MainEditor.TemplatePanels;
 
 import MainEditor.JColorComboBox;
 
@@ -14,11 +14,12 @@ import java.awt.event.ActionListener;
 public class ContentAdsControllPanel extends JPanel {
 
     //attributes
+    private String type;
     private Dimension screenSize;
     private String[] fonts;
     private int[] fontSizes;
     //panel which show changes in controller
-    private JPanel visulizingPanel;
+    private ContentAdsVisualizingPanel visulizingPanel;
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
@@ -26,8 +27,10 @@ public class ContentAdsControllPanel extends JPanel {
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
     //constructor
-    public ContentAdsControllPanel(JPanel visulizingPanel, String border){
+    public ContentAdsControllPanel(ContentAdsVisualizingPanel visulizingPanel, String border){
         this.visulizingPanel = visulizingPanel;
+
+        type = border;
 
         //getting all options for comboboxes
         fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
@@ -46,15 +49,23 @@ public class ContentAdsControllPanel extends JPanel {
 
     //edit components
     private JPanel editComponents(String border) {
-        JPanel editComponentsPanel = new JPanel(new GridLayout(6, 1));
+        JPanel editComponentsPanel;
+        if(type.equals("Content")) {
+            editComponentsPanel = new JPanel(new GridLayout(7, 1));
+            //set size
+            editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int) (screenSize.height / 4.3)));
+        }
+        else {
+            editComponentsPanel = new JPanel(new GridLayout(6, 1));
+            //set size
+            editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int) (screenSize.height / 4.7)));
+        }
+
 
         //create and set border
         Border etched = BorderFactory.createEtchedBorder();
         Border title = BorderFactory.createTitledBorder(etched, border + " atributes");
         editComponentsPanel.setBorder(title);
-
-        //set size
-        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.7)));
 
         //add components
         //Font type
@@ -70,23 +81,26 @@ public class ContentAdsControllPanel extends JPanel {
         //Text Position
         createAndAddComponentsTextPosition(editComponentsPanel, "Text position : ");
 
+        if(type.equals("Content"))
+            createAndAddButtonsToSelectCurrContent(editComponentsPanel, "Current content field : ");
+
         editComponentsPanel.setBackground(Color.white);
         return editComponentsPanel;
     }
 
-    private void createAndAddButtonsMenuDiv(JPanel container, String label){
+    private void createAndAddButtonsToSelectCurrContent(JPanel container, String label){
         JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
         fullComponent.setBackground(Color.white);
         fullComponent.add(new JLabel(label));
 
         //buttons
-        JButton addBtn = new JButton(" Add ");
+        JButton addBtn = new JButton(" Previous ");
         addBtn.addActionListener(event->{
             //callback
         });
         fullComponent.add(addBtn);
 
-        JButton deleteBtn = new JButton(" Delete ");
+        JButton deleteBtn = new JButton(" Next ");
         addBtn.addActionListener(event->{
             //callback
         });

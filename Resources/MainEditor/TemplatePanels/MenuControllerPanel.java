@@ -1,7 +1,6 @@
-package MainEditor.TemplateMVC;
+package MainEditor.TemplatePanels;
 
 import MainEditor.JColorComboBox;
-import MainEditor.MVCTitle.HTMLTitlePreviewPanel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -56,7 +55,7 @@ public class MenuControllerPanel extends JPanel {
         editComponentsPanel.setBorder(title);
 
         //set size
-        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.3)));
+        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.25)));
 
         //add components
         //Add and delete menu div panel
