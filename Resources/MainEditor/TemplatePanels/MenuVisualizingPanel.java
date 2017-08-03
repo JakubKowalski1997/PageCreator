@@ -14,7 +14,7 @@ public class MenuVisualizingPanel extends JPanel {
     private final int HEIGHT;
 
     //cnt of JTextFields in Panel
-    private int gridN;
+    static public int gridN;
 
     private ArrayList<JTextField> fields;
     public ArrayList<JTextField> getFields(){return fields;}

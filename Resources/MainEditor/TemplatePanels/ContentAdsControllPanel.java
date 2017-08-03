@@ -4,9 +4,14 @@ import MainEditor.JColorComboBox;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static MainEditor.TemplatePanels.MenuVisualizingPanel.gridN;
 
 /**
  * Created by Wiktor Łazarski on 26.07.2017.
@@ -18,8 +23,9 @@ public class ContentAdsControllPanel extends JPanel {
     private Dimension screenSize;
     private String[] fonts;
     private int[] fontSizes;
+    private int currField;
     //panel which show changes in controller
-    private ContentAdsVisualizingPanel visulizingPanel;
+    private ContentAdsVisualizingPanel visualizingPanel;
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
@@ -27,9 +33,9 @@ public class ContentAdsControllPanel extends JPanel {
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
     //constructor
-    public ContentAdsControllPanel(ContentAdsVisualizingPanel visulizingPanel, String border){
-        this.visulizingPanel = visulizingPanel;
-
+    public ContentAdsControllPanel(ContentAdsVisualizingPanel visualizingPanel, String border){
+        this.visualizingPanel = visualizingPanel;
+        currField = 0;
         type = border;
 
         //getting all options for comboboxes
@@ -94,17 +100,45 @@ public class ContentAdsControllPanel extends JPanel {
         fullComponent.add(new JLabel(label));
 
         //buttons
-        JButton addBtn = new JButton(" Previous ");
-        addBtn.addActionListener(event->{
+        JButton prevBtn = new JButton(" Previous ");
+        prevBtn.addActionListener(event->{
             //callback
-        });
-        fullComponent.add(addBtn);
+            /*if(visualizingPanel.getFields().size() != gridN){
+                for(int i = gridN; i < visualizingPanel.getFields().size(); i++) {
+                    visualizingPanel.delete();
+                }
+            }*/
 
-        JButton deleteBtn = new JButton(" Next ");
-        addBtn.addActionListener(event->{
-            //callback
+            if(currField == 0) {
+                return;
+            }
+
+            visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
+
+            visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(--currField));
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
         });
-        fullComponent.add(deleteBtn);
+        fullComponent.add(prevBtn);
+
+        JButton nextBtn = new JButton(" Next ");
+        nextBtn.addActionListener(event->{
+            //callback
+            if(visualizingPanel.getFields().size() != gridN){
+                for(int i = visualizingPanel.getFields().size(); i < gridN; i++)
+                    visualizingPanel.add();
+            }
+
+            if(currField >= gridN - 1)
+                return;
+
+            visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
+
+            visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(++currField));
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
+        });
+        fullComponent.add(nextBtn);
 
         container.add(fullComponent);
     }
@@ -122,9 +156,10 @@ public class ContentAdsControllPanel extends JPanel {
         fontNames.setModel(fonts);
         //callback
         fontNames.addActionListener(event -> {
-            //Font curr = visualizingPanel.getTextField().getFont();
-            //visualizingPanel.getTextField().setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
-            //visualizingPanel.repaint();
+            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+            SimpleAttributeSet fontNameSet = new SimpleAttributeSet();
+            StyleConstants.setFontFamily(fontNameSet, fontNames.getSelectedItem().toString());
+            doc.setParagraphAttributes(0, doc.getLength(), fontNameSet, false);
         });
 
         fullComponent.add(fontNames);
@@ -143,9 +178,10 @@ public class ContentAdsControllPanel extends JPanel {
         fontSizes.setSelectedItem(72);
         //callback
         fontSizes.addActionListener(event -> {
-            //Font curr = visualizingPanel.getTextField().getFont();
-            //visualizingPanel.getTextField().setFont(new Font(curr.getName(), curr.getStyle(), (int)fontSizes.getSelectedItem()));
-            //visualizingPanel.repaint();
+            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+            SimpleAttributeSet fontSizeSet = new SimpleAttributeSet();
+            StyleConstants.setFontSize(fontSizeSet, (int)fontSizes.getSelectedItem());
+            doc.setParagraphAttributes(0, doc.getLength(), fontSizeSet, false);
         });
 
         fullComponent.add(fontSizes);
@@ -166,15 +202,19 @@ public class ContentAdsControllPanel extends JPanel {
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int mode = 0;
-                if (bold.isSelected())
-                    mode += Font.BOLD;
-                if (italic.isSelected())
-                    mode += Font.ITALIC;
+                StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+                SimpleAttributeSet fontStyle = new SimpleAttributeSet();
 
-                //Font curr = visualizingPanel.getTextField().getFont();
-                //visualizingPanel.getTextField().setFont(new Font(curr.getName(), mode, curr.getSize()));
-                //visualizingPanel.repaint();
+                if (bold.isSelected())
+                    StyleConstants.setBold(fontStyle, true);
+                else
+                    StyleConstants.setBold(fontStyle, false);
+                if (italic.isSelected())
+                    StyleConstants.setItalic(fontStyle, true);
+                else
+                    StyleConstants.setItalic(fontStyle, false);
+
+                doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
             }
         };
 
@@ -197,22 +237,29 @@ public class ContentAdsControllPanel extends JPanel {
         JRadioButton left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
         left.addActionListener(event->{
-            //visualizingPanel.getTextField().setHorizontalAlignment(JTextField.LEFT);
-            //visualizingPanel.repaint();
+            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+            SimpleAttributeSet leftSet = new SimpleAttributeSet();
+            StyleConstants.setAlignment(leftSet, StyleConstants.ALIGN_LEFT);
+            doc.setParagraphAttributes(0, doc.getLength(), leftSet, false);
         });
 
-        JRadioButton center = new JRadioButton("CENTER", false);
+        JRadioButton center = new JRadioButton("JUSTIFY", false);
         center.setBackground(Color.white);
         center.addActionListener(event->{
-            //visualizingPanel.getTextField().setHorizontalAlignment(JTextField.CENTER);
-            //visualizingPanel.repaint();
+            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+            SimpleAttributeSet justify = new SimpleAttributeSet();
+            StyleConstants.setAlignment(justify, StyleConstants.ALIGN_JUSTIFIED);
+            doc.setParagraphAttributes(0, doc.getLength(), justify, false);
+
         });
 
         JRadioButton right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
         right.addActionListener(event->{
-            // visualizingPanel.getTextField().setHorizontalAlignment(JTextField.RIGHT);
-            //visualizingPanel.repaint();
+            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
+            SimpleAttributeSet rightSet = new SimpleAttributeSet();
+            StyleConstants.setAlignment(rightSet, StyleConstants.ALIGN_RIGHT);
+            doc.setParagraphAttributes(0, doc.getLength(), rightSet, false);
         });
 
         radioButtons.add(left);
@@ -236,8 +283,7 @@ public class ContentAdsControllPanel extends JPanel {
             fontColors = new JColorComboBox();
             fontColors.setSelectedItem("BLACK");
             fontColors.addActionListener(event->{
-                //visualizingPanel.getTextField().setForeground(fontColors.getSelectedColor());
-                //visualizingPanel.repaint();
+                visualizingPanel.getFields().get(currField).setForeground(fontColors.getSelectedColor());
             });
 
             fullComponent.add(fontColors);
@@ -246,8 +292,7 @@ public class ContentAdsControllPanel extends JPanel {
             backgroundColors = new JColorComboBox();
             backgroundColors.setSelectedItem("WHITE");
             backgroundColors.addActionListener(event->{
-                //visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
-                //visualizingPanel.repaint();
+                visualizingPanel.getFields().get(currField).setBackground(backgroundColors.getSelectedColor());
             });
 
             fullComponent.add(backgroundColors);
