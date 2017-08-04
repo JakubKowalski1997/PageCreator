@@ -2,10 +2,9 @@ package MainEditor;
 
 import MainEditor.MVCTitle.TitleController;
 import MainEditor.MVCTitle.TitleView;
-import MainEditor.TemplatePanels.ContentAdsControllPanel;
-import MainEditor.TemplatePanels.ContentAdsVisualizingPanel;
-import MainEditor.TemplatePanels.MenuControllerPanel;
-import MainEditor.TemplatePanels.MenuVisualizingPanel;
+import MainEditor.Template01.Template01View;
+import MainEditor.Template02.Template02View;
+import MainEditor.Template03.Template03View;
 import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
@@ -15,11 +14,11 @@ import java.awt.*;
  * Created by Wiktor Łazarski on 21.07.2017.
  */
 public class MainEditorWindow extends JFrame{
-    //screen size
-    Dimension screen = getToolkit().getScreenSize();
-
     //panels
     private TitleView titleView;
+    private Template01View template01View = null;
+    private Template02View template02View = null;
+    private Template03View template03View = null;
 
     private void setDefaultOptions(){
         //getting screen dimensions
@@ -97,12 +96,12 @@ public class MainEditorWindow extends JFrame{
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        createTemplate03();
+        template03View = new Template03View(this);
 
         setDefaultOptions();
     }
 
-    private void createTemplate01(){
+    /*private void createTemplate01(){
         JPanel template011 = new JPanel(new GridBagLayout());
         template011.setBackground(Color.white);
         GridBagConstraints constraints = new GridBagConstraints();
@@ -246,5 +245,5 @@ public class MainEditorWindow extends JFrame{
         template012.add(adsVisualizingPanel, constraints);
 
         add(template012);
-    }
+    }*/
 }
