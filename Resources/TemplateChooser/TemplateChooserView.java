@@ -55,21 +55,24 @@ public class TemplateChooserView extends JFrame {
         JButton button = new JButton("Next step");
         button.addActionListener(event -> {
 
-            if(radioButtonsArray.get(0).isSelected()){
-                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
-            }
-            else if(radioButtonsArray.get(1).isSelected()){
-                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.SECOND));
-            }
-            else if(radioButtonsArray.get(2).isSelected()){
-                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
-            }
-
             //hiding current window
             this.dispose();
 
-            //starting next window
-            JFrame next = new MainEditorWindow();
+            if(radioButtonsArray.get(0).isSelected()){
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.FIRST);
+            }
+            else if(radioButtonsArray.get(1).isSelected()){
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.SECOND));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.SECOND);
+            }
+            else if(radioButtonsArray.get(2).isSelected()){
+                TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.THIRD);
+            }
         });
         southPanel.add(button);
 

@@ -1,9 +1,17 @@
 package MainEditor;
 
 import MainEditor.MVCTitle.TitleController;
-import MainEditor.MVCTitle.TitleModel;
 import MainEditor.MVCTitle.TitleView;
+import MainEditor.Template01.Template01Controller;
+import MainEditor.Template01.Template01View;
+import MainEditor.Template02.Template02Controller;
+import MainEditor.Template02.Template02View;
+import MainEditor.Template03.Template03Controller;
+import MainEditor.Template03.Template03Model;
+import MainEditor.Template03.Template03View;
 import TemplateHandlerClasses.TemplateHandler;
+import TemplateHandlerClasses.Templates;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +20,11 @@ import java.awt.*;
  * Created by Wiktor Łazarski on 21.07.2017.
  */
 public class MainEditorWindow extends JFrame{
-
     //panels
     private TitleView titleView;
+    private Template01View template01View = null;
+    private Template02View template02View = null;
+    private Template03View template03View = null;
 
     private void setDefaultOptions(){
         //getting screen dimensions
@@ -59,7 +69,27 @@ public class MainEditorWindow extends JFrame{
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
 
-            TitleModel titleModel = titleController.getTitleModel();
+            //next step different 3 ways to follow
+            if(template01View != null){
+                Template01Controller controller = new Template01Controller(template01View);
+                TemplateModel templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
+
+            if(template02View != null){
+                Template02Controller controller = new Template02Controller(template02View);
+                TemplateModel templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
+
+            if(template03View != null){
+                Template03Controller controller = new Template03Controller(template03View);
+                Template03Model templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
         });
         fileMenu.add(save);
 
@@ -72,6 +102,8 @@ public class MainEditorWindow extends JFrame{
             /*todo:
             PRINT SMALL TUTORIAL IN JOptionPane
              */
+            //Template02Controller controller = new Template02Controller(template02View);
+            //controller.getModel().getContentFontColor(0);
         });
 
         JMenuItem about = new JMenuItem("About program");
@@ -85,18 +117,25 @@ public class MainEditorWindow extends JFrame{
         infosMenu.add(about);
     }
 
-    public MainEditorWindow(){
+    public MainEditorWindow(TemplateHandlerClasses.Templates choosen){
         //setting layout manager
-        setLayout(new FlowLayout(FlowLayout.CENTER));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
         getContentPane().setBackground(Color.white);
 
         createMenu();
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        add(titleView);
+
+        switch(choosen){
+            case FIRST:
+                template01View = new Template01View(this); break;
+            case SECOND:
+                template02View = new Template02View(this); break;
+            case THIRD:
+                template03View = new Template03View(this); break;
+        }
 
         setDefaultOptions();
     }
-
 }

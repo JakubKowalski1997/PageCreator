@@ -1,4 +1,4 @@
-package MainEditor.MVCTitle;
+package MainEditor.TemplatePanels;
 
 import MainEditor.JColorComboBox;
 
@@ -9,36 +9,57 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Wiktor Łazarski on 21.07.2017.
+ * Created by Wiktor Łazarski on 26.07.2017.
  */
-public class TitleView extends JPanel {
+public class MenuControllerPanel extends JPanel {
 
     //attributes
     private Dimension screenSize;
     private String[] fonts;
     private int[] fontSizes;
-    //all infos to create model will be taken from that panel
-    private HTMLTitlePreviewPanel visualizingPanel;
-    public HTMLTitlePreviewPanel returnVisualizingPanel(){return visualizingPanel;}
+    //panel which show changes in controller
+    private MenuVisualizingPanel visualizingPanel;
+    public MenuVisualizingPanel getVisulizingPanel(){return visualizingPanel;}
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
     public JColorComboBox getFontColors(){return fontColors;}
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
+    //constructor
+    public MenuControllerPanel(MenuVisualizingPanel visualizingPanel){
+        this.visualizingPanel = visualizingPanel;
+
+        //getting all options for comboboxes
+        fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        fontSizes = new int[]{16, 18, 20, 22, 24, 26, 28, 36, 48, 72, 96, 130, 154, 170};
+
+        //get screen size
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        screenSize = kit.getScreenSize();
+
+        setLayout(new FlowLayout(FlowLayout.LEFT, 5 , 5));
+        setBackground(Color.white);
+
+        //add components
+        add(editComponents());
+    }
+
     //edit components
-    private JPanel editComponents(){
-        JPanel editComponentsPanel = new JPanel(new GridLayout(6, 1));
+    private JPanel editComponents() {
+        JPanel editComponentsPanel = new JPanel(new GridLayout(7, 1));
 
         //create and set border
         Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "Title atributes");
+        Border title = BorderFactory.createTitledBorder(etched, "Menu atributes");
         editComponentsPanel.setBorder(title);
 
         //set size
-        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, screenSize.height / 5));
+        editComponentsPanel.setPreferredSize(new Dimension(screenSize.width / 3, (int)(screenSize.height / 4.25)));
 
         //add components
+        //Add and delete menu div panel
+        createAndAddButtonsMenuDiv(editComponentsPanel, "Menu option : ");
         //Font type
         createAndAddComboBoxFontNames(editComponentsPanel, "Font : ");
         //Font size
@@ -56,41 +77,31 @@ public class TitleView extends JPanel {
         return editComponentsPanel;
     }
 
-    //visualizing HTML page title components
-    private JPanel visualComponents(){
-        JPanel visualComponentsPanel = new JPanel(new GridLayout(1,1));
+    private void createAndAddButtonsMenuDiv(JPanel container, String label){
+        JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fullComponent.setBackground(Color.white);
+        fullComponent.add(new JLabel(label));
 
-        //create and add border
-        Border etched = BorderFactory.createEtchedBorder();
-        Border title = BorderFactory.createTitledBorder(etched, "Title current view");
-        visualComponentsPanel.setBorder(title);
+        //buttons
+        JButton addBtn = new JButton(" Add ");
+        addBtn.addActionListener(event->{
+            //callback
+            visualizingPanel.add();
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
+        });
+        fullComponent.add(addBtn);
 
-        //set size
-        visualComponentsPanel.setPreferredSize(new Dimension((int)(screenSize.width / 1.53), screenSize.height / 5));
+        JButton deleteBtn = new JButton(" Delete ");
+        deleteBtn.addActionListener(event->{
+            //callback
+            visualizingPanel.delete();
+            visualizingPanel.revalidate();
+            visualizingPanel.repaint();
+        });
+        fullComponent.add(deleteBtn);
 
-        visualizingPanel = new HTMLTitlePreviewPanel(visualComponentsPanel);
-
-        return visualComponentsPanel;
-    }
-
-    //constructor
-    public TitleView(JFrame window){
-        //getting all options for comboboxes
-        fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-        fontSizes = new int[]{16, 18, 20, 22, 24, 26, 28, 36, 48, 72, 96, 130, 154, 170};
-
-        //get screen size
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        screenSize = kit.getScreenSize();
-
-        setLayout(new FlowLayout(FlowLayout.LEFT, 5 , 0));
-        setBackground(Color.white);
-
-        //add components
-        add(editComponents());
-        add(visualComponents());
-
-        window.add(this);
+        container.add(fullComponent);
     }
 
     private void createAndAddComboBoxFontNames(JPanel container, String label){
@@ -106,8 +117,11 @@ public class TitleView extends JPanel {
         fontNames.setModel(fonts);
         //callback
         fontNames.addActionListener(event -> {
-            Font curr = visualizingPanel.getTextField().getFont();
-            visualizingPanel.getTextField().setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                Font curr = visualizingPanel.getFields().get(i).getFont();
+                visualizingPanel.getFields().get(i)
+                        .setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
+            }
             visualizingPanel.repaint();
         });
 
@@ -127,8 +141,11 @@ public class TitleView extends JPanel {
         fontSizes.setSelectedItem(72);
         //callback
         fontSizes.addActionListener(event -> {
-            Font curr = visualizingPanel.getTextField().getFont();
-            visualizingPanel.getTextField().setFont(new Font(curr.getName(), curr.getStyle(), (int)fontSizes.getSelectedItem()));
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                Font curr = visualizingPanel.getFields().get(i).getFont();
+                visualizingPanel.getFields().get(i)
+                        .setFont(new Font(curr.getName(), curr.getStyle(), (int)fontSizes.getSelectedItem()));
+            }
             visualizingPanel.repaint();
         });
 
@@ -156,8 +173,11 @@ public class TitleView extends JPanel {
                 if (italic.isSelected())
                     mode += Font.ITALIC;
 
-                Font curr = visualizingPanel.getTextField().getFont();
-                visualizingPanel.getTextField().setFont(new Font(curr.getName(), mode, curr.getSize()));
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    Font curr = visualizingPanel.getFields().get(i).getFont();
+                    visualizingPanel.getFields().get(i)
+                            .setFont(new Font(curr.getName(), mode, curr.getSize()));
+                }
                 visualizingPanel.repaint();
             }
         };
@@ -181,21 +201,27 @@ public class TitleView extends JPanel {
         JRadioButton left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
         left.addActionListener(event->{
-            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.LEFT);
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.LEFT);
+            }
             visualizingPanel.repaint();
         });
 
         JRadioButton center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
         center.addActionListener(event->{
-            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.CENTER);
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.CENTER);
+            }
             visualizingPanel.repaint();
         });
 
         JRadioButton right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
         right.addActionListener(event->{
-            visualizingPanel.getTextField().setHorizontalAlignment(JTextField.RIGHT);
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                visualizingPanel.getFields().get(i).setHorizontalAlignment(JTextField.RIGHT);
+            }
             visualizingPanel.repaint();
         });
 
@@ -220,7 +246,9 @@ public class TitleView extends JPanel {
             fontColors = new JColorComboBox();
             fontColors.setSelectedItem("BLACK");
             fontColors.addActionListener(event->{
-                visualizingPanel.getTextField().setForeground(fontColors.getSelectedColor());
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    visualizingPanel.getFields().get(i).setForeground(fontColors.getSelectedColor());
+                }
                 visualizingPanel.repaint();
             });
 
@@ -230,8 +258,13 @@ public class TitleView extends JPanel {
             backgroundColors = new JColorComboBox();
             backgroundColors.setSelectedItem("WHITE");
             backgroundColors.addActionListener(event->{
-                visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
+
+                for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                    visualizingPanel.getFields().get(i).setBackground(backgroundColors.getSelectedColor());
+                }
                 visualizingPanel.repaint();
+                //visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
+                //visualizingPanel.repaint();
             });
 
             fullComponent.add(backgroundColors);
