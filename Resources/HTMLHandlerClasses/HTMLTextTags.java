@@ -5,7 +5,7 @@ package HTMLHandlerClasses;
 
 public enum HTMLTextTags {
     H1, H2, H3, H4,
-    H5, H6, P, EM, TITLE;
+    H5, H6, P, EM, TITLE, A;
 
     public String toString() {
         return super.toString().toLowerCase();

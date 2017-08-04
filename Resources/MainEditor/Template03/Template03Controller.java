@@ -2,8 +2,16 @@ package MainEditor.Template03;
 
 import MainEditor.Template02.Template02View;
 import MainEditor.TemplateModel;
+import TemplateEditor.MenuEditor.HTMLMenuEditor;
+import TemplateEditor.TemplateEditor;
+import TemplateHandlerClasses.PageTemplate;
+import TemplateHandlerClasses.TemplateHandler;
+import TemplateHandlerClasses.Templates;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
@@ -59,4 +67,18 @@ public class Template03Controller {
         }
     }
 
+    public void editHTMLCSS() {
+        PageTemplate template = TemplateHandler.getInstance().getPageTemplate();
+
+        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        Collections.addAll(editors, HTMLMenuEditor.getOptionEditor(Arrays.asList(model.getMenuTexts()), Templates.THIRD),
+                HTMLMenuEditor.getTextColorEditor(model.getMenuFontColor()),
+                HTMLMenuEditor.getBackgroundColorEditor(model.getMenuBackgroundColor()),
+                HTMLMenuEditor.getFontEditor(model.getMenuFont()),
+                HTMLMenuEditor.getPositionEditor(model.getMenuPosition()));
+
+        for (TemplateEditor editor : editors) {
+            editor.edit(template);
+        }
+    }
 }

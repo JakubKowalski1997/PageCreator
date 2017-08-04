@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javafx.util.Pair;
 
 public abstract class HTMLTag {
-    private ArrayList<TagAttribute> atts;
+    private List<TagAttribute> atts;
     private ContainerTag parent = null;
 
     protected static final char leftTagParenthesis = '<';
@@ -17,7 +17,7 @@ public abstract class HTMLTag {
 
 
     public HTMLTag(List<TagAttribute> attributes) {
-        this.atts = (ArrayList<TagAttribute>) attributes;
+        this.atts = (List<TagAttribute>) attributes;
     }
 
     protected String attributeListToString() {
