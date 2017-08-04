@@ -6,8 +6,12 @@ import MainEditor.Template01.Template01Controller;
 import MainEditor.Template01.Template01View;
 import MainEditor.Template02.Template02Controller;
 import MainEditor.Template02.Template02View;
+import MainEditor.Template03.Template03Controller;
+import MainEditor.Template03.Template03Model;
 import MainEditor.Template03.Template03View;
 import TemplateHandlerClasses.TemplateHandler;
+import TemplateHandlerClasses.Templates;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,6 +68,28 @@ public class MainEditorWindow extends JFrame{
             titleController.editHTMLCSS();
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
+
+            //next step different 3 ways to follow
+            if(template01View != null){
+                Template01Controller controller = new Template01Controller(template01View);
+                TemplateModel templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
+
+            if(template02View != null){
+                Template02Controller controller = new Template02Controller(template02View);
+                TemplateModel templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
+
+            if(template03View != null){
+                Template03Controller controller = new Template03Controller(template03View);
+                Template03Model templateModel = controller.getModel();
+                //Konrad changing it into HTML
+
+            }
         });
         fileMenu.add(save);
 
@@ -91,7 +117,7 @@ public class MainEditorWindow extends JFrame{
         infosMenu.add(about);
     }
 
-    public MainEditorWindow(){
+    public MainEditorWindow(TemplateHandlerClasses.Templates choosen){
         //setting layout manager
         setLayout(new FlowLayout(FlowLayout.LEFT));
         getContentPane().setBackground(Color.white);
@@ -100,7 +126,15 @@ public class MainEditorWindow extends JFrame{
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        template02View = new Template02View(this);
+
+        switch(choosen){
+            case FIRST:
+                template01View = new Template01View(this); break;
+            case SECOND:
+                template02View = new Template02View(this); break;
+            case THIRD:
+                template03View = new Template03View(this); break;
+        }
 
         setDefaultOptions();
     }

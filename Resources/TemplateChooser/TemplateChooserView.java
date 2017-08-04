@@ -60,16 +60,19 @@ public class TemplateChooserView extends JFrame {
 
             if(radioButtonsArray.get(0).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.FIRST));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.FIRST);
             }
             else if(radioButtonsArray.get(1).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.SECOND));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.SECOND);
             }
             else if(radioButtonsArray.get(2).isSelected()){
                 TemplateHandler.getInstance().setPageTemplate(TemplateFactory.getInstance().create(Templates.THIRD));
+                //starting next window
+                JFrame next = new MainEditorWindow(Templates.THIRD);
             }
-
-            //starting next window
-            JFrame next = new MainEditorWindow();
         });
         southPanel.add(button);
 
