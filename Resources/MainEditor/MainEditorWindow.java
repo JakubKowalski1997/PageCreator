@@ -4,6 +4,7 @@ import MainEditor.MVCTitle.TitleController;
 import MainEditor.MVCTitle.TitleView;
 import MainEditor.Template01.Template01Controller;
 import MainEditor.Template01.Template01View;
+import MainEditor.Template02.Template02Controller;
 import MainEditor.Template02.Template02View;
 import MainEditor.Template03.Template03View;
 import TemplateHandlerClasses.TemplateHandler;
@@ -75,7 +76,7 @@ public class MainEditorWindow extends JFrame{
             /*todo:
             PRINT SMALL TUTORIAL IN JOptionPane
              */
-           // Template01Controller controller = new Template01Controller(template01View);
+            //Template02Controller controller = new Template02Controller(template02View);
             //controller.getModel().getContentFontColor(0);
         });
 
@@ -99,7 +100,7 @@ public class MainEditorWindow extends JFrame{
 
         //adding title, manu and content panels
         titleView = new TitleView(this);
-        template03View = new Template03View(this);
+        template02View = new Template02View(this);
 
         setDefaultOptions();
     }

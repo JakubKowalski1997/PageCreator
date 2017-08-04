@@ -1,4 +1,4 @@
-package MainEditor.Template01;
+package MainEditor;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
  */
-public class Template01Model {
+public class TemplateModel {
 
     //menu attributes
     private int menuSize;       //number of dives to place on website

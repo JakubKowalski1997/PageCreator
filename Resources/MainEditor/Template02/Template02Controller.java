@@ -1,4 +1,4 @@
-package MainEditor.Template01;
+package MainEditor.Template02;
 
 import MainEditor.TemplateModel;
 
@@ -7,12 +7,12 @@ import javax.swing.*;
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
  */
-public class Template01Controller {
+public class Template02Controller {
 
     private TemplateModel model;
     public TemplateModel getModel(){return model;}
 
-    public Template01Controller(Template01View view){
+    public Template02Controller(Template02View view){
         //creating model
         model = new TemplateModel();
 
@@ -23,7 +23,7 @@ public class Template01Controller {
         model.setIframes(view.contentAdsVisualizingPanel.getFields());
     }
 
-    private void createMenuModel(Template01View view){
+    private void createMenuModel(Template02View view){
 
         //adding menu size
         model.setMenuSize(view.menuVisualizingPanel.getFields().size());
@@ -54,4 +54,5 @@ public class Template01Controller {
                 model.setMenuPosition("right");break;
         }
     }
+
 }
