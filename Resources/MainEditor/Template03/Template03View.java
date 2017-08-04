@@ -19,6 +19,7 @@ public class Template03View {
 
     //atributes
     public MenuVisualizingPanel menuVisualizingPanel;
+    public MenuControllerPanel menuControllerPanel;
     public ContentAdsVisualizingPanel contentVisualizingPanel;
     public ContentAdsVisualizingPanel adsVisualizingPanel;
 
@@ -31,7 +32,7 @@ public class Template03View {
         menuVisualizingPanel =
                 new MenuVisualizingPanel(150, (int)(screen.height / 1.47), false);
 
-        MenuControllerPanel menuControllerPanel =
+        menuControllerPanel =
                 new MenuControllerPanel(menuVisualizingPanel);
 
         //content
