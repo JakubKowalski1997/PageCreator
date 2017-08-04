@@ -18,6 +18,7 @@ public class Template01View{
 
     //atributes
     public MenuVisualizingPanel menuVisualizingPanel;
+    public MenuControllerPanel menuControllerPanel;
     public ContentAdsVisualizingPanel contentAdsVisualizingPanel;
 
     public Template01View(JFrame window){
@@ -29,12 +30,12 @@ public class Template01View{
         menuVisualizingPanel =
                 new MenuVisualizingPanel(150, (int)(screen.height / 1.47), false);
 
-        MenuControllerPanel menuControllerPanel =
+        menuControllerPanel =
                 new MenuControllerPanel(menuVisualizingPanel);
 
         //content
         contentAdsVisualizingPanel
-                = new ContentAdsVisualizingPanel((int)(screen.width / 1.747), (int)(screen.height / 1.47),"Content...");
+                = new ContentAdsVisualizingPanel((int)(screen.width / 1.747), (int)(screen.height / 1.47),"Content");
 
         constraints.weightx = 0;
         constraints.weighty = 0;

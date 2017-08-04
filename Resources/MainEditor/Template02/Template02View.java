@@ -47,7 +47,7 @@ public class Template02View {
 
         //content
         contentAdsVisualizingPanel
-                = new ContentAdsVisualizingPanel((int)(screen.width / 1.53), (int)(screen.width / 3),"Content...");
+                = new ContentAdsVisualizingPanel((int)(screen.width / 1.53), (int)(screen.width / 3),"Content");
 
         constraints.gridx = 0;
         constraints.gridy = 2;
