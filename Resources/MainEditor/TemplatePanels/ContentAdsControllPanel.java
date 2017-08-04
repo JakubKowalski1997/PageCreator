@@ -94,6 +94,32 @@ public class ContentAdsControllPanel extends JPanel {
         return editComponentsPanel;
     }
 
+    //use to actualize content number in next and prev button's callbacks
+    private boolean updateContentNumber(){
+        //case we delete menu div
+        if(visualizingPanel.getFields().size() > gridN){
+            visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
+
+            for(int i = visualizingPanel.getFields().size(); i > gridN; i--) {
+                visualizingPanel.delete();
+            }
+
+            currField = gridN - 1;
+
+            visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(currField));
+            return true;
+        }
+        //case we add menu div
+        if(visualizingPanel.getFields().size() < gridN){
+
+            for(int i = visualizingPanel.getFields().size(); i < gridN; i++) {
+                visualizingPanel.add();
+            }
+        }
+
+        return false;
+    }
+
     private void createAndAddButtonsToSelectCurrContent(JPanel container, String label){
         JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
         fullComponent.setBackground(Color.white);
@@ -103,31 +129,21 @@ public class ContentAdsControllPanel extends JPanel {
         JButton prevBtn = new JButton(" Previous ");
         prevBtn.addActionListener(event->{
             //callback
-            /*if(visualizingPanel.getFields().size() != gridN){
-                for(int i = gridN; i < visualizingPanel.getFields().size(); i++) {
-                    visualizingPanel.delete();
-                }
-            }*/
 
-            if(currField == 0) {
+            if(currField == 0 || updateContentNumber()) {
                 return;
             }
 
             visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
 
             visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(--currField));
-            visualizingPanel.revalidate();
-            visualizingPanel.repaint();
         });
         fullComponent.add(prevBtn);
 
         JButton nextBtn = new JButton(" Next ");
         nextBtn.addActionListener(event->{
             //callback
-            if(visualizingPanel.getFields().size() != gridN){
-                for(int i = visualizingPanel.getFields().size(); i < gridN; i++)
-                    visualizingPanel.add();
-            }
+            updateContentNumber();
 
             if(currField >= gridN - 1)
                 return;
@@ -135,8 +151,6 @@ public class ContentAdsControllPanel extends JPanel {
             visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
 
             visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(++currField));
-            visualizingPanel.revalidate();
-            visualizingPanel.repaint();
         });
         fullComponent.add(nextBtn);
 
@@ -243,13 +257,13 @@ public class ContentAdsControllPanel extends JPanel {
             doc.setParagraphAttributes(0, doc.getLength(), leftSet, false);
         });
 
-        JRadioButton center = new JRadioButton("JUSTIFY", false);
+        JRadioButton center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
         center.addActionListener(event->{
             StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
-            SimpleAttributeSet justify = new SimpleAttributeSet();
-            StyleConstants.setAlignment(justify, StyleConstants.ALIGN_JUSTIFIED);
-            doc.setParagraphAttributes(0, doc.getLength(), justify, false);
+            SimpleAttributeSet centerSet = new SimpleAttributeSet();
+            StyleConstants.setAlignment(centerSet, StyleConstants.ALIGN_CENTER);
+            doc.setParagraphAttributes(0, doc.getLength(), centerSet, false);
 
         });
 
@@ -300,5 +314,4 @@ public class ContentAdsControllPanel extends JPanel {
 
         container.add(fullComponent);
     }
-
 }

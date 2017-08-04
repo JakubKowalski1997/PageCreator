@@ -62,7 +62,6 @@ public class ContentAdsVisualizingPanel extends JPanel {
         if(fields.size() == 1)
             return;
 
-        fields.remove(gridN - 1);
+        fields.remove(fields.size() - 1);
     }
-
 }
