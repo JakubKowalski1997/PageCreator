@@ -93,4 +93,9 @@ public class TestHTMLDocumentHandler extends Test {
 
         reportResults();
     }
+
+    public static void main(String[] args) {
+        TestHTMLDocumentHandler test = new TestHTMLDocumentHandler();
+        test.test();
+    }
 }

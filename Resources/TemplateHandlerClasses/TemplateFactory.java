@@ -20,9 +20,9 @@ public class TemplateFactory {
 
     TemplateFactory() {
         final String directoryPath = "Resources/TemplateHandlerClasses/";
-        registerTemplate(Templates.FIRST,  directoryPath + "First/index.html", directoryPath + "First/main.css");
-        registerTemplate(Templates.SECOND, directoryPath + "Second/index.html", directoryPath + "Second/main.css");
-        registerTemplate(Templates.THIRD, directoryPath + "Third/index.html",  directoryPath + "Third/main.css");
+        registerTemplate(Templates.FIRST,  directoryPath + "First/index.htm", directoryPath + "First/main.css");
+        registerTemplate(Templates.SECOND, directoryPath + "Second/index.htm", directoryPath + "Second/main.css");
+        registerTemplate(Templates.THIRD, directoryPath + "Third/index.htm",  directoryPath + "Third/main.css");
     }
 
     private void registerTemplate(Templates key, String htmlPath, String cssPath) {

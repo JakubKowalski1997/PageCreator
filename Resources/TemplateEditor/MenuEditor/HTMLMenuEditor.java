@@ -5,11 +5,12 @@ package TemplateEditor.MenuEditor;
  */
 
 import HTMLHandlerClasses.*;
-import TemplateEditor.TemplateEditor;
+import TemplateEditor.PageEditor;
 import TemplateHandlerClasses.Templates;
 
 import TemplateEditor.BasicHTMLEditors;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Arrays;
 import java.awt.Font;
@@ -17,7 +18,7 @@ import java.awt.Font;
 public class HTMLMenuEditor {
     static final String sectionName = "Menu";
 
-    public static TemplateEditor getOptionEditor(List<String> options, Templates kind) {
+    public static PageEditor getOptionEditor(List<String> options, Templates kind) {
         if (kind.equals(Templates.SECOND)) {
             return template -> {
                 HTMLDocument htmlDocument = template.getHTMLDoc();
@@ -26,7 +27,9 @@ public class HTMLMenuEditor {
 
                 for (String option : options) {
                     ContainerTag td = new ContainerTag(HTMLContainerTags.TD);
-                    td.addNestedTag(new TextTag(HTMLTextTags.A, option));
+                    ArrayList<TagAttribute> attributes = new ArrayList<>();
+                    Collections.addAll(attributes, new TagAttribute("href", option + ".html"), new TagAttribute("target", "iframe"));
+                    td.addNestedTag(new TextTag(HTMLTextTags.A, attributes, option));
                     newTags.add(td);
                 }
 
@@ -54,7 +57,9 @@ public class HTMLMenuEditor {
                 for (String option : options) {
                     ContainerTag tr = new ContainerTag(HTMLContainerTags.TR);
                     ContainerTag td = new ContainerTag(HTMLContainerTags.TD);
-                    td.addNestedTag(new TextTag(HTMLTextTags.A, option));
+                    ArrayList<TagAttribute> attributes = new ArrayList<>();
+                    Collections.addAll(attributes, new TagAttribute("href", option + ".html"), new TagAttribute("target", "iframe"));
+                    td.addNestedTag(new TextTag(HTMLTextTags.A, attributes, option));
                     tr.addNestedTag(td);
                     newTags.add(tr);
                 }
@@ -72,19 +77,19 @@ public class HTMLMenuEditor {
         }
     }
 
-    public static TemplateEditor getBackgroundColorEditor(String color) {
+    public static PageEditor getBackgroundColorEditor(String color) {
         return BasicHTMLEditors.getBackgroundColorEditor(color, sectionName);
     }
 
-    public static TemplateEditor getTextColorEditor(String color) {
+    public static PageEditor getTextColorEditor(String color) {
         return BasicHTMLEditors.getTextColorEditor(color, sectionName);
     }
 
-    public static TemplateEditor getPositionEditor(String position) {
+    public static PageEditor getPositionEditor(String position) {
         return BasicHTMLEditors.getPositionEditor(position, sectionName);
     }
 
-    public static TemplateEditor getFontEditor(Font font) {
+    public static PageEditor getFontEditor(Font font) {
         return BasicHTMLEditors.getFontEditor(font, sectionName);
     }
 }

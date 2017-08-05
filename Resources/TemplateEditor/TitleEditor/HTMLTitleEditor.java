@@ -2,7 +2,7 @@ package TemplateEditor.TitleEditor;
 
 import CSSHandlerClasses.*;
 import HTMLHandlerClasses.*;
-import TemplateEditor.TemplateEditor;
+import TemplateEditor.PageEditor;
 import TemplateEditor.BasicHTMLEditors;
 
 import java.awt.Font;
@@ -17,35 +17,23 @@ public class HTMLTitleEditor {
 
     private static final String sectionName = "Title";
 
-    public static TemplateEditor getTextColorEditor(String color) {
+    public static PageEditor getTextColorEditor(String color) {
             return BasicHTMLEditors.getTextColorEditor(color, sectionName);
     }
 
-    public static TemplateEditor getBackgroundColorEditor(String color) {
+    public static PageEditor getBackgroundColorEditor(String color) {
         return BasicHTMLEditors.getBackgroundColorEditor(color, sectionName);
     }
 
-    public static TemplateEditor getFontEditor(Font font) {
+    public static PageEditor getFontEditor(Font font) {
         return BasicHTMLEditors.getFontEditor(font, sectionName);
     }
 
-    public static TemplateEditor getPositionEditor(String position) {
+    public static PageEditor getPositionEditor(String position) {
         return BasicHTMLEditors.getPositionEditor(position, sectionName);
     }
 
-    public static TemplateEditor getTextEditor(String text) {
-        return template -> {
-            HTMLDocument htmlDocument = template.getHTMLDoc();
-            HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
-
-            try {
-                TextTag titleTag = (TextTag) handler.getTag(htmlDocument, HTMLContainerTags.DIV,
-                        Arrays.asList(new TagAttribute("class", "Title")), 0);
-                titleTag.setText(text);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
+    public static PageEditor getTextEditor(String text) {
+        return BasicHTMLEditors.getTextEditor(text, sectionName);
     }
 }
