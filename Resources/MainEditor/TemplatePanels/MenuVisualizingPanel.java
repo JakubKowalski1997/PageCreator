@@ -72,6 +72,7 @@ public class MenuVisualizingPanel extends JPanel {
         newField.setBackground(currStyle.getBackground());
         newField.setForeground(currStyle.getForeground());
         newField.setHorizontalAlignment(currStyle.getHorizontalAlignment());
+        newField.setBorder(null);
         fields.add(newField);
 
         add(fields.get(gridN - 1));

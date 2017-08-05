@@ -52,28 +52,20 @@ public class MenuControllerPanel extends JPanel {
             Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
 
             //finding current selected menu
-            int currSelectedMenu = 0;
-
             for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
                 if(visualizingPanel.getFields().get(i).getBorder() != null)
-                    currSelectedMenu = i; break;
+                    visualizingPanel.getFields().get(i).setBorder(titledCurrSelected);
             }
-
-            visualizingPanel.getFields().get(currSelectedMenu).setBorder(titledCurrSelected);
         }
         if(backgroundColors.getSelectedColor().equals(Color.RED)){
             Border currSelected = BorderFactory.createLineBorder(Color.GREEN, 5);
             Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
 
             //finding current selected menu
-            int currSelectedMenu = 0;
-
             for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
                 if(visualizingPanel.getFields().get(i).getBorder() != null)
-                    currSelectedMenu = i; break;
+                    visualizingPanel.getFields().get(i).setBorder(titledCurrSelected);
             }
-
-            visualizingPanel.getFields().get(currSelectedMenu).setBorder(titledCurrSelected);
         }
     }
 
@@ -127,6 +119,13 @@ public class MenuControllerPanel extends JPanel {
         JButton deleteBtn = new JButton(" Delete ");
         deleteBtn.addActionListener(event->{
             //callback
+            //checking if we don't delete bordered menu div
+            if(visualizingPanel.getFields().get(visualizingPanel.getFields().size() - 1).getBorder() != null){
+                JOptionPane.showMessageDialog(null, "Cannot delete current editing content",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             visualizingPanel.delete();
             visualizingPanel.revalidate();
             visualizingPanel.repaint();
