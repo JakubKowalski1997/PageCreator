@@ -4,6 +4,8 @@ import MainEditor.TemplateModel;
 
 import javax.swing.*;
 
+import static MainEditor.TemplatePanels.MenuVisualizingPanel.gridN;
+
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
  */
@@ -20,6 +22,15 @@ public class Template02Controller {
         createMenuModel(view);
 
         //content attributes
+        //checking if Array of JTextPane as the same size as number of menu JTextLabels
+        if(view.contentAdsVisualizingPanel.getFields().size() > gridN){
+            for(int i = gridN; i <= view.contentAdsVisualizingPanel.getFields().size(); i++)
+                view.contentAdsVisualizingPanel.delete();
+        }
+        else if(view.contentAdsVisualizingPanel.getFields().size() < gridN){
+            for(int i = view.contentAdsVisualizingPanel.getFields().size(); i < gridN; i++)
+                view.contentAdsVisualizingPanel.add();
+        }
         model.setIframes(view.contentAdsVisualizingPanel.getFields());
     }
 

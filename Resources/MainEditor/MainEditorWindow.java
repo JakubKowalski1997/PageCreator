@@ -103,7 +103,7 @@ public class MainEditorWindow extends JFrame{
             PRINT SMALL TUTORIAL IN JOptionPane
              */
            // Template03Controller controller = new Template03Controller(template03View);
-           // System.out.print(controller.getModel().getAdsTextPosition());
+            //System.out.print(controller.getModel().getContentNumber());
         });
 
         JMenuItem about = new JMenuItem("About program");

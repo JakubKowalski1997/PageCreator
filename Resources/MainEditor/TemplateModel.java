@@ -7,6 +7,8 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static MainEditor.TemplatePanels.MenuVisualizingPanel.gridN;
+
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
  */
@@ -49,9 +51,7 @@ public class TemplateModel {
         this.position = position;
     }
 
-    public void setIframes(ArrayList<JTextPane> iframes) {
-        this.iframes = iframes;
-    }
+    public void setIframes(ArrayList<JTextPane> iframes) {this.iframes = iframes;}
 
     //getters
     public  int     getMenuSize() {
