@@ -40,7 +40,8 @@ public class MenuVisualizingPanel extends JPanel {
 
         //init Array of fields
         fields = new ArrayList<>();
-        JTextField initial = new JTextField("Menu", JTextField.LEFT);
+        JTextField initial = new JTextField("Menu");
+        initial.setHorizontalAlignment(JTextField.LEFT);
         initial.setFont(new Font("Agency FB", Font.PLAIN, 72));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
