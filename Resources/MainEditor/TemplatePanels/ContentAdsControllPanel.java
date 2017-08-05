@@ -170,10 +170,8 @@ public class ContentAdsControllPanel extends JPanel {
         fontNames.setModel(fonts);
         //callback
         fontNames.addActionListener(event -> {
-            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
-            SimpleAttributeSet fontNameSet = new SimpleAttributeSet();
-            StyleConstants.setFontFamily(fontNameSet, fontNames.getSelectedItem().toString());
-            doc.setParagraphAttributes(0, doc.getLength(), fontNameSet, false);
+            Font curr = visualizingPanel.getFields().get(currField).getFont();
+            visualizingPanel.getFields().get(currField).setFont(new Font(fontNames.getSelectedItem().toString(), curr.getStyle(), curr.getSize()));
         });
 
         fullComponent.add(fontNames);
@@ -192,10 +190,8 @@ public class ContentAdsControllPanel extends JPanel {
         fontSizes.setSelectedItem(72);
         //callback
         fontSizes.addActionListener(event -> {
-            StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
-            SimpleAttributeSet fontSizeSet = new SimpleAttributeSet();
-            StyleConstants.setFontSize(fontSizeSet, (int)fontSizes.getSelectedItem());
-            doc.setParagraphAttributes(0, doc.getLength(), fontSizeSet, false);
+            Font curr = visualizingPanel.getFields().get(currField).getFont();
+            visualizingPanel.getFields().get(currField).setFont(new Font(curr.getName(), curr.getStyle(), (Integer) fontSizes.getSelectedItem()));
         });
 
         fullComponent.add(fontSizes);
@@ -216,19 +212,14 @@ public class ContentAdsControllPanel extends JPanel {
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
-                SimpleAttributeSet fontStyle = new SimpleAttributeSet();
-
+                int mode = 0;
                 if (bold.isSelected())
-                    StyleConstants.setBold(fontStyle, true);
-                else
-                    StyleConstants.setBold(fontStyle, false);
+                    mode += Font.BOLD;
                 if (italic.isSelected())
-                    StyleConstants.setItalic(fontStyle, true);
-                else
-                    StyleConstants.setItalic(fontStyle, false);
+                    mode += Font.ITALIC;
 
-                doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
+                Font curr = visualizingPanel.getFields().get(currField).getFont();
+                visualizingPanel.getFields().get(currField).setFont(new Font(curr.getName(), mode, curr.getSize()));
             }
         };
 
