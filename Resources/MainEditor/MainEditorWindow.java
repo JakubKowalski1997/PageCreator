@@ -10,7 +10,6 @@ import MainEditor.Template03.Template03Controller;
 import MainEditor.Template03.Template03Model;
 import MainEditor.Template03.Template03View;
 import TemplateHandlerClasses.TemplateHandler;
-import TemplateHandlerClasses.Templates;
 
 import javax.swing.*;
 import java.awt.*;

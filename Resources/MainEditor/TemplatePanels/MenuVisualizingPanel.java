@@ -13,6 +13,8 @@ public class MenuVisualizingPanel extends JPanel {
     private final int WIDTH;
     private final int HEIGHT;
 
+    private String initFontName;
+
     //cnt of JTextFields in Panel
     static public int gridN;
 
@@ -38,11 +40,13 @@ public class MenuVisualizingPanel extends JPanel {
         Border title = BorderFactory.createTitledBorder(etched, "Menu current view");
         this.setBorder(title);
 
+        initFontName = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()[0];
+
         //init Array of fields
         fields = new ArrayList<>();
         JTextField initial = new JTextField("Menu");
         initial.setHorizontalAlignment(JTextField.LEFT);
-        initial.setFont(new Font("Agency FB", Font.PLAIN, 72));
+        initial.setFont(new Font(initFontName, Font.PLAIN, 72));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
         fields.add(initial);

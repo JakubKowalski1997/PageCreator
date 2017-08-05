@@ -19,6 +19,7 @@ public class ContentAdsVisualizingPanel extends JPanel {
     private final int HEIGHT;
 
     private String label;
+    private String initFontName;
 
     private ArrayList<JTextPane> fields;
     public ArrayList<JTextPane> getFields(){return fields;}
@@ -30,6 +31,7 @@ public class ContentAdsVisualizingPanel extends JPanel {
         HEIGHT = height;
 
         this.label = label;
+        initFontName = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()[0];
 
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -43,7 +45,7 @@ public class ContentAdsVisualizingPanel extends JPanel {
         fields = new ArrayList<>();
         JTextPane initial = new JTextPane();
         initial.setText(label);
-        initial.setFont(new Font("Agency FB", Font.PLAIN, 72));
+        initial.setFont(new Font(initFontName, Font.PLAIN, 72));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
         fields.add(initial);
@@ -55,7 +57,7 @@ public class ContentAdsVisualizingPanel extends JPanel {
     public void add(){
         JTextPane addPane = new JTextPane();
         addPane.setText(label);
-        addPane.setFont(new Font("Agency FB", Font.PLAIN, 72));
+        addPane.setFont(new Font(initFontName, Font.PLAIN, 72));
         addPane.setForeground(Color.black);
         addPane.setBackground(Color.white);
         fields.add(addPane);
