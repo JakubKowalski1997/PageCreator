@@ -6,13 +6,13 @@ import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by Wiktor Łazarski on 04.08.2017.
  */
 public class Template03Model extends TemplateModel {
 
+    //extended attributes
     private JTextPane pane;
 
     //setter
@@ -35,8 +35,7 @@ public class Template03Model extends TemplateModel {
     }
     public String getAdsTextPosition(){
         //should always choose one option
-        SimpleAttributeSet attributes = (SimpleAttributeSet) pane.getCharacterAttributes();
-        switch(StyleConstants.getAlignment(attributes)){
+        switch(StyleConstants.getAlignment(pane.getCharacterAttributes())){
             case StyleConstants.ALIGN_LEFT:
                 return "left";
             case StyleConstants.ALIGN_CENTER:

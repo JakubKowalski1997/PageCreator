@@ -119,8 +119,8 @@ public class MainEditorWindow extends JFrame{
             /*todo:
             PRINT SMALL TUTORIAL IN JOptionPane
              */
-            //Template02Controller controller = new Template02Controller(template02View);
-            //controller.getModel().getContentFontColor(0);
+           // Template03Controller controller = new Template03Controller(template03View);
+            //System.out.print(controller.getModel().getContentNumber());
         });
 
         JMenuItem about = new JMenuItem("About program");
