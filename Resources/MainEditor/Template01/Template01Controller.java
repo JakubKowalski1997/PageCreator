@@ -136,6 +136,7 @@ public class Template01Controller {
                     HTMLContentEditor.getTextColorEditor(model.getContentFontColor(i)),
                     HTMLContentEditor.getBackgroundColorEditor(model.getContentBackgroundColor(i)),
                     HTMLContentEditor.getFontEditor(model.getContentFont(i)),
+                    HTMLContentEditor.getPositionEditor(model.getContentTextPosition(i)),
                     HTMLContentEditor.getSubPageStyleEditor()
             );
 
