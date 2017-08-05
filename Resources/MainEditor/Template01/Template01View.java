@@ -47,7 +47,7 @@ public class Template01View{
 
         constraints.gridx = 0;
         constraints.gridy = 1;
-        template011.add(new ContentAdsControllPanel(contentAdsVisualizingPanel, "Content"), constraints);
+        template011.add(new ContentAdsControllPanel(contentAdsVisualizingPanel, "Content", menuVisualizingPanel), constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -64,7 +64,7 @@ public class Template01View{
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridheight = 1;
-        template012.add(menuControllerPanel.getVisulizingPanel());
+        template012.add(menuControllerPanel.getVisualizingPanel());
 
         constraints.gridx = 1;
         constraints.gridy = 0;

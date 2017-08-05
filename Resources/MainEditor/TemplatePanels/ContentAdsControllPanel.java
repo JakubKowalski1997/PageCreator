@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static MainEditor.JColorComboBox.stringColors;
 import static MainEditor.TemplatePanels.MenuVisualizingPanel.gridN;
 
 /**
@@ -24,8 +25,18 @@ public class ContentAdsControllPanel extends JPanel {
     private String[] fonts;
     private int[] fontSizes;
     private int currField;
-    //panel which show changes in controller
+    //panel which show changes in controller and curr selected menu
+    private MenuVisualizingPanel menuVisualizingPanel;
     private ContentAdsVisualizingPanel visualizingPanel;
+
+    //components
+    JComboBox<String> fontNames;
+    JComboBox<Integer> fontSizesCB;
+    JCheckBox bold;
+    JCheckBox italic;
+    JRadioButton left;
+    JRadioButton center;
+    JRadioButton right;
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
@@ -33,7 +44,8 @@ public class ContentAdsControllPanel extends JPanel {
     public JColorComboBox getBackgroundColors(){return backgroundColors;}
 
     //constructor
-    public ContentAdsControllPanel(ContentAdsVisualizingPanel visualizingPanel, String border){
+    public ContentAdsControllPanel(ContentAdsVisualizingPanel visualizingPanel, String border, MenuVisualizingPanel menuVisualizingPanel){
+        this.menuVisualizingPanel = menuVisualizingPanel;
         this.visualizingPanel = visualizingPanel;
         currField = 0;
         type = border;
@@ -51,6 +63,53 @@ public class ContentAdsControllPanel extends JPanel {
 
         //add components
         add(editComponents(border));
+    }
+
+    //update editComponents set proper value for content in editComponents
+    public void updateEditComponentStates(){
+        fontNames.setSelectedItem(visualizingPanel.getFields().get(currField).getFont().getName());
+        fontSizesCB.setSelectedItem(visualizingPanel.getFields().get(currField).getFont().getSize());
+
+        int mode = visualizingPanel.getFields().get(currField).getFont().getStyle();
+
+        bold.setSelected(false);
+        italic.setSelected(false);
+
+        if(mode == 3){
+            bold.setSelected(true);
+            italic.setSelected(true);
+        }
+        else if(mode == 2)
+            italic.setSelected(true);
+        else if(mode == 1)
+            bold.setSelected(true);
+
+        //should always choose one option
+        switch(StyleConstants.getAlignment(visualizingPanel.getFields().get(currField).getCharacterAttributes())){
+            case StyleConstants.ALIGN_LEFT:
+                left.setSelected(true);break;
+            case StyleConstants.ALIGN_CENTER:
+                center.setSelected(true);break;
+            case StyleConstants.ALIGN_RIGHT:
+                right.setSelected(true);break;
+        }
+
+        fontColors.setSelectedItem(stringColors.get(visualizingPanel.getFields().get(currField).getForeground()));
+        backgroundColors.setSelectedItem(stringColors.get(visualizingPanel.getFields().get(currField).getBackground()));
+    }
+
+    //update menu border curr selected
+    public void updateCurrentSelectedInMenu(){
+        Border currSelected = BorderFactory.createLineBorder(Color.green, 5);
+        Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
+
+        //don't want to mix border with background color
+        if(menuVisualizingPanel.getFields().get(0).getBackground().equals(Color.green)){
+            currSelected = BorderFactory.createLineBorder(Color.red, 5);
+            titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
+        }
+
+        menuVisualizingPanel.getFields().get(currField).setBorder(titledCurrSelected);
     }
 
     //edit components
@@ -135,8 +194,12 @@ public class ContentAdsControllPanel extends JPanel {
             }
 
             visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
-
             visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(--currField));
+
+            menuVisualizingPanel.getFields().get(currField + 1).setBorder(null);
+            updateEditComponentStates();
+            updateCurrentSelectedInMenu();
+            menuVisualizingPanel.repaint();
         });
         fullComponent.add(prevBtn);
 
@@ -149,8 +212,12 @@ public class ContentAdsControllPanel extends JPanel {
                 return;
 
             visualizingPanel.scrollPane.getViewport().remove(visualizingPanel.getFields().get(currField));
-
             visualizingPanel.scrollPane.getViewport().add(visualizingPanel.getFields().get(++currField));
+
+            menuVisualizingPanel.getFields().get(currField - 1).setBorder(null);
+            updateEditComponentStates();
+            updateCurrentSelectedInMenu();
+            menuVisualizingPanel.repaint();
         });
         fullComponent.add(nextBtn);
 
@@ -161,7 +228,7 @@ public class ContentAdsControllPanel extends JPanel {
         JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
         fullComponent.setBackground(Color.white);
         fullComponent.add(new JLabel(label));
-        JComboBox<String> fontNames = new JComboBox<>();
+        fontNames = new JComboBox<>();
         DefaultComboBoxModel<String> fonts = new DefaultComboBoxModel<>();
 
         for(int i = 0; i < this.fonts.length; i++)
@@ -182,19 +249,20 @@ public class ContentAdsControllPanel extends JPanel {
         JPanel fullComponent = new JPanel(new FlowLayout(FlowLayout.LEFT));
         fullComponent.setBackground(Color.white);
         fullComponent.add(new JLabel(label));
-        JComboBox<Integer> fontSizes = new JComboBox<>();
+        fontSizesCB = new JComboBox<>();
 
         for(int i = 0; i < this.fontSizes.length; i++)
-            fontSizes.addItem(this.fontSizes[i]);
+            fontSizesCB.addItem(this.fontSizes[i]);
 
-        fontSizes.setSelectedItem(72);
+        fontSizesCB.setSelectedItem(72);
         //callback
-        fontSizes.addActionListener(event -> {
+        fontSizesCB.addActionListener(event -> {
             Font curr = visualizingPanel.getFields().get(currField).getFont();
-            visualizingPanel.getFields().get(currField).setFont(new Font(curr.getName(), curr.getStyle(), (Integer) fontSizes.getSelectedItem()));
+            visualizingPanel.getFields().get(currField).setFont(new Font(curr.getName(), curr.getStyle(),
+                    (Integer) fontSizesCB.getSelectedItem()));
         });
 
-        fullComponent.add(fontSizes);
+        fullComponent.add(fontSizesCB);
         container.add(fullComponent);
     }
 
@@ -203,9 +271,9 @@ public class ContentAdsControllPanel extends JPanel {
         fullComponent.setBackground(Color.white);
         fullComponent.add(new JLabel(label));
 
-        JCheckBox bold = new JCheckBox("BOLD", false);
+        bold = new JCheckBox("BOLD", false);
         bold.setBackground(Color.white);
-        JCheckBox italic = new JCheckBox("ITALIC", false);
+        italic = new JCheckBox("ITALIC", false);
         italic.setBackground(Color.white);
 
         //callback
@@ -239,7 +307,7 @@ public class ContentAdsControllPanel extends JPanel {
 
         ButtonGroup radioButtons = new ButtonGroup();
 
-        JRadioButton left = new JRadioButton("LEFT", true);
+        left = new JRadioButton("LEFT", true);
         left.setBackground(Color.white);
         left.addActionListener(event->{
             StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
@@ -248,7 +316,7 @@ public class ContentAdsControllPanel extends JPanel {
             doc.setParagraphAttributes(0, doc.getLength(), leftSet, false);
         });
 
-        JRadioButton center = new JRadioButton("CENTER", false);
+        center = new JRadioButton("CENTER", false);
         center.setBackground(Color.white);
         center.addActionListener(event->{
             StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();
@@ -258,7 +326,7 @@ public class ContentAdsControllPanel extends JPanel {
 
         });
 
-        JRadioButton right = new JRadioButton("RIGHT", false);
+        right = new JRadioButton("RIGHT", false);
         right.setBackground(Color.white);
         right.addActionListener(event->{
             StyledDocument doc = visualizingPanel.getFields().get(currField).getStyledDocument();

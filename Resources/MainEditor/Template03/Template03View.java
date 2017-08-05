@@ -52,11 +52,11 @@ public class Template03View {
 
         constraints.gridx = 0;
         constraints.gridy = 1;
-        template011.add(new ContentAdsControllPanel(contentVisualizingPanel, "Content"), constraints);
+        template011.add(new ContentAdsControllPanel(contentVisualizingPanel, "Content", menuVisualizingPanel), constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
-        template011.add(new ContentAdsControllPanel(adsVisualizingPanel, "Ads"), constraints);
+        template011.add(new ContentAdsControllPanel(adsVisualizingPanel, "Ads", null), constraints);
 
         window.add(template011);
 
@@ -66,7 +66,7 @@ public class Template03View {
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridheight = 1;
-        template012.add(menuControllerPanel.getVisulizingPanel());
+        template012.add(menuControllerPanel.getVisualizingPanel());
 
         constraints.gridx = 1;
         constraints.gridy = 0;
