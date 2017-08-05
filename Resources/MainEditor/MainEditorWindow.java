@@ -102,8 +102,6 @@ public class MainEditorWindow extends JFrame{
             /*todo:
             PRINT SMALL TUTORIAL IN JOptionPane
              */
-            Template01Controller controller = new Template01Controller(template01View);
-            System.out.println(controller.getModel().getMenuPosition());
         });
 
         JMenuItem about = new JMenuItem("About program");
