@@ -67,7 +67,7 @@ public class ContentAdsControllPanel extends JPanel {
 
     //update editComponents set proper value for content in editComponents
     public void updateEditComponentStates(){
-        fontNames.setSelectedItem(visualizingPanel.getFields().get(currField).getFont().getFontName());
+        fontNames.setSelectedItem(visualizingPanel.getFields().get(currField).getFont().getName());
         fontSizesCB.setSelectedItem(visualizingPanel.getFields().get(currField).getFont().getSize());
 
         int mode = visualizingPanel.getFields().get(currField).getFont().getStyle();
