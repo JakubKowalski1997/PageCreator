@@ -1,6 +1,7 @@
 package MainEditor.TemplatePanels;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
@@ -49,6 +50,9 @@ public class MenuVisualizingPanel extends JPanel {
         initial.setFont(new Font(initFontName, Font.PLAIN, 72));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
+        Border currSelected = BorderFactory.createLineBorder(Color.green, 5);
+        Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
+        initial.setBorder(titledCurrSelected);
         fields.add(initial);
 
         add(fields.get(0));

@@ -13,6 +13,7 @@ import javax.swing.*;
 public class JColorComboBox extends JComboBox {
 
     private static Hashtable<String, Color> colors;
+    public static Hashtable<Color, String> stringColors;
 
     public JColorComboBox() {
         super();
@@ -60,6 +61,21 @@ public class JColorComboBox extends JComboBox {
         colors.put("RED", Color.RED);
         colors.put("PINK",Color.PINK);
         colors.put("MAGENTA", Color.MAGENTA);
+
+        stringColors = new Hashtable<>();
+
+        stringColors.put(Color.BLACK, "BLACK");
+        stringColors.put(Color.WHITE, "WHITE");
+        stringColors.put(Color.BLUE, "BLUE");
+        stringColors.put(Color.GREEN, "GREEN");
+        stringColors.put(Color.YELLOW,"YELLOW");
+        stringColors.put(Color.ORANGE, "ORANGE");
+        stringColors.put(Color.CYAN, "CYAN");
+        stringColors.put(Color.DARK_GRAY, "DARK_GRAY");
+        stringColors.put(Color.GRAY, "GRAY");
+        stringColors.put(Color.RED, "RED");
+        stringColors.put(Color.PINK, "PINK");
+        stringColors.put(Color.MAGENTA, "MAGENTA");
 
         return colors;
     }

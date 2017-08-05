@@ -19,7 +19,7 @@ public class MenuControllerPanel extends JPanel {
     private int[] fontSizes;
     //panel which show changes in controller
     private MenuVisualizingPanel visualizingPanel;
-    public MenuVisualizingPanel getVisulizingPanel(){return visualizingPanel;}
+    public MenuVisualizingPanel getVisualizingPanel(){return visualizingPanel;}
     //JColorComboBox
     private JColorComboBox fontColors;
     private JColorComboBox backgroundColors;
@@ -43,6 +43,38 @@ public class MenuControllerPanel extends JPanel {
 
         //add components
         add(editComponents());
+    }
+
+    //function to avoid mixing border color with background color
+    private void avoidMixColor(){
+        if(backgroundColors.getSelectedColor().equals(Color.green)){
+            Border currSelected = BorderFactory.createLineBorder(Color.red, 5);
+            Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
+
+            //finding current selected menu
+            int currSelectedMenu = 0;
+
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                if(visualizingPanel.getFields().get(i).getBorder() != null)
+                    currSelectedMenu = i; break;
+            }
+
+            visualizingPanel.getFields().get(currSelectedMenu).setBorder(titledCurrSelected);
+        }
+        if(backgroundColors.getSelectedColor().equals(Color.RED)){
+            Border currSelected = BorderFactory.createLineBorder(Color.GREEN, 5);
+            Border titledCurrSelected = BorderFactory.createTitledBorder(currSelected, "Content of : ");
+
+            //finding current selected menu
+            int currSelectedMenu = 0;
+
+            for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
+                if(visualizingPanel.getFields().get(i).getBorder() != null)
+                    currSelectedMenu = i; break;
+            }
+
+            visualizingPanel.getFields().get(currSelectedMenu).setBorder(titledCurrSelected);
+        }
     }
 
     //edit components
@@ -259,12 +291,12 @@ public class MenuControllerPanel extends JPanel {
             backgroundColors.setSelectedItem("WHITE");
             backgroundColors.addActionListener(event->{
 
+                avoidMixColor();
+
                 for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
                     visualizingPanel.getFields().get(i).setBackground(backgroundColors.getSelectedColor());
                 }
                 visualizingPanel.repaint();
-                //visualizingPanel.getTextField().setBackground(backgroundColors.getSelectedColor());
-                //visualizingPanel.repaint();
             });
 
             fullComponent.add(backgroundColors);
