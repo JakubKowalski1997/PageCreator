@@ -18,7 +18,7 @@ public class HTMLTitlePreviewPanel extends JPanel{
 
         text = new JTextField("TITLE");
         text.setHorizontalAlignment(JTextField.LEFT);
-        text.setFont(new Font("Agency FB", Font.PLAIN, 72));
+        text.setFont(new Font(GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()[0], Font.PLAIN, 72));
         text.setForeground(Color.black);
         text.setBackground(background);
         text.setBorder(null);
