@@ -12,24 +12,75 @@ import java.util.Arrays;
  */
 public class BasicHTMLEditors {
 
-    public static TemplateEditor getTextColorEditor(String color, String sectionName) {
+    private static String buildRgbColor(Color color) {
+        StringBuilder valueBuilder = new StringBuilder();
+        valueBuilder.append("rgb(");
+        valueBuilder.append(Integer.toString(color.getRed()));
+        valueBuilder.append(", ");
+        valueBuilder.append(Integer.toString(color.getGreen()));
+        valueBuilder.append(", ");
+        valueBuilder.append(Integer.toString(color.getBlue()));
+        valueBuilder.append(")");
+
+        return valueBuilder.toString();
+    }
+
+    private static void setCSSAttribue(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
+        CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
+
+        CSSElement sectionElement = handler.getElement(cssDocument, cssSelector);
+
+        CSSAttribute cssAttribute = sectionElement.getAttribute(attributeName);
+        if (cssAttribute == null) {
+            sectionElement.addAttribute(new CSSAttribute(attributeName, value));
+        }
+        else {
+            cssAttribute.values.set(0, value);
+        }
+    }
+
+    public static PageEditor getTextColorEditor(Color color, String sectionName) {
+        return template -> {
+            final String colorAttributeName = "color";
+
+            String value = buildRgbColor(color);
+
+            CSSDocument cssDoc = template.getCSSDoc();
+
+            try {
+                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), colorAttributeName, value);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static PageEditor getBackgroundColorEditor(Color color, String sectionName) {
+        return template -> {
+            final String backgroundColorAttributeName = "background-color";
+
+            String value = buildRgbColor(color);
+
+            CSSDocument cssDoc = template.getCSSDoc();
+
+            try {
+                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundColorAttributeName, value);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static PageEditor getTextColorEditor(String color, String sectionName) {
         return template -> {
             final  String colorAttributeName = "color";
 
             CSSDocument cssDoc = template.getCSSDoc();
-            CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
             try {
-                CSSElement titleElement = handler.getElement(cssDoc,
-                        new CSSSelector(CSSSelectorTypes.CLASS, sectionName));
-
-                CSSAttribute cssAttribute = titleElement.getAttribute(colorAttributeName);
-                if (cssAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(colorAttributeName, color.toLowerCase()));
-                }
-                else {
-                    cssAttribute.values.set(0, color.toLowerCase());
-                }
+                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), colorAttributeName, color.toLowerCase());
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -38,24 +89,14 @@ public class BasicHTMLEditors {
 
     }
 
-    public static TemplateEditor getBackgroundColorEditor(String color, String sectionName) {
+    public static PageEditor getBackgroundColorEditor(String color, String sectionName) {
         return template -> {
             final String backgroundAttColorName = "background-color";
 
             CSSDocument cssDoc = template.getCSSDoc();
-            CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
             try {
-                CSSElement titleElement = handler.getElement(cssDoc,
-                        new CSSSelector(CSSSelectorTypes.CLASS, sectionName));
-
-                CSSAttribute cssAttribute = titleElement.getAttribute(backgroundAttColorName);
-                if (cssAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(backgroundAttColorName, color.toLowerCase()));
-                }
-                else {
-                    cssAttribute.values.set(0, color.toLowerCase());
-                }
+                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, color.toLowerCase());
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -88,7 +129,7 @@ public class BasicHTMLEditors {
         return fontStyle == 0;
     }
 
-    public static TemplateEditor getFontEditor(Font font, String sectionName) {
+    public static PageEditor getFontEditor(Font font, String sectionName) {
         return template -> {
             final String fontFamilyAttributeName = "font-family";
             final String fontSizeAttributeName = "font-size";
@@ -100,15 +141,15 @@ public class BasicHTMLEditors {
 
 
             try {
-                CSSElement titleElement = handler.getElement(cssDoc,
+                CSSElement sectionElement = handler.getElement(cssDoc,
                         new CSSSelector(CSSSelectorTypes.CLASS, sectionName));
 
                 /**
                  * Setting font-family
                  */
-                CSSAttribute familyAttribute = titleElement.getAttribute(fontFamilyAttributeName);
+                CSSAttribute familyAttribute = sectionElement.getAttribute(fontFamilyAttributeName);
                 if (familyAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(fontFamilyAttributeName, font.getFamily().toLowerCase()));
+                    sectionElement.addAttribute(new CSSAttribute(fontFamilyAttributeName, font.getFamily().toLowerCase()));
                 }
                 else {
                     familyAttribute.values.set(0, font.getFamily().toLowerCase());
@@ -117,9 +158,9 @@ public class BasicHTMLEditors {
                 /**
                  * Setting size attribute
                  */
-                CSSAttribute sizeAttribute = titleElement.getAttribute(fontSizeAttributeName);
+                CSSAttribute sizeAttribute = sectionElement.getAttribute(fontSizeAttributeName);
                 if (sizeAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(fontSizeAttributeName, Integer.toString(font.getSize()) + "px"));
+                    sectionElement.addAttribute(new CSSAttribute(fontSizeAttributeName, Integer.toString(font.getSize()) + "px"));
                 }
                 else {
                     sizeAttribute.values.set(0, Integer.toString(font.getSize()) + "px");
@@ -128,26 +169,26 @@ public class BasicHTMLEditors {
                 /**
                  * setting font weight
                  */
-                CSSAttribute weightAttribute = titleElement.getAttribute(fontWeightAttributeName);
+                CSSAttribute weightAttribute = sectionElement.getAttribute(fontWeightAttributeName);
                 if (isBold(font.getStyle())) {
                     if (weightAttribute == null) {
-                        titleElement.addAttribute(new CSSAttribute(fontWeightAttributeName, "bold"));
+                        sectionElement.addAttribute(new CSSAttribute(fontWeightAttributeName, "bold"));
                     }
                     else {
                         weightAttribute.values.set(0, "bold");
                     }
                 }
                 else if (weightAttribute != null){
-                    titleElement.eraseAttribute(titleElement.getAttribute(fontWeightAttributeName));
+                    sectionElement.eraseAttribute(sectionElement.getAttribute(fontWeightAttributeName));
                 }
 
                 /**
                  * Setting font style
                  */
-                CSSAttribute fontStyleAttribute = titleElement.getAttribute(fontStyleAttributeName);
+                CSSAttribute fontStyleAttribute = sectionElement.getAttribute(fontStyleAttributeName);
                 if (isItalic(font.getStyle()) || isPlain(font.getStyle())) {
                     if (fontStyleAttribute == null) {
-                        titleElement.addAttribute(new CSSAttribute(fontStyleAttributeName, getFontStyleValues(font.getStyle())));
+                        sectionElement.addAttribute(new CSSAttribute(fontStyleAttributeName, getFontStyleValues(font.getStyle())));
                     } else {
                         fontStyleAttribute.values.set(0, getFontStyleValues(font.getStyle()));
                     }
@@ -159,24 +200,30 @@ public class BasicHTMLEditors {
         };
     }
 
-    public static TemplateEditor getPositionEditor(String position, String sectionName) {
+    public static PageEditor getPositionEditor(String position, String sectionName) {
         return template -> {
             final String positionAttributeName = "text-align";
 
             CSSDocument cssDoc = template.getCSSDoc();
-            CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
             try {
-                CSSElement titleElement = handler.getElement(cssDoc,
-                        new CSSSelector(CSSSelectorTypes.CLASS, sectionName));
+                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), positionAttributeName, position);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
 
-                CSSAttribute posAttribute = titleElement.getAttribute(positionAttributeName);
-                if (posAttribute == null) {
-                    titleElement.addAttribute(new CSSAttribute(positionAttributeName, position));
-                }
-                else {
-                    posAttribute.values.set(0, position);
-                }
+    public static PageEditor getTextEditor(String text, String sectionName) {
+        return template -> {
+            HTMLDocument htmlDocument = template.getHTMLDoc();
+            HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
+
+            try {
+                TextTag textTag = (TextTag) handler.getTag(htmlDocument, HTMLContainerTags.DIV,
+                        Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                textTag.setText(text);
             }
             catch (Exception e) {
                 e.printStackTrace();

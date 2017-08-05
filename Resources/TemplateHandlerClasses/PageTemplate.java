@@ -6,6 +6,7 @@ import HTMLHandlerClasses.HTMLDocument;
 import HTMLHandlerClasses.HTMLDocumentParser;
 import Utils.DocumentUtils.DocumentReader;
 import Utils.DocumentUtils.DocumentWriter;
+import Utils.Page;
 import Utils.ParserUtils.ApplyParsing;
 
 import java.io.FileNotFoundException;
@@ -13,10 +14,7 @@ import java.io.FileNotFoundException;
 /**
  * Created by Konrad on 2017-07-19.
  */
-public class PageTemplate {
-    private HTMLDocument htmlDoc;
-    private CSSDocument cssDoc;
-
+public class PageTemplate extends Page {
     private String htmlPath, cssPath;
 
     public PageTemplate(String htmlPath, String cssPath) {
@@ -25,21 +23,14 @@ public class PageTemplate {
 
         try {
             String htmlFileContent = DocumentReader.readFromFile(htmlPath);
-            htmlDoc = (HTMLDocument) ApplyParsing.apply(new HTMLDocumentParser(), htmlFileContent);
+            setHTMLDoc((HTMLDocument) ApplyParsing.apply(new HTMLDocumentParser(), htmlFileContent));
 
             String cssFileContent = DocumentReader.readFromFile(cssPath);
-            cssDoc = (CSSDocument) ApplyParsing.apply(new CSSParser(), cssFileContent);
+            setCSSDoc((CSSDocument) ApplyParsing.apply(new CSSParser(), cssFileContent));
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public HTMLDocument getHTMLDoc() {
-        return htmlDoc;
-    }
-    public CSSDocument getCSSDoc() {
-        return cssDoc;
     }
 
     public String getHtmlPath() {
@@ -52,8 +43,8 @@ public class PageTemplate {
 
     public void save(String htmlPath, String cssPath) {
         try {
-            DocumentWriter.writeToFile(htmlDoc, htmlPath);
-            DocumentWriter.writeToFile(cssDoc, cssPath);
+            DocumentWriter.writeToFile(getHTMLDoc(), htmlPath);
+            DocumentWriter.writeToFile(getCSSDoc(), cssPath);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();

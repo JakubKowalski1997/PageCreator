@@ -1,6 +1,6 @@
 package TestClasses.TestTitleEditorClasses;
 
-import TemplateEditor.TemplateEditor;
+import TemplateEditor.PageEditor;
 import TemplateEditor.TitleEditor.HTMLTitleEditor;
 import java.awt.Font;
 import TemplateHandlerClasses.PageTemplate;
@@ -23,7 +23,7 @@ public class TestHTMLTitleEditor extends Test {
 
         PageTemplate template = TemplateFactory.getInstance().create(Templates.FIRST);
 
-        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        ArrayList<PageEditor> editors = new ArrayList<>();
 
         editors.add(HTMLTitleEditor.getPositionEditor("center"));
         editors.add(HTMLTitleEditor.getTextColorEditor("blue"));
@@ -31,7 +31,7 @@ public class TestHTMLTitleEditor extends Test {
         editors.add(HTMLTitleEditor.getFontEditor(new Font("arial", Font.PLAIN, 20)));
         editors.add(HTMLTitleEditor.getTextEditor("Text"));
 
-        for (TemplateEditor editor : editors) {
+        for (PageEditor editor : editors) {
             editor.edit(template);
         }
 
@@ -45,7 +45,9 @@ public class TestHTMLTitleEditor extends Test {
                 "\t\t<div class=\"Menu\">\n" +
                 "\t\t\t<table class=\"fillParent\"></table>\n" +
                 "\t\t</div>\n" +
-                "\t\t<div class=\"dziecko2\"></div>\n" +
+                "\t\t<div class=\"Content\">\n" +
+                "\t\t\t<iframe name=\"iframe\" width=\"100%\" height=\"100%\" frameborder=\"0\">Twoja przegladarka nie obsluguje iFrame!!</iframe>\n" +
+                "\t\t</div>\n" +
                 "\t\t<br/>\n" +
                 "\t\t<div class=\"dolny\"></div>\n" +
                 "\t</body>\n" +
@@ -89,14 +91,14 @@ public class TestHTMLTitleEditor extends Test {
                 "\tfloat : left;\n" +
                 "}\n" +
                 "\n" +
-                ".dziecko2 {\n" +
+                ".Content {\n" +
                 "\twidth : 75%;\n" +
                 "\tfloat : left;\n" +
                 "}\n" +
                 "\n" +
                 ".dolny {\n" +
                 "\twidth : 100%;\n" +
-                "}\n\n";
+                "}";
 
         if (!template.getCSSDoc().toString().equals(correctCSSDoc) ||
                 !template.getHTMLDoc().toString().equals(correctHTMLDoc)) {

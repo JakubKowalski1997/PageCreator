@@ -1,7 +1,7 @@
 package TestClasses.TestMenuEditorClasses;
 
 import TemplateEditor.MenuEditor.HTMLMenuEditor;
-import TemplateEditor.TemplateEditor;
+import TemplateEditor.PageEditor;
 import TemplateHandlerClasses.PageTemplate;
 import TemplateHandlerClasses.TemplateFactory;
 import TemplateHandlerClasses.Templates;
@@ -24,10 +24,10 @@ public class TestHTMLMenuEditor extends Test {
         ArrayList<String> options = new ArrayList<>();
         Collections.addAll(options, "Opcja1", "Opcja2");
 
-        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        ArrayList<PageEditor> editors = new ArrayList<>();
         Collections.addAll(editors, HTMLMenuEditor.getOptionEditor(options, Templates.FIRST));
 
-        for (TemplateEditor editor : editors) {
+        for (PageEditor editor : editors) {
             editor.edit(template);
         }
 
@@ -42,17 +42,19 @@ public class TestHTMLMenuEditor extends Test {
                 "\t\t\t<table class=\"fillParent\">\n" +
                 "\t\t\t\t<tr>\n" +
                 "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<a>Opcja1</a>\n" +
+                "\t\t\t\t\t\t<a href=\"Opcja1.html\" target=\"iframe\">Opcja1</a>\n" +
                 "\t\t\t\t\t</td>\n" +
                 "\t\t\t\t</tr>\n" +
                 "\t\t\t\t<tr>\n" +
                 "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<a>Opcja2</a>\n" +
+                "\t\t\t\t\t\t<a href=\"Opcja2.html\" target=\"iframe\">Opcja2</a>\n" +
                 "\t\t\t\t\t</td>\n" +
                 "\t\t\t\t</tr>\n" +
                 "\t\t\t</table>\n" +
                 "\t\t</div>\n" +
-                "\t\t<div class=\"dziecko2\"></div>\n" +
+                "\t\t<div class=\"Content\">\n" +
+                "\t\t\t<iframe name=\"iframe\" width=\"100%\" height=\"100%\" frameborder=\"0\">Twoja przegladarka nie obsluguje iFrame!!</iframe>\n" +
+                "\t\t</div>\n" +
                 "\t\t<br/>\n" +
                 "\t\t<div class=\"dolny\"></div>\n" +
                 "\t</body>\n" +
@@ -70,10 +72,10 @@ public class TestHTMLMenuEditor extends Test {
         ArrayList<String> options = new ArrayList<>();
         Collections.addAll(options, "Opcja1", "Opcja2");
 
-        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        ArrayList<PageEditor> editors = new ArrayList<>();
         Collections.addAll(editors, HTMLMenuEditor.getOptionEditor(options, Templates.SECOND));
 
-        for (TemplateEditor editor : editors) {
+        for (PageEditor editor : editors) {
             editor.edit(template);
         }
 
@@ -88,15 +90,17 @@ public class TestHTMLMenuEditor extends Test {
                 "\t\t\t<table class=\"fillParent\">\n" +
                 "\t\t\t\t<tr>\n" +
                 "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<a>Opcja1</a>\n" +
+                "\t\t\t\t\t\t<a href=\"Opcja1.html\" target=\"iframe\">Opcja1</a>\n" +
                 "\t\t\t\t\t</td>\n" +
                 "\t\t\t\t\t<td>\n" +
-                "\t\t\t\t\t\t<a>Opcja2</a>\n" +
+                "\t\t\t\t\t\t<a href=\"Opcja2.html\" target=\"iframe\">Opcja2</a>\n" +
                 "\t\t\t\t\t</td>\n" +
                 "\t\t\t\t</tr>\n" +
                 "\t\t\t</table>\n" +
                 "\t\t</div>\n" +
-                "\t\t<div class=\"dziecko2\"></div>\n" +
+                "\t\t<div class=\"Content\">\n" +
+                "\t\t\t<iframe name=\"iframe\" width=\"100%\" height=\"100%\" frameborder=\"0\">Twoja przegladarka nie obsluguje iFrame!!!</iframe>\n" +
+                "\t\t</div>\n" +
                 "\t\t<br/>\n" +
                 "\t\t<div class=\"dolny\"></div>\n" +
                 "\t</body>\n" +

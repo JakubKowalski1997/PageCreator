@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import TemplateEditor.TemplateEditor;
+import TemplateEditor.PageEditor;
 import TemplateEditor.TitleEditor.HTMLTitleEditor;
 import TemplateHandlerClasses.TemplateHandler;
 
@@ -37,7 +37,7 @@ public class TitleController {
     }
 
     public void editHTMLCSS() {
-        ArrayList<TemplateEditor> editors = new ArrayList<>();
+        ArrayList<PageEditor> editors = new ArrayList<>();
         Collections.addAll(editors,
                 HTMLTitleEditor.getBackgroundColorEditor(model.getBackgroundColor().toLowerCase()),
                 HTMLTitleEditor.getTextColorEditor(model.getFontColor().toLowerCase()),
@@ -46,7 +46,7 @@ public class TitleController {
                 HTMLTitleEditor.getTextEditor(model.getTitle())
         );
 
-        for (TemplateEditor editor : editors) {
+        for (PageEditor editor : editors) {
             editor.edit(TemplateHandler.getInstance().getPageTemplate());
         }
     }
