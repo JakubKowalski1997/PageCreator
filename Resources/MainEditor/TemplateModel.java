@@ -105,7 +105,6 @@ public class TemplateModel {
             return null;
 
         //should always choose one option
-      //  SimpleAttributeSet attributes = (SimpleAttributeSet) iframes.get(index).getCharacterAttributes();
         switch(StyleConstants.getAlignment(iframes.get(index).getCharacterAttributes())){
             case StyleConstants.ALIGN_LEFT:
                 return "left";
