@@ -19,9 +19,10 @@ public class CSSDocument  {
     public String toString() {
         StringBuilder stringRep = new StringBuilder();
 
-        for (CSSElement element : elements) {
-            stringRep.append(element.toString());
-            stringRep.append("\n\n");
+        for (int i = 0; i < elements.size(); ++i) {
+            stringRep.append(elements.get(i).toString());
+            if (i != elements.size() - 1)
+                stringRep.append("\n\n");
         }
 
         return stringRep.toString();

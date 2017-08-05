@@ -13,6 +13,8 @@ import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import Utils.Page;
 
 /**
  * Created by Wiktor Łazarski on 21.07.2017.
@@ -64,30 +66,46 @@ public class MainEditorWindow extends JFrame{
             TitleController titleController = new TitleController(titleView);
             //Konrad's input
             titleController.editHTMLCSS();
-            System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
-            System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
 
             //next step different 3 ways to follow
             if(template01View != null){
                 Template01Controller controller = new Template01Controller(template01View);
                 TemplateModel templateModel = controller.getModel();
-                //Konrad changing it into HTML
+                controller.editHTMLCSS();
 
+                java.util.List<Page> subPages = controller.getSubPages();
+
+                for (Page page : subPages) {
+                    System.out.println(page.getHTMLDoc().toString());
+                }
             }
 
             if(template02View != null){
                 Template02Controller controller = new Template02Controller(template02View);
                 TemplateModel templateModel = controller.getModel();
-                //Konrad changing it into HTML
+                controller.editHTMLCSS();
 
+                java.util.List<Page> subPages = controller.getSubPages();
+
+                for (Page page : subPages) {
+                    System.out.println(page.getHTMLDoc().toString());
+                }
             }
 
             if(template03View != null){
                 Template03Controller controller = new Template03Controller(template03View);
                 Template03Model templateModel = controller.getModel();
-                //Konrad changing it into HTML
+                controller.editHTMLCSS();
 
+                java.util.List<Page> subPages = controller.getSubPages();
+
+                for (Page page : subPages) {
+                    System.out.println(page.getHTMLDoc().toString());
+                }
             }
+
+            System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
+            System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
         });
         fileMenu.add(save);
 
@@ -96,7 +114,7 @@ public class MainEditorWindow extends JFrame{
         menuBar.add(infosMenu);
 
         JMenuItem tutorial = new JMenuItem("Basic tutorial");
-        tutorial.addActionListener(event->{
+        tutorial.addActionListener(event -> {
             /*todo:
             PRINT SMALL TUTORIAL IN JOptionPane
              */

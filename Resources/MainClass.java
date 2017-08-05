@@ -8,7 +8,7 @@ import java.awt.*;
 import MVCFormEditor.FormView;
 import MainEditor.MainEditorWindow;
 
-public class TestClass {
+public class MainClass {
 
     public static void main(String[] args){
 

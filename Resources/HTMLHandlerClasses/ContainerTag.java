@@ -58,7 +58,7 @@ public class ContainerTag extends HTMLTag {
         return nested.size();
     }
 
-    HTMLTag getNestedTag(int pos) {
+    public HTMLTag getNestedTag(int pos) {
         return nested.get(pos);
     }
 
