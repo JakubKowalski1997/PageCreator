@@ -45,9 +45,9 @@ public class MenuVisualizingPanel extends JPanel {
 
         //init Array of fields
         fields = new ArrayList<>();
-        JTextField initial = new JTextField("Menu");
+        JTextField initial = new JTextField("Menu1");
         initial.setHorizontalAlignment(JTextField.LEFT);
-        initial.setFont(new Font(initFontName, Font.PLAIN, 72));
+        initial.setFont(new Font(initFontName, Font.PLAIN, 48));
         initial.setForeground(Color.black);
         initial.setBackground(Color.white);
         Border currSelected = BorderFactory.createLineBorder(Color.green, 5);
@@ -64,7 +64,7 @@ public class MenuVisualizingPanel extends JPanel {
         if(!horizontally)
             setLayout(new GridLayout(gridN, 1, 5, 5));
 
-        JTextField newField = new JTextField("Menu", JTextField.LEFT);
+        JTextField newField = new JTextField("Menu" + gridN, JTextField.LEFT);
         JTextField currStyle = fields.get(gridN - 2);
 
         //setting style
