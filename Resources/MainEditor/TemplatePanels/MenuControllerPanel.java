@@ -169,7 +169,7 @@ public class MenuControllerPanel extends JPanel {
         for(int i = 0; i < this.fontSizes.length; i++)
             fontSizes.addItem(this.fontSizes[i]);
 
-        fontSizes.setSelectedItem(72);
+        fontSizes.setSelectedItem(48);
         //callback
         fontSizes.addActionListener(event -> {
             for(int i = 0; i < visualizingPanel.getFields().size(); i++) {
