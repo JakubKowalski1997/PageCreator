@@ -34,7 +34,8 @@ public class HTMLMenuEditor {
                 }
 
                 try {
-                    ContainerTag optionsTable = (ContainerTag) handler.getTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    handler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    ContainerTag optionsTable = new ContainerTag(HTMLContainerTags.TABLE);
                     ContainerTag tr = new ContainerTag(HTMLContainerTags.TR);
 
                     for (HTMLTag newTag : newTags) {
@@ -42,6 +43,7 @@ public class HTMLMenuEditor {
                     }
 
                     optionsTable.addNestedTag(tr);
+                    handler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
                 }
                 catch (Exception e) {
                     e.printStackTrace();

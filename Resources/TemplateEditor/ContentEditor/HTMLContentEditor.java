@@ -27,9 +27,21 @@ public class HTMLContentEditor {
             ContainerTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
             headTag.addNestedTag(new SelfClosingTag(HTMLSelfClosingTags.META, Arrays.asList(new TagAttribute("charset", charset))));
             try {
-            htmlHandler.addTag(page.getHTMLDoc(), headTag, HTMLContainerTags.HTML);
-            htmlHandler.addTag(page.getHTMLDoc(), new ContainerTag(HTMLContainerTags.BODY), HTMLContainerTags.HTML);
-            htmlHandler.addTag(page.getHTMLDoc(), new TextTag(HTMLTextTags.P, Arrays.asList(new TagAttribute("class", "Content")), text), HTMLContainerTags.BODY);
+                htmlHandler.addTag(page.getHTMLDoc(), headTag, HTMLContainerTags.HTML);
+                htmlHandler.addTag(page.getHTMLDoc(), new ContainerTag(HTMLContainerTags.BODY), HTMLContainerTags.HTML);
+                htmlHandler.addTag(page.getHTMLDoc(), new TextTag(HTMLTextTags.P, Arrays.asList(new TagAttribute("class", "Content")), text), HTMLContainerTags.BODY);
+                CSSElement htmlBodyContentElement = new CSSElement(
+                        Arrays.asList(
+                                new CSSSelector(CSSSelectorTypes.TAG, "html"),
+                                new CSSSelector(CSSSelectorTypes.TAG, "body"),
+                                new CSSSelector(CSSSelectorTypes.CLASS, "Content")
+                        ),
+                        Arrays.asList(
+                                new CSSAttribute("margin", "0px"),
+                                new CSSAttribute("height", "100%")
+                        )
+                );
+                cssHandler.addElement(page.getCSSDoc(), htmlBodyContentElement);
                 cssHandler.addElement(page.getCSSDoc(), new CSSElement(new CSSSelector(CSSSelectorTypes.CLASS, "Content")));
             }
             catch (Exception e) {
