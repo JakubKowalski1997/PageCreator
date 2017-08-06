@@ -4,6 +4,7 @@ import CSSHandlerClasses.*;
 import HTMLHandlerClasses.*;
 import MainEditor.Template02.Template02View;
 import MainEditor.TemplateModel;
+import TemplateEditor.AdsEditor.HTMLAdsEditor;
 import TemplateEditor.ContentEditor.HTMLContentEditor;
 import TemplateEditor.IframeEditor;
 import TemplateEditor.MenuEditor.HTMLMenuEditor;
@@ -94,7 +95,13 @@ public class Template03Controller {
                 HTMLMenuEditor.getTextColorEditor(model.getMenuFontColor()),
                 HTMLMenuEditor.getBackgroundColorEditor(model.getMenuBackgroundColor()),
                 HTMLMenuEditor.getFontEditor(model.getMenuFont()),
-                HTMLMenuEditor.getPositionEditor(model.getMenuPosition()));
+                HTMLMenuEditor.getPositionEditor(model.getMenuPosition()),
+                HTMLAdsEditor.getPositionEditor(model.getAdsTextPosition()),
+                HTMLAdsEditor.getFontEditor(model.getAdsFont()),
+                HTMLAdsEditor.getBackgroundColorEditor(model.getAdsBackgroundColor()),
+                HTMLAdsEditor.getTextColorEditor(model.getAdsFontColor()),
+                HTMLAdsEditor.getTextEditor(model.getAdsText())
+        );
 
         for (PageEditor editor : editors) {
             editor.edit(template);
@@ -141,6 +148,7 @@ public class Template03Controller {
                     HTMLContentEditor.getTextColorEditor(model.getContentFontColor(i)),
                     HTMLContentEditor.getBackgroundColorEditor(model.getContentBackgroundColor(i)),
                     HTMLContentEditor.getFontEditor(model.getContentFont(i)),
+                    HTMLContentEditor.getPositionEditor(model.getContentTextPosition(i)),
                     HTMLContentEditor.getSubPageStyleEditor()
             );
 

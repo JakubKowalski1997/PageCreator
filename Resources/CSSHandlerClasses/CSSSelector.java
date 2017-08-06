@@ -21,8 +21,9 @@ public class CSSSelector {
 
     public CSSSelector(CSSSelectorTypes type, String name) throws Exception {
         if (type.equals(CSSSelectorTypes.TAG)) {
-            if (!isHTMLTag(name))
+            if (!isHTMLTag(name)) {
                 throw new Exception("Given selector name is not a tag");
+            }
         }
 
         this.selectorType = type;
@@ -86,7 +87,7 @@ public class CSSSelector {
 
 
         StringBuilder builder = new StringBuilder();
-        while (textRep.charAt(i) != '{') {
+        while (textRep.charAt(i) != '{' && textRep.charAt(i) != ',') {
             if (!Character.isWhitespace(textRep.charAt(i))) {
                 builder.append(textRep.charAt(i));
             }

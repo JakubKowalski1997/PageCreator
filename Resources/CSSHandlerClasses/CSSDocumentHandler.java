@@ -38,8 +38,10 @@ public class CSSDocumentHandler {
         ArrayList<CSSElement> elements = doc.getElements();
 
         for (CSSElement element : elements) {
-            if (element.selector.equals(selector)) {
-                return element;
+            if (element.selectors.size() == 1) {
+                if (element.selectors.get(0).equals(selector)) {
+                    return element;
+                }
             }
         }
 
