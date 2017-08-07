@@ -9,11 +9,15 @@ import MainEditor.Template02.Template02View;
 import MainEditor.Template03.Template03Controller;
 import MainEditor.Template03.Template03Model;
 import MainEditor.Template03.Template03View;
-import TemplateHandlerClasses.TemplateHandler;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import TemplateHandlerClasses.TemplateHandler;
 import Utils.Page;
 
 /**
@@ -25,6 +29,7 @@ public class MainEditorWindow extends JFrame{
     private Template01View template01View = null;
     private Template02View template02View = null;
     private Template03View template03View = null;
+    private JFileChooser chooser;
 
     private void setDefaultOptions(){
         //getting screen dimensions
@@ -45,6 +50,38 @@ public class MainEditorWindow extends JFrame{
         Image icon = new ImageIcon("html-icon.png").getImage();
         setIconImage(icon);
     }
+    private void setChooser(String title/*, argument of object which will be used to save HTML Page*/)
+    {
+        chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML & CSS", "html", "css");
+        chooser.setFileFilter(filter);
+        chooser.setDialogTitle("Save HTML page");
+        chooser.setApproveButtonToolTipText("Click to save file");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        int returnVal = chooser.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION)
+        {
+            //get path
+            StringBuilder path =  new StringBuilder();
+            path.append(chooser.getSelectedFile().getPath());
+            path.append("\\HTMLPageEditor_" + title + "\\");
+
+            //create additional folder
+            boolean success = (new File(path.toString())).mkdirs();
+            if(!success)
+            {
+                JOptionPane.showMessageDialog(null, "Cannot save file\nPlease try again",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                getDefaultCloseOperation();
+            }
+
+
+            //save page
+
+
+        }
+    }
 
     private void createMenu(){
         JMenuBar menuBar = new JMenuBar();
@@ -57,20 +94,13 @@ public class MainEditorWindow extends JFrame{
 
         JMenuItem save = new JMenuItem("Save as");
         save.addActionListener(event->{
-            /*TODO:
-            THIS IS THE PLACE WHERE ALL CONTROLLERS WILL CREATE MODEL AND RIGHT AFTER HTML PAGE WILL BE CREATED
-            BASED ON THAT MODELS
-             */
-
-
+            //create HTML Page with CSS
             TitleController titleController = new TitleController(titleView);
-            //Konrad's input
             titleController.editHTMLCSS();
 
             //next step different 3 ways to follow
             if(template01View != null){
                 Template01Controller controller = new Template01Controller(template01View);
-                TemplateModel templateModel = controller.getModel();
                 controller.editHTMLCSS();
 
                 java.util.List<Page> subPages = controller.getSubPages();
@@ -82,7 +112,6 @@ public class MainEditorWindow extends JFrame{
 
             if(template02View != null){
                 Template02Controller controller = new Template02Controller(template02View);
-                TemplateModel templateModel = controller.getModel();
                 controller.editHTMLCSS();
 
                 java.util.List<Page> subPages = controller.getSubPages();
@@ -94,7 +123,6 @@ public class MainEditorWindow extends JFrame{
 
             if(template03View != null){
                 Template03Controller controller = new Template03Controller(template03View);
-                Template03Model templateModel = controller.getModel();
                 controller.editHTMLCSS();
 
                 java.util.List<Page> subPages = controller.getSubPages();
@@ -106,6 +134,10 @@ public class MainEditorWindow extends JFrame{
 
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
             System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
+
+            //start save window
+            setChooser(titleController.getTitleModel().getTitle());
+
         });
         fileMenu.add(save);
 
