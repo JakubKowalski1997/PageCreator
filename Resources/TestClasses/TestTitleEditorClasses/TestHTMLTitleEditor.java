@@ -7,8 +7,11 @@ import TemplateHandlerClasses.PageTemplate;
 import TemplateHandlerClasses.TemplateFactory;
 import TemplateHandlerClasses.Templates;
 import TestClasses.Test;
+import HTMLHandlerClasses.*;
+import CSSHandlerClasses.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Konrad on 2017-07-21.
@@ -25,85 +28,67 @@ public class TestHTMLTitleEditor extends Test {
 
         ArrayList<PageEditor> editors = new ArrayList<>();
 
-        editors.add(HTMLTitleEditor.getPositionEditor("center"));
-        editors.add(HTMLTitleEditor.getTextColorEditor("blue"));
-        editors.add(HTMLTitleEditor.getBackgroundColorEditor("green"));
-        editors.add(HTMLTitleEditor.getFontEditor(new Font("arial", Font.PLAIN, 20)));
-        editors.add(HTMLTitleEditor.getTextEditor("Text"));
+
+        final String titleText = "Text";
+        final String position = "center";
+        final String textColor = "blue";
+        final String backgroundColor = "green";
+        final String fontFamily = "arial";
+        final String fontStyle = "plain";
+        final String fontSize = "20px";
+
+        editors.add(HTMLTitleEditor.getPositionEditor(position));
+        editors.add(HTMLTitleEditor.getTextColorEditor(textColor));
+        editors.add(HTMLTitleEditor.getBackgroundColorEditor(backgroundColor));
+        editors.add(HTMLTitleEditor.getFontEditor(new Font(fontFamily, Font.PLAIN, 20)));
+        editors.add(HTMLTitleEditor.getTextEditor(titleText));
 
         for (PageEditor editor : editors) {
             editor.edit(template);
         }
 
-        String correctHTMLDoc = "<!DOCTYPE html>\n" +
-                "\n" +
-                "<html>\n" +
-                "\t<body>\n" +
-                "\t\t<div class=\"Title\">\n" +
-                "\t\t\t<p class=\"TitleText\">Text</p>\n" +
-                "\t\t</div>\n" +
-                "\t\t<div class=\"Menu\">\n" +
-                "\t\t\t<table class=\"fillParent\"></table>\n" +
-                "\t\t</div>\n" +
-                "\t\t<div class=\"Content\">\n" +
-                "\t\t\t<iframe name=\"iframe\" width=\"100%\" height=\"100%\" frameborder=\"0\">Twoja przegladarka nie obsluguje iFrame!!</iframe>\n" +
-                "\t\t</div>\n" +
-                "\t\t<br/>\n" +
-                "\t\t<div class=\"dolny\"></div>\n" +
-                "\t</body>\n" +
-                "</html>";
+        HTMLDocumentHandler htmlHandler = HTMLDocumentHandler.getInstance();
+        HTMLDocument htmlDocument = template.getHTMLDoc();
 
-        String correctCSSDoc = "html {\n" +
-                "\tmargin : 0px;\n" +
-                "\theight : 100%;\n" +
-                "}\n" +
-                "\n" +
-                ".fillParent {\n" +
-                "\twidth : 100%;\n" +
-                "\theight : 100%;\n" +
-                "}\n" +
-                "\n" +
-                "body {\n" +
-                "\tmargin : 0px;\n" +
-                "\theight : 100%;\n" +
-                "\tmin-width : 640px;\n" +
-                "\tmax-width : 1820px;\n" +
-                "}\n" +
-                "\n" +
-                ".Title {\n" +
-                "\tmargin : 0px;\n" +
-                "\twidth : 100%;\n" +
-                "\ttext-align : center;\n" +
-                "\tcolor : blue;\n" +
-                "\tbackground-color : green;\n" +
-                "\tfont-family : arial;\n" +
-                "\tfont-size : 20px;\n" +
-                "\tfont-style : plain;\n" +
-                "}\n" +
-                "\n" +
-                ".TitleText {\n" +
-                "\tmargin : 0px;\n" +
-                "}\n" +
-                "\n" +
-                ".Menu {\n" +
-                "\theight : 80%;\n" +
-                "\twidth : 25%;\n" +
-                "\tfloat : left;\n" +
-                "}\n" +
-                "\n" +
-                ".Content {\n" +
-                "\twidth : 75%;\n" +
-                "\tfloat : left;\n" +
-                "}\n" +
-                "\n" +
-                ".dolny {\n" +
-                "\twidth : 100%;\n" +
-                "}";
+        CSSDocumentHandler cssDocumentHandler = CSSDocumentHandler.getInstance();
+        CSSDocument cssDocument = template.getCSSDoc();
 
-        if (!template.getCSSDoc().toString().equals(correctCSSDoc) ||
-                !template.getHTMLDoc().toString().equals(correctHTMLDoc)) {
-            reportError("Expected: \n" + correctCSSDoc + '\n' + correctHTMLDoc +
-                            "\nGot: \n" + template.getCSSDoc().toString() + '\n' + template.getHTMLDoc().toString());
+        try {
+            TextTag title = (TextTag) htmlHandler.getTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Title")), 0);
+
+            if (!title.getText().equals(titleText)) {
+                reportError("Expected title: " + titleText + " Got: " + title.getText());
+            }
+
+            CSSElement titleElement = cssDocumentHandler.getElement(cssDocument, new CSSSelector(CSSSelectorTypes.CLASS, "Title"));
+
+            if (!titleElement.getAttribute("font-family").values.get(0).equals(fontFamily)) {
+                reportError("Expected font family: " + fontFamily + " Got: " + titleElement.getAttribute("font-family").values.get(0));
+            }
+
+            if (!titleElement.getAttribute("font-size").values.get(0).equals(fontSize)) {
+                reportError("Expected font size: " + fontSize + " Got: " + titleElement.getAttribute("font-size").values.get(0));
+            }
+
+            if (!titleElement.getAttribute("font-style").values.get(0).equals(fontStyle)) {
+                reportError("Expected font style: " + fontStyle + " Got: " + titleElement.getAttribute("font-style").values.get(0));
+            }
+
+            if (!titleElement.getAttribute("color").values.get(0).equals(textColor)) {
+                reportError("Expected font color: " + textColor + " Got: " + titleElement.getAttribute("color").values.get(0));
+            }
+
+            if (!titleElement.getAttribute("background-color").values.get(0).equals(backgroundColor)) {
+                reportError("Expected background color: " + backgroundColor + " Got: " + titleElement.getAttribute("background-color").values.get(0));
+            }
+
+            if (!titleElement.getAttribute("text-align").values.get(0).equals(position)) {
+                reportError("Expected text position: " + backgroundColor + " Got: " + titleElement.getAttribute("background-color").values.get(0));
+            }
+
+        }
+        catch (Exception e) {
+            reportError(e.getMessage());
         }
 
         reportResults();

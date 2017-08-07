@@ -6,22 +6,36 @@ package CSSHandlerClasses;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import Utils.ParserUtils.Parser;
 import javafx.util.Pair;
 
 public class CSSElement {
-    CSSSelector selector;
+    List<CSSSelector> selectors;
     List<CSSAttribute> atts;
 
     private static final Character leftAttSep = '{';
     private static final Character rightAttSep = '}';
 
     public CSSElement(CSSSelector selector) {
-        this.selector = selector;
+        selectors = new ArrayList<>();
+        this.selectors.add(selector);
         atts = new ArrayList<>();
     }
 
     public CSSElement(CSSSelector selector, List<CSSAttribute> attributes) {
-        this.selector = selector;
+        selectors = new ArrayList<>();
+        this.selectors.add(selector);
+        this.atts = attributes;
+    }
+
+    public CSSElement(List<CSSSelector> selectors) {
+        this.selectors = selectors;
+        this.atts = new ArrayList<>();
+    }
+
+    public CSSElement(List<CSSSelector> selectors, List<CSSAttribute> attributes) {
+        this.selectors = selectors;
         this.atts = attributes;
     }
 
@@ -58,7 +72,12 @@ public class CSSElement {
     public String toString() {
         StringBuilder stringRep = new StringBuilder();
 
-        stringRep.append(selector.toString());
+        for (int i = 0; i < selectors.size(); ++i) {
+            stringRep.append(selectors.get(i).toString());
+            if (i != selectors.size() - 1) {
+                stringRep.append(", ");
+            }
+        }
         stringRep.append(" ");
         stringRep.append(leftAttSep);
 
@@ -89,8 +108,13 @@ public class CSSElement {
 
         CSSElement oElement = (CSSElement) o;
 
-        if (!selector.equals(oElement.selector)) {
+        if (selectors.size() != oElement.selectors.size())
             return false;
+
+        for (int i = 0; i < selectors.size(); ++i) {
+            if (!selectors.get(i).equals(oElement.selectors.get(i))) {
+                return false;
+            }
         }
 
         if (atts.size() != oElement.atts.size()) {
@@ -110,10 +134,23 @@ public class CSSElement {
         if (textRep.length() < 3)
             throw new Exception("To short input string");
 
-        Pair<CSSSelector, Integer> parsedSelector = CSSSelector.parseFromString(textRep, initPos);
+        ArrayList<CSSSelector> selectors = new ArrayList<>();
 
-        int i = parsedSelector.getValue();
-        ++i;
+        int i = initPos;
+
+        while (true) {
+            Pair<CSSSelector, Integer> parsedSelector = CSSSelector.parseFromString(textRep, i);
+            selectors.add(parsedSelector.getKey());
+
+            i = parsedSelector.getValue();
+            if (textRep.charAt(i) == '{') {
+                ++i;
+                break;
+            }
+
+            ++i;
+            i = Parser.omitWhitespaces(textRep, i);
+        }
 
         ArrayList<CSSAttribute> attributes = new ArrayList<>();
 
@@ -130,6 +167,6 @@ public class CSSElement {
             }
         }
 
-        return new Pair<CSSElement, Integer>(new CSSElement(parsedSelector.getKey(), attributes), i);
+        return new Pair<CSSElement, Integer>(new CSSElement(selectors, attributes), i);
     }
 }
