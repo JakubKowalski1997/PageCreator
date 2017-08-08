@@ -25,7 +25,7 @@ public class BasicHTMLEditors {
         return valueBuilder.toString();
     }
 
-    private static void setCSSAttribue(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
+    private static void setCSSAttribute(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
         CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
         CSSElement sectionElement = handler.getElement(cssDocument, cssSelector);
@@ -48,7 +48,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), colorAttributeName, value);
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), colorAttributeName, value);
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -65,7 +65,22 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundColorAttributeName, value);
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundColorAttributeName, value);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static PageEditor getTextColorEditor(String color, CSSSelectorTypes selectorType, String sectionName) {
+        return template -> {
+            final  String colorAttributeName = "color";
+
+            CSSDocument cssDoc = template.getCSSDoc();
+
+            try {
+                setCSSAttribute(cssDoc, new CSSSelector(selectorType, sectionName), colorAttributeName, color.toLowerCase());
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -74,19 +89,7 @@ public class BasicHTMLEditors {
     }
 
     public static PageEditor getTextColorEditor(String color, String sectionName) {
-        return template -> {
-            final  String colorAttributeName = "color";
-
-            CSSDocument cssDoc = template.getCSSDoc();
-
-            try {
-                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), colorAttributeName, color.toLowerCase());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
-
+        return getTextColorEditor(color, CSSSelectorTypes.CLASS, sectionName);
     }
 
     public static PageEditor getBackgroundColorEditor(String color, String sectionName) {
@@ -96,7 +99,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, color.toLowerCase());
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, color.toLowerCase());
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -207,7 +210,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribue(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), positionAttributeName, position);
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), positionAttributeName, position);
             }
             catch (Exception e) {
                 e.printStackTrace();

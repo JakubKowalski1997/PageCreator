@@ -14,9 +14,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
+import java.io.FileNotFoundException;
 import TemplateHandlerClasses.TemplateHandler;
 import Utils.Page;
 
@@ -50,7 +48,8 @@ public class MainEditorWindow extends JFrame{
         Image icon = new ImageIcon("html-icon.png").getImage();
         setIconImage(icon);
     }
-    private void setChooser(String title/*, argument of object which will be used to save HTML Page*/)
+
+    private void setChooser(String title, java.util.List<Page> subpages)
     {
         chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML & CSS", "html", "css");
@@ -76,10 +75,18 @@ public class MainEditorWindow extends JFrame{
                 getDefaultCloseOperation();
             }
 
-
             //save page
-
-
+            try {
+                TemplateHandler.getInstance().getPageTemplate().save(path.toString());
+                for (Page subpage : subpages) {
+                    subpage.saveHTMLDocument(path.toString());
+                }
+            }
+            catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Cannot save file\nPlease try again",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                getDefaultCloseOperation();
+            }
         }
     }
 
@@ -98,45 +105,32 @@ public class MainEditorWindow extends JFrame{
             TitleController titleController = new TitleController(titleView);
             titleController.editHTMLCSS();
 
+            java.util.List<Page> subpages = null;
+
             //next step different 3 ways to follow
             if(template01View != null){
                 Template01Controller controller = new Template01Controller(template01View);
+
                 controller.editHTMLCSS();
-
-                java.util.List<Page> subPages = controller.getSubPages();
-
-                for (Page page : subPages) {
-                    System.out.println(page.getHTMLDoc().toString());
-                }
+                subpages = controller.getSubPages();
             }
 
             if(template02View != null){
                 Template02Controller controller = new Template02Controller(template02View);
+
                 controller.editHTMLCSS();
-
-                java.util.List<Page> subPages = controller.getSubPages();
-
-                for (Page page : subPages) {
-                    System.out.println(page.getHTMLDoc().toString());
-                }
+                subpages = controller.getSubPages();
             }
 
             if(template03View != null){
                 Template03Controller controller = new Template03Controller(template03View);
+
                 controller.editHTMLCSS();
-
-                java.util.List<Page> subPages = controller.getSubPages();
-
-                for (Page page : subPages) {
-                    System.out.println(page.getHTMLDoc().toString());
-                }
+                subpages = controller.getSubPages();
             }
 
-            System.out.println(TemplateHandler.getInstance().getPageTemplate().getHTMLDoc().toString());
-            System.out.println(TemplateHandler.getInstance().getPageTemplate().getCSSDoc().toString());
-
             //start save window
-            setChooser(titleController.getTitleModel().getTitle());
+            setChooser(titleController.getTitleModel().getTitle(), subpages);
 
         });
         fileMenu.add(save);

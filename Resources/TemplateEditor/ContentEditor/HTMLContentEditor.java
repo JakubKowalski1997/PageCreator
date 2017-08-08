@@ -30,6 +30,7 @@ public class HTMLContentEditor {
                 htmlHandler.addTag(page.getHTMLDoc(), headTag, HTMLContainerTags.HTML);
                 htmlHandler.addTag(page.getHTMLDoc(), new ContainerTag(HTMLContainerTags.BODY), HTMLContainerTags.HTML);
                 htmlHandler.addTag(page.getHTMLDoc(), new TextTag(HTMLTextTags.P, Arrays.asList(new TagAttribute("class", "Content")), text), HTMLContainerTags.BODY);
+
                 CSSElement htmlBodyContentElement = new CSSElement(
                         Arrays.asList(
                                 new CSSSelector(CSSSelectorTypes.TAG, "html"),

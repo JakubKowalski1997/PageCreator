@@ -15,11 +15,9 @@ import java.io.FileNotFoundException;
  * Created by Konrad on 2017-07-19.
  */
 public class PageTemplate extends Page {
-    private String htmlPath, cssPath;
 
     public PageTemplate(String htmlPath, String cssPath) {
-        this.htmlPath = htmlPath;
-        this.cssPath = cssPath;
+        super("index"); //set page name
 
         try {
             String htmlFileContent = DocumentReader.readFromFile(htmlPath);
@@ -33,21 +31,8 @@ public class PageTemplate extends Page {
         }
     }
 
-    public String getHtmlPath() {
-        return htmlPath;
-    }
-
-    public String getCssPath() {
-        return cssPath;
-    }
-
-    public void save(String htmlPath, String cssPath) {
-        try {
-            DocumentWriter.writeToFile(getHTMLDoc(), htmlPath);
-            DocumentWriter.writeToFile(getCSSDoc(), cssPath);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void save(String path) throws FileNotFoundException {
+        super.saveHTMLDocument(path, true);
+        super.saveCSSDocumnet(path, "main");
     }
 }
