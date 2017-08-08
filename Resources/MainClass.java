@@ -6,6 +6,7 @@ import java.awt.*;
  */
 
 import MVCFormEditor.FormView;
+import MVCFormEditor.WelcomeScreen;
 import MainEditor.MainEditorWindow;
 import TemplateChooser.TemplateChooserView;
 
@@ -16,7 +17,7 @@ public class MainClass {
         //main loop
         EventQueue.invokeLater(()->
         {
-            JFrame startOfProgram = new FormView();
+            JFrame startOfProgram = new WelcomeScreen();
         });
     }
 }
