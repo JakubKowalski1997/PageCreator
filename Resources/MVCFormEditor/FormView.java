@@ -180,11 +180,11 @@ public class FormView extends JFrame {
         queries.add("Page description : ");
         queries.add("Page charset : ");
 
+
         //create window's components
         createAndAddNorthComponents();
         createAndAddCenterComponents(queries);
         createAndAddSouthComponents();
-
         setDefaultOption();
 
         //set icon
