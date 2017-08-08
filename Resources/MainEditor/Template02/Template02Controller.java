@@ -129,7 +129,7 @@ public class Template02Controller {
             HTMLDocument htmlDocument = new HTMLDocument();
             CSSDocument cssDocument = new CSSDocument();
 
-            Page page = new Page(htmlDocument, cssDocument);
+            Page page = new Page(model.getMenuTexts()[i], htmlDocument, cssDocument);
 
             ArrayList<PageEditor> editors = new ArrayList<>();
             Collections.addAll(editors,
