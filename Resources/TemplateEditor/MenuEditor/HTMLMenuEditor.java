@@ -4,6 +4,7 @@ package TemplateEditor.MenuEditor;
  * Created by Konrad on 2017-08-04.
  */
 
+import CSSHandlerClasses.CSSSelectorTypes;
 import HTMLHandlerClasses.*;
 import TemplateEditor.PageEditor;
 import TemplateHandlerClasses.Templates;
@@ -67,10 +68,13 @@ public class HTMLMenuEditor {
                 }
 
                 try {
-                    ContainerTag optionsTable = (ContainerTag) handler.getTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    handler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    ContainerTag optionsTable = new ContainerTag(HTMLContainerTags.TABLE, Arrays.asList(new TagAttribute("class", "fillParent")));
                     for (HTMLTag newTag : newTags) {
                         optionsTable.addNestedTag(newTag);
                     }
+
+                    handler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -84,7 +88,7 @@ public class HTMLMenuEditor {
     }
 
     public static PageEditor getTextColorEditor(String color) {
-        return BasicHTMLEditors.getTextColorEditor(color, sectionName);
+        return BasicHTMLEditors.getTextColorEditor(color, CSSSelectorTypes.TAG, HTMLTextTags.A.toString());
     }
 
     public static PageEditor getPositionEditor(String position) {

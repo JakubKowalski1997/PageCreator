@@ -7,14 +7,15 @@ import MainEditor.Template01.Template01View;
 import MainEditor.Template02.Template02Controller;
 import MainEditor.Template02.Template02View;
 import MainEditor.Template03.Template03Controller;
+import MainEditor.Template03.Template03Model;
 import MainEditor.Template03.Template03View;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import TemplateHandlerClasses.TemplateHandler;
 import Utils.Page;
@@ -41,13 +42,6 @@ public class MainEditorWindow extends JFrame{
 
         //set on close operation
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                //check if user saved his page
-            }
-        });
 
         setTitle("HTML Page Editor");
         setVisible(true);
@@ -82,6 +76,7 @@ public class MainEditorWindow extends JFrame{
                 getDefaultCloseOperation();
             }
 
+
             //save page
 
 
@@ -97,7 +92,7 @@ public class MainEditorWindow extends JFrame{
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-        JMenuItem save = new JMenuItem("Save");
+        JMenuItem save = new JMenuItem("Save as");
         save.addActionListener(event->{
             //create HTML Page with CSS
             TitleController titleController = new TitleController(titleView);

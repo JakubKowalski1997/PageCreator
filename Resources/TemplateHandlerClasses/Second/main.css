@@ -10,6 +10,11 @@ body
     max-width: 1820px;
 }
 
+a
+{
+    text-decoration : none;
+}
+
 .fillParent
 {
     width : 100%;
