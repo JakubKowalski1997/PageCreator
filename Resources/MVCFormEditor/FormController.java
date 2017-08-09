@@ -18,13 +18,12 @@ public class FormController {
         for (JTextField textField : view.textFields) {
             formUserInputs.add(textField.getText());
         }
-
-        System.out.print("init commit");
+        //get charset
+        formUserInputs.add(view.charsets.getSelectedItem().toString());
 
         //check for correctness of input data
         if(!MVCFormEditor.FormValidator.getInstance().validate(formUserInputs))
             formUserInputs = null;
-
     }
 
     public ArrayList<String> getPageMetaData(){return formUserInputs;}
