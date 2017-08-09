@@ -19,6 +19,8 @@ public class FormController {
             formUserInputs.add(textField.getText());
         }
 
+        System.out.print("init commit");
+
         //check for correctness of input data
         if(!MVCFormEditor.FormValidator.getInstance().validate(formUserInputs))
             formUserInputs = null;
