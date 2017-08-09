@@ -10,20 +10,25 @@ import java.util.Scanner;
 
 public class DocumentReader {
     public static String readFromFile(String path) throws FileNotFoundException {
-        File file = new File(path);
-        Scanner in = new Scanner(file);
+        try {
+            File file = new File(path);
+            Scanner in = new Scanner(file);
 
-        StringBuilder readString = new StringBuilder();
+            StringBuilder readString = new StringBuilder();
 
-        while (true) {
-            readString.append(in.nextLine());
-            if (!in.hasNextLine())
-                break;
-            else
-                readString.append('\n');
+            while (true) {
+                readString.append(in.nextLine());
+                if (!in.hasNextLine())
+                    break;
+                else
+                    readString.append('\n');
+            }
+
+            in.close();
+            return readString.toString();
         }
-
-        in.close();
-        return readString.toString();
+        catch (FileNotFoundException e) {
+            throw e;
+        }
     }
 }

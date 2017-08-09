@@ -8,6 +8,7 @@ import HTMLHandlerClasses.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class TemplateHandler {
     private static TemplateHandler instance = new TemplateHandler();
@@ -25,6 +26,23 @@ public class TemplateHandler {
         headSection = head;
     }
 
+    private void setCharset() {
+        try {
+            for (int i = 0; i < headSection.getNumberOfChilds(); ++i) {
+                HTMLTag nested = headSection.getNestedTag(i);
+                List<TagAttribute> attributes = nested.getAttributes();
+
+                for (TagAttribute attribute : attributes) {
+                    if (attribute.name.equals("charset"))
+                        pageTemplate.setCharset(attribute.value);
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setPageTemplate(PageTemplate template) {
         pageTemplate = template;
 
@@ -35,6 +53,7 @@ public class TemplateHandler {
             System.out.println("Error. Null pointer in headSection");
 
         addCSSLink();
+        setCharset();
 
         HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
         HTMLDocument templateDoc = template.getHTMLDoc();

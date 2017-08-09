@@ -101,38 +101,17 @@ public class Template01Controller {
         int contentsNumber = model.getContentNumber();
 
         PageTemplate template = TemplateHandler.getInstance().getPageTemplate();
-        HTMLDocument templateHTML = template.getHTMLDoc();
-        HTMLDocumentHandler htmlHandler = HTMLDocumentHandler.getInstance();
-
-        //get charset from page template
-        String charsetValue = "";
-        try {
-            ContainerTag headTag = (ContainerTag) htmlHandler.getTag(templateHTML, HTMLContainerTags.HTML, new ArrayList<>(), 0);
-
-            for (int i = 0; i < headTag.getNumberOfChilds(); ++i) {
-                HTMLTag nested = headTag.getNestedTag(i);
-                List<TagAttribute> attributes = nested.getAttributes();
-
-                for (TagAttribute attribute : attributes) {
-                    if (attribute.name.equals("charset"))
-                        charsetValue = attribute.value;
-                }
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
 
         ArrayList<Page> subPages = new ArrayList<>();
         for (int i = 0; i < contentsNumber; i++) {
             HTMLDocument htmlDocument = new HTMLDocument();
             CSSDocument cssDocument = new CSSDocument();
 
-            Page page = new Page(model.getMenuTexts()[i], htmlDocument, cssDocument);
+            Page page = new Page(model.getMenuTexts()[i], htmlDocument, cssDocument, template.getCharset());
 
             ArrayList<PageEditor> editors = new ArrayList<>();
             Collections.addAll(editors,
-                    HTMLContentEditor.getHTMLContentEditor(charsetValue, model.getContentText(i)),
+                    HTMLContentEditor.getHTMLContentEditor(page.getCharset(), model.getContentText(i)),
                     HTMLContentEditor.getTextColorEditor(model.getContentFontColor(i)),
                     HTMLContentEditor.getBackgroundColorEditor(model.getContentBackgroundColor(i)),
                     HTMLContentEditor.getFontEditor(model.getContentFont(i)),

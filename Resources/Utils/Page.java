@@ -13,16 +13,28 @@ public class Page {
     private CSSDocument cssDocument;
     private HTMLDocument htmlDocument;
     private String name;
-
+    private String charset;
 
     public Page(String name) {
         this.name = name;
+        setCharset("utf-8"); //set default charset
+        cssDocument = new CSSDocument();
+        htmlDocument = new HTMLDocument();
     }
 
-    public Page(String name, HTMLDocument htmlDoc, CSSDocument cssDoc) {
+    public Page(String name, HTMLDocument htmlDoc, CSSDocument cssDoc, String charset) {
         this.name = name;
         cssDocument = cssDoc;
         htmlDocument = htmlDoc;
+        setCharset(charset);
+    }
+
+    public void setCharset(String charset) {
+        this.charset = charset;
+    }
+
+    public String getCharset() {
+        return charset;
     }
 
     public String getName() {
@@ -30,24 +42,24 @@ public class Page {
     }
 
     public CSSDocument getCSSDoc() {
-       return cssDocument;
-   }
+        return cssDocument;
+    }
 
     public HTMLDocument getHTMLDoc() {
-       return htmlDocument;
-   }
+        return htmlDocument;
+    }
 
     public void setCSSDoc(CSSDocument cssDoc) {
-       cssDocument = cssDoc;
-   }
+        cssDocument = cssDoc;
+    }
 
     public void setHTMLDoc(HTMLDocument htmlDoc) {
-       htmlDocument = htmlDoc;
+        htmlDocument = htmlDoc;
     }
 
     public void saveHTMLDocument(String path, boolean isHtm) throws FileNotFoundException {
         String extension = isHtm ? "htm" : "html";
-        DocumentWriter.writeToFile(getHTMLDoc(), path + '/' + getName() + '.' + extension);
+        DocumentWriter.writeToFile(getHTMLDoc(), path + '/' + getName() + '.' + extension, getCharset());
     }
 
     public void saveHTMLDocument(String path) throws FileNotFoundException {
@@ -55,6 +67,6 @@ public class Page {
     }
 
     public void saveCSSDocumnet(String path, String filename) throws FileNotFoundException {
-        DocumentWriter.writeToFile(getCSSDoc(), path + '/' + filename + ".css");
+        DocumentWriter.writeToFile(getCSSDoc(), path + '/' + filename + ".css", getCharset());
     }
 }
