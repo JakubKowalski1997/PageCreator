@@ -85,6 +85,7 @@ public class WelcomeScreen extends JFrame {
                     "web page of all time.\n" +
                     "On the left side of screen there are panels by which you may select current attributes of each section.\n" +
                     "In case of editing text values in section you should use visualizing panels.\n" +
+                    "At the end of your work do not forget to SAVE.\n" +
                     "Program seems really intuitive and we think you should not have any problems using it :).\n";
 
             String finalText = "<html><h3>Step 5 : Have fun and enjoy your time </h3><hr></html>\n" +

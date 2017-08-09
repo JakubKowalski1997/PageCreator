@@ -13,6 +13,8 @@ import MainEditor.Template03.Template03View;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +33,9 @@ public class MainEditorWindow extends JFrame{
     private Template03View template03View = null;
     private JFileChooser chooser;
 
+    //save flag
+    private boolean isSaved = false;
+
     private void setDefaultOptions(){
         //getting screen dimensions
         Toolkit kit = Toolkit.getDefaultToolkit();
@@ -42,8 +47,25 @@ public class MainEditorWindow extends JFrame{
 
         //set on close operation
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(!isSaved)
+                {
+                    Object[] options = { "YES", "NO" };
+                    int retv = JOptionPane.showOptionDialog(null, "Page not saved\nDo you want to continue?", "Warning",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
+                            null, options, options[0]);
 
-        setTitle("HTML Page Editor");
+                    if(retv == JOptionPane.YES_OPTION)
+                        System.exit(0);
+                    else
+                        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                }
+            }
+        });
+
+        setTitle("HTML Page Creator");
         setVisible(true);
 
         //set icon
@@ -89,6 +111,9 @@ public class MainEditorWindow extends JFrame{
                         "ERROR", JOptionPane.ERROR_MESSAGE);
                 getDefaultCloseOperation();
             }
+
+            isSaved = true;
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         }
     }
 
@@ -133,7 +158,6 @@ public class MainEditorWindow extends JFrame{
 
             //start save window
             setChooser(titleController.getTitleModel().getTitle(), subpages);
-
         });
         fileMenu.add(save);
 
@@ -165,6 +189,7 @@ public class MainEditorWindow extends JFrame{
                     "web page of all time.\n" +
                     "On the left side of screen there are panels by which you may select current attributes of each section.\n" +
                     "In case of editing text values in section you should use visualizing panels.\n" +
+                    "At the end of your work do not forget to SAVE.\n" +
                     "Program seems really intuitive and we think you should not have any problems using it :).\n";
 
             String finalText = "<html><h3>Step 5 : Have fun and enjoy your time </h3><hr></html>\n" +
