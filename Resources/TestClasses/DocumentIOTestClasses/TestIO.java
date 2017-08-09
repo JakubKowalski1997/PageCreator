@@ -4,6 +4,7 @@ import TestClasses.Test;
 import Utils.DocumentUtils.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Created by Konrad on 2017-07-15.
@@ -23,7 +24,7 @@ public class TestIO extends Test {
         try {
             DocumentWriter.writeToFile(testText, testPath);
         }
-        catch (FileNotFoundException e) {
+        catch (IOException e) {
             reportError(e.getMessage());
         }
 

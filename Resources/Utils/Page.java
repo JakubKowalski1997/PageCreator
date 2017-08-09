@@ -4,7 +4,7 @@ import CSSHandlerClasses.CSSDocument;
 import HTMLHandlerClasses.HTMLDocument;
 import Utils.DocumentUtils.DocumentWriter;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Created by Konrad on 2017-08-05.
@@ -57,16 +57,16 @@ public class Page {
         htmlDocument = htmlDoc;
     }
 
-    public void saveHTMLDocument(String path, boolean isHtm) throws FileNotFoundException {
+    public void saveHTMLDocument(String path, boolean isHtm) throws IOException {
         String extension = isHtm ? "htm" : "html";
         DocumentWriter.writeToFile(getHTMLDoc(), path + '/' + getName() + '.' + extension, getCharset());
     }
 
-    public void saveHTMLDocument(String path) throws FileNotFoundException {
+    public void saveHTMLDocument(String path) throws IOException {
         saveHTMLDocument(path, false);
     }
 
-    public void saveCSSDocumnet(String path, String filename) throws FileNotFoundException {
+    public void saveCSSDocumnet(String path, String filename) throws IOException {
         DocumentWriter.writeToFile(getCSSDoc(), path + '/' + filename + ".css", getCharset());
     }
 }

@@ -15,6 +15,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import TemplateHandlerClasses.TemplateHandler;
 import Utils.Page;
 
@@ -82,7 +84,7 @@ public class MainEditorWindow extends JFrame{
                     subpage.saveHTMLDocument(path.toString());
                 }
             }
-            catch (FileNotFoundException e) {
+            catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Cannot save file\nPlease try again",
                         "ERROR", JOptionPane.ERROR_MESSAGE);
                 getDefaultCloseOperation();

@@ -23,6 +23,7 @@ a
 
 .Title
 {
+    height : 15%;
     margin : 0px;
     width: 100%;
 }
@@ -32,28 +33,37 @@ a
     margin : 0px;
 }
 
+.MenuContentAdsContainer {
+	margin : auto;
+	width : 60%;
+	height : 80%;
+}
+
 .Menu
 {
-    height : 80%;
+    height : 100%;
     width : 15%;
     float : left;
 }
 
 .Content
 {
-    height : 80%;
+    height : 100%;
     width: 60%;
     float: left;   
 }
 
 .Ads
 {
-    height : 80%;
+    height : 100%;
     width: 25%;
     float: left;   
 }
 
-.dolny
-{
-    width: 100%;
+.Footer {
+	width : 100%;
+	height : 5%;
+	font-family : calibri;
+	font-style : italic;
+	margin : 0px;
 }

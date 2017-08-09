@@ -25,6 +25,15 @@ public class BasicHTMLEditors {
         return valueBuilder.toString();
     }
 
+    private static String convertColor(String color) {
+        switch (color) {
+            case "dark_gray":
+                return "dimgray";
+            default:
+                return color.toLowerCase();
+        }
+    }
+
     private static void setCSSAttribute(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
         CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
@@ -75,12 +84,12 @@ public class BasicHTMLEditors {
 
     public static PageEditor getTextColorEditor(String color, CSSSelectorTypes selectorType, String sectionName) {
         return template -> {
-            final  String colorAttributeName = "color";
+            final  String colorAttributeName = "color";;
 
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribute(cssDoc, new CSSSelector(selectorType, sectionName), colorAttributeName, color.toLowerCase());
+                setCSSAttribute(cssDoc, new CSSSelector(selectorType, sectionName), colorAttributeName, convertColor(color));
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -99,7 +108,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, color.toLowerCase());
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, convertColor(color));
             }
             catch (Exception e) {
                 e.printStackTrace();

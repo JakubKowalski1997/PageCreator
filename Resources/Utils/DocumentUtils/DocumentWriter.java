@@ -24,14 +24,21 @@ public class DocumentWriter {
         charsetsMap.put("us-ascii", StandardCharsets.US_ASCII);
     }
 
-    public static void writeToFile(Object o, String path, String charset) throws FileNotFoundException {
+    public static void writeToFile(Object o, String path, String charset) throws IOException {
         try {
-            PrintWriter outFile = new PrintWriter(new OutputStreamWriter(new FileOutputStream(path), charsetsMap.get(charset)));
+            FileOutputStream file = new FileOutputStream(path);
+            PrintWriter outFile = new PrintWriter(new OutputStreamWriter(file, charsetsMap.get(charset.toLowerCase())));
             outFile.print(o.toString());
             outFile.close();
+            try {
+                file.close();
+            }
+            catch (IOException e) {
+                throw e;
+            }
         }
         catch (FileNotFoundException e) {
-            throw e;
+            throw new IOException(e);
         }
     }
 
@@ -40,7 +47,7 @@ public class DocumentWriter {
      * @param path represents path of output file
      * @throws FileNotFoundException
      */
-    public static void writeToFile(Object o, String path) throws FileNotFoundException {
+    public static void writeToFile(Object o, String path) throws IOException {
         writeToFile(o, path, "utf-8");
     }
 }

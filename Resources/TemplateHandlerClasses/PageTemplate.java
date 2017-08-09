@@ -9,7 +9,7 @@ import Utils.DocumentUtils.DocumentWriter;
 import Utils.Page;
 import Utils.ParserUtils.ApplyParsing;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Created by Konrad on 2017-07-19.
@@ -31,7 +31,7 @@ public class PageTemplate extends Page {
         }
     }
 
-    public void save(String path) throws FileNotFoundException {
+    public void save(String path) throws IOException {
         super.saveHTMLDocument(path, true);
         super.saveCSSDocumnet(path, "main");
     }

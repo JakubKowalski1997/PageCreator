@@ -18,9 +18,9 @@ public class WelcomeScreen extends JFrame {
     Dimension screenSize = kit.getScreenSize();
 
 
-    private void setDefaultOption(){
+    private void setDefaultOption() {
         //set window dimension and location on screen - center
-        setSize(screenSize.width / 2, (int)(screenSize.height / 3.7));
+        setSize(screenSize.width / 2, (int) (screenSize.height / 3.7));
         setLocation((screenSize.width / 2) - (screenSize.width / 4), (screenSize.height / 2) - (screenSize.height / 4));
 
         Image icon = new ImageIcon("html-icon.png").getImage();
@@ -63,6 +63,22 @@ public class WelcomeScreen extends JFrame {
 
         JButton about = new JButton("About Program");
         subPane.add(about);
+        about.addActionListener(event -> {
+            Font labelFont = new Font("Calibri", 3, 16);
+            String aboutProgram = "HTMLPageCreator was developed to help people create web pages, even though they do not have any knowledge about " +
+                    "html and css. \nIt allows user to create simple page based on a template. Program can also be very useful for those " +
+                    "who are familiar with  \nhtml and css, but want to create page quickly. Output of program is a directory which " +
+                    "contains html files for main page and subpages  \nand one css file which describes main page formatting, so future" +
+                    " updates are possible. " +
+                    "\n\n" +
+                    "Authors:\n" +
+                    "Konrad Wojtysiak, github: https://github.com/KonWoj\n" +
+                    "Wiktor Lazarski, github: https://github.com/Wiktos";
+
+            JOptionPane aboutProgramPane = new JOptionPane();
+            aboutProgramPane.setFont(labelFont);
+            aboutProgramPane.showMessageDialog(this, aboutProgram, "About program", JOptionPane.PLAIN_MESSAGE);
+        });
 
         JButton exit = new JButton("Exit");
         exit.addActionListener(event -> {
