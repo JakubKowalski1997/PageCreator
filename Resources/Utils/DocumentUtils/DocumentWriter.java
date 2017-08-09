@@ -5,9 +5,7 @@ package Utils.DocumentUtils; /**
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -22,6 +20,7 @@ public class DocumentWriter {
         charsetsMap.put("utf-16be", StandardCharsets.UTF_16BE);
         charsetsMap.put("uft-16le", StandardCharsets.UTF_16LE);
         charsetsMap.put("us-ascii", StandardCharsets.US_ASCII);
+        charsetsMap.put("iso-8859-1", StandardCharsets.ISO_8859_1);
     }
 
     public static void writeToFile(Object o, String path, String charset) throws IOException {

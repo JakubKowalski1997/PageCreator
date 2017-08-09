@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fc13b10-1213-4034-9b4b-3b3a60019178" name="Default" comment="Commit fix">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateEditor/BasicHTMLEditors.java" afterPath="$PROJECT_DIR$/Resources/TemplateEditor/BasicHTMLEditors.java" />
+    <list default="true" id="5fc13b10-1213-4034-9b4b-3b3a60019178" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java" afterPath="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/MainEditor/MainEditorWindow.java" afterPath="$PROJECT_DIR$/Resources/MainEditor/MainEditorWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Utils/Page.java" afterPath="$PROJECT_DIR$/Resources/Utils/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TestClasses/DocumentIOTestClasses/TestIO.java" afterPath="$PROJECT_DIR$/Resources/TestClasses/DocumentIOTestClasses/TestIO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/MVCFormEditor/WelcomeScreen.java" afterPath="$PROJECT_DIR$/Resources/MVCFormEditor/WelcomeScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/index.htm" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/index.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/index.htm" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/index.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/index.htm" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/index.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/main.css" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/First/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/main.css" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/main.css" afterPath="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,7 +28,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="83" column="45" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,7 +80,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://A:/Studia/ProjektKreatorStron/First/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -107,15 +97,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicHTMLEditors.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BasicHTMLEditors.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/TemplateEditor/BasicHTMLEditors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05903399">
-              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding>
+                <element signature="docComment;class#BasicHTMLEditors#0" expanded="false" />
+                <element signature="method#buildRgbColor#0;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#convertColor#0;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#setCSSAttribute#0;class#BasicHTMLEditors#0" expanded="false" />
+                <element signature="method#getTextColorEditor#0;class#BasicHTMLEditors#0" expanded="false" />
+                <element signature="method#getBackgroundColorEditor#0;class#BasicHTMLEditors#0" expanded="false" />
+                <element signature="method#getTextColorEditor#1;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#getTextColorEditor#2;class#BasicHTMLEditors#0" expanded="false" />
+                <element signature="method#getBackgroundColorEditor#1;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#getFontStyleValues#0;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#getFontEditor#0;class#BasicHTMLEditors#0" expanded="false" />
                 <element signature="method#getPositionEditor#0;class#BasicHTMLEditors#0" expanded="false" />
@@ -125,12 +121,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentWriter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DocumentWriter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.09803922">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+              <folding>
+                <element signature="initializer##0;class#DocumentWriter#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,7 +139,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#Page#0;class#Page#0" expanded="false" />
                 <element signature="method#Page#1;class#Page#0" expanded="false" />
                 <element signature="method#saveHTMLDocument#1;class#Page#0" expanded="false" />
@@ -223,12 +220,12 @@
         <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/index.htm" />
         <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Second/main.css" />
         <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/Third/main.css" />
-        <option value="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java" />
         <option value="$PROJECT_DIR$/Resources/MainEditor/MainEditorWindow.java" />
         <option value="$PROJECT_DIR$/Resources/Utils/Page.java" />
         <option value="$PROJECT_DIR$/Resources/TemplateHandlerClasses/PageTemplate.java" />
         <option value="$PROJECT_DIR$/Resources/TestClasses/DocumentIOTestClasses/TestIO.java" />
         <option value="$PROJECT_DIR$/Resources/TemplateEditor/BasicHTMLEditors.java" />
+        <option value="$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java" />
       </list>
     </option>
   </component>
@@ -271,7 +268,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,64 +340,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TemplateEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MVCFormEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageCreatorVCS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MainEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,6 +353,13 @@
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Konrad/IdeaProjects/PageCreatorVCS/Resources/TemplateHandlerClasses/PageTemplate.java" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="pagecreatorvcs" />
   </component>
   <component name="RunManager" selected="Application.MainClass">
     <configuration default="false" name="TestTextTag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -769,13 +719,11 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3422222" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2647059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -783,7 +731,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -791,9 +738,12 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3422222" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -859,7 +809,7 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -928,12 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding>
-            <element signature="e#448#449#0" expanded="false" />
-            <element signature="e#479#480#0" expanded="false" />
-            <element signature="e#642#656#0" expanded="false" />
-            <element signature="e#1165#1179#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -948,11 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1084#1085#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,9 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,10 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <element signature="e#3077#3078#0" expanded="false" />
-            <element signature="e#3138#3139#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="11" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="59" selection-start-line="74" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1126,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="120" column="108" selection-start-line="120" selection-start-column="108" selection-end-line="120" selection-end-column="108" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="109" column="108" selection-start-line="109" selection-start-column="108" selection-end-line="109" selection-end-column="108" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39926064">
           <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,7 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5281553">
           <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5600739">
           <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49514562">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6229205">
           <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59417474">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,19 +1121,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Resources/MainEditor/MainEditorWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="45" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1223,7 +1136,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Page#0;class#Page#0" expanded="false" />
             <element signature="method#Page#1;class#Page#0" expanded="false" />
             <element signature="method#saveHTMLDocument#1;class#Page#0" expanded="false" />
@@ -1267,16 +1179,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Resources/TemplateEditor/BasicHTMLEditors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05903399">
-          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
+            <element signature="docComment;class#BasicHTMLEditors#0" expanded="false" />
+            <element signature="method#buildRgbColor#0;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#convertColor#0;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#setCSSAttribute#0;class#BasicHTMLEditors#0" expanded="false" />
+            <element signature="method#getTextColorEditor#0;class#BasicHTMLEditors#0" expanded="false" />
+            <element signature="method#getBackgroundColorEditor#0;class#BasicHTMLEditors#0" expanded="false" />
+            <element signature="method#getTextColorEditor#1;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#getTextColorEditor#2;class#BasicHTMLEditors#0" expanded="false" />
+            <element signature="method#getBackgroundColorEditor#1;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#getFontStyleValues#0;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#getFontEditor#0;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#getPositionEditor#0;class#BasicHTMLEditors#0" expanded="false" />
             <element signature="method#getTextEditor#0;class#BasicHTMLEditors#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Utils/DocumentUtils/DocumentWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09803922">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding>
+            <element signature="initializer##0;class#DocumentWriter#0" expanded="false" />
           </folding>
         </state>
       </provider>
