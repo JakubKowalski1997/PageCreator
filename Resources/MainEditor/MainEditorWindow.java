@@ -143,16 +143,65 @@ public class MainEditorWindow extends JFrame{
 
         JMenuItem tutorial = new JMenuItem("Basic tutorial");
         tutorial.addActionListener(event -> {
-            /*todo:
-            PRINT SMALL TUTORIAL IN JOptionPane
-             */
+            Font labelFont = new Font("Calibri", 3, 16);
+            StringBuilder tutorialText = new StringBuilder();
+            String titleAndStep1 = "<html><h1><i><strong>Basic tutorial</strong></i></h1><hr>" +
+                    "<h3>Step 1 : Welcome screen</h3><hr></html>\n" +
+                    "Click \"Create\" button to start creating your own HTML page \n" +
+                    "Click \"Basic tutorial\" button to launch a window with this tutorial again\n" +
+                    "Click \"About program\" button to read more details about HTMLPageEditor\n" +
+                    "Click \"Exit\" button to close HTMLPageEditor\n";
+
+            String form = "<html><h3>Step 2 : Metadata editor </h3><hr></html>\n" +
+                    "In this window you input yours HTML page metadata like \"author's first name\", \n" +
+                    "\"page's title\" etc.\n";
+
+            String templateChooser = "<html><h3>Step 3 : Template choose </h3><hr></html>\n" +
+                    "In this window you are asked to choose your HTML page template.\n" +
+                    "Mark one of the three available templates to go further.\n";
+
+            String mainEditor = "<html><h3>Step 4 : Main editor of your HTML page </h3><hr></html>\n" +
+                    "Once you get there you are forced to push the boundaries of your imagination and create the best\n" +
+                    "web page of all time.\n" +
+                    "On the left side of screen there are panels by which you may select current attributes of each section.\n" +
+                    "In case of editing text values in section you should use visualizing panels.\n" +
+                    "Program seems really intuitive and we think you should not have any problems using it :).\n";
+
+            String finalText = "<html><h3>Step 5 : Have fun and enjoy your time </h3><hr></html>\n" +
+                    "We hope that by our program you will create your dreamed HTML page.\n\n";
+
+            String thanks = "<html><h1><strong>THANK YOU FOR USING OUR PROGRAM!</strong></h1></html>";
+
+            tutorialText.append(titleAndStep1);
+            tutorialText.append(form);
+            tutorialText.append(templateChooser);
+            tutorialText.append(mainEditor);
+            tutorialText.append(finalText);
+            tutorialText.append(thanks);
+
+            JOptionPane aboutProgramPane = new JOptionPane();
+            aboutProgramPane.setFont(labelFont);
+            aboutProgramPane.showMessageDialog(this, tutorialText, "About program", JOptionPane.PLAIN_MESSAGE);
         });
 
         JMenuItem about = new JMenuItem("About program");
         about.addActionListener(event->{
-            /*todo:
-            PRINT infos about program IN JOptionPane
-             */
+            Font labelFont = new Font("Calibri", 3, 16);
+            String aboutProgram = "<html><h1><i>About program</i></h1><hr></html>\nHTMLPageCreator was developed to help people create web pages, even though they do not have any knowledge about " +
+                    "html and css. \nIt allows user to create simple page based on a template. Program can also be very useful for those " +
+                    "who are familiar with  \nhtml and css, but want to create page quickly. Output of program is a directory which " +
+                    "contains html files for main page and subpages  \nand one css file which describes main page formatting, so future" +
+                    " updates are possible. " +
+                    "\n\n" +
+                    "Authors:\n" +
+                    "Konrad Wojtysiak, github: https://github.com/KonWoj\n" +
+                    "Wiktor Łazarski, github: https://github.com/Wiktos\n" +
+                    "\nIn case you find any bugs in program please inform us by email : wlazarski@interia.pl\n" +
+                    "Huge thanks ! High five !";
+
+            JOptionPane aboutProgramPane = new JOptionPane();
+            aboutProgramPane.setFont(labelFont);
+            aboutProgramPane.showMessageDialog(this, aboutProgram, "About program", JOptionPane.PLAIN_MESSAGE);
         });
 
         infosMenu.add(tutorial);
