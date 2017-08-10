@@ -1,21 +1,16 @@
 package TestClasses.HTMLTestClasses;
 
 import HTMLHandlerClasses.*;
-import TestClasses.Test;
+import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
-
 /**
- * Created by Konrad on 2017-07-05.
+ * Created by Konrad on 2017-08-10.
  */
-public class TestHTMLDocumentHandler extends Test {
+public class HTMLDocumentHandlerTest extends TestCase {
 
-    public TestHTMLDocumentHandler() {
-        super("TestHTMLDocumentHandler");
-    }
-
-    private void test1() {
+    public void test1() {
         HTMLDocument doc = new HTMLDocument();
         HTMLDocumentHandler docHandler = HTMLDocumentHandler.getInstance();
 
@@ -45,13 +40,10 @@ public class TestHTMLDocumentHandler extends Test {
 
         String gotRep = doc.toString();
 
-        if (!gotRep.equals(expectedRep)) {
-            reportError("Expected: " + expectedRep +
-            " Got: " + gotRep);
-        }
+        assertEquals(expectedRep, gotRep);
     }
 
-    private void test2() {
+    public void test2() {
         HTMLDocument doc = new HTMLDocument();
         HTMLDocumentHandler docHandler = HTMLDocumentHandler.getInstance();
 
@@ -79,23 +71,6 @@ public class TestHTMLDocumentHandler extends Test {
 
         String gotRep = doc.toString();
 
-        if (!gotRep.equals(expectedRep)) {
-            reportError("Expected: " + expectedRep +
-                    " Got: " + gotRep);
-        }
-    }
-
-    public void test() {
-        super.test();
-
-        test1();
-        test2();
-
-        reportResults();
-    }
-
-    public static void main(String[] args) {
-        TestHTMLDocumentHandler test = new TestHTMLDocumentHandler();
-        test.test();
+        assertEquals(expectedRep, gotRep);
     }
 }

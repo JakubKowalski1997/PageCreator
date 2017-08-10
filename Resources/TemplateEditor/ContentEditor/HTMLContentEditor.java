@@ -9,10 +9,9 @@ import HTMLHandlerClasses.*;
 import TemplateEditor.PageEditor;
 import TemplateEditor.BasicHTMLEditors;
 
-import javax.xml.soap.Text;
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 public class HTMLContentEditor {

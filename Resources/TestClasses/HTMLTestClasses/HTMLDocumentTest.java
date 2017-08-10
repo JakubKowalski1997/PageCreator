@@ -1,19 +1,14 @@
 package TestClasses.HTMLTestClasses;
 
-/**
- * Created by Konrad on 2017-07-20.
- */
-
 import HTMLHandlerClasses.HTMLDocument;
-import TestClasses.Test;
+import junit.framework.TestCase;
 
-public class TestHTMLDocument extends Test {
+/**
+ * Created by Konrad on 2017-08-10.
+ */
+public class HTMLDocumentTest extends TestCase {
 
-    TestHTMLDocument() {
-        super("TestHTMLDocument");
-    }
-
-    private void testParsing() {
+    public void testParseFromString() throws Exception {
         String input = "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "    <body>\n" +
@@ -42,28 +37,9 @@ public class TestHTMLDocument extends Test {
                 "\t</body>\n" +
                 "</html>";
 
-        try {
-            HTMLDocument parsed = HTMLDocument.parseFromString(input);
 
-            if (!parsed.toString().equals(expected)) {
-                reportError("Expected: \n" + expected + " Got: \n" + parsed.toString());
-            }
-        }
-        catch (Exception e) {
-            reportError(e.getMessage());
-        }
-    }
+        HTMLDocument parsed = HTMLDocument.parseFromString(input);
 
-    public void test() {
-        super.test();
-
-        testParsing();
-
-        reportResults();
-    }
-
-    public static void main(String[] args) {
-        TestHTMLDocument test = new TestHTMLDocument();
-        test.test();
+        assertEquals(expected, parsed.toString());
     }
 }
