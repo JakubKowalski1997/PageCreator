@@ -206,7 +206,7 @@ public class MainEditorWindow extends JFrame{
 
             JOptionPane aboutProgramPane = new JOptionPane();
             aboutProgramPane.setFont(labelFont);
-            aboutProgramPane.showMessageDialog(this, tutorialText, "About program", JOptionPane.PLAIN_MESSAGE);
+            aboutProgramPane.showMessageDialog(this, tutorialText, "Basic tutorial", JOptionPane.PLAIN_MESSAGE);
         });
 
         JMenuItem about = new JMenuItem("About program");
