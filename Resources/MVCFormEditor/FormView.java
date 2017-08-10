@@ -2,11 +2,14 @@ package MVCFormEditor;
 
 import javax.swing.*;
 import java.awt.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import java.util.Map;
 import HTMLHandlerClasses.*;
 
+import MainEditor.JColorComboBox;
 import TemplateHandlerClasses.TemplateHandler;
 
 /**
@@ -22,6 +25,7 @@ public class FormView extends JFrame {
 
     //textareas
     public ArrayList<JTextField> textFields;
+    public JComboBox<Charset> charsets;
 
     private void createAndAddNorthComponents(){
         JPanel northPanel = new JPanel();
@@ -45,7 +49,7 @@ public class FormView extends JFrame {
         textFields = new ArrayList<>();
 
         //create components loop
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 5; i++){
             JLabel jLabel = new JLabel("  " + queries.get(i), JLabel.LEFT);
             jLabel.setFont(new Font("Courier New", Font.PLAIN, 20));
             centerPanel.add(jLabel);
@@ -56,6 +60,19 @@ public class FormView extends JFrame {
             textFields.get(i).setFont(new Font("Courier New", Font.BOLD + Font.ITALIC, 20));
             centerPanel.add(textFields.get(i));
         }
+
+        JLabel jLabel = new JLabel("  " + queries.get(5), JLabel.LEFT);
+        jLabel.setFont(new Font("Courier New", Font.PLAIN, 20));
+        centerPanel.add(jLabel);
+        charsets = new JComboBox<>();
+        charsets.addItem(StandardCharsets.ISO_8859_1);
+        charsets.addItem(StandardCharsets.US_ASCII);
+        charsets.addItem(StandardCharsets.UTF_16);
+        charsets.addItem(StandardCharsets.UTF_16BE);
+        charsets.addItem(StandardCharsets.UTF_16LE);
+        charsets.addItem(StandardCharsets.UTF_8);
+
+        centerPanel.add(charsets);
 
         add(centerPanel, BorderLayout.CENTER);
     }
@@ -138,7 +155,7 @@ public class FormView extends JFrame {
                 this.dispose();
 
                 //start a new TemplateChooser's window
-                JFrame templateChooserView = new TemplateChooserView();
+                new TemplateChooserView();
             }
             else {
                 //info for user to correct data
