@@ -35,9 +35,7 @@ public class BasicHTMLEditors {
     }
 
     private static void setCSSAttribute(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
-        CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
-
-        CSSElement sectionElement = handler.getElement(cssDocument, cssSelector);
+        CSSElement sectionElement = CSSDocumentHandler.getElement(cssDocument, cssSelector);
 
         CSSAttribute cssAttribute = sectionElement.getAttribute(attributeName);
         if (cssAttribute == null) {
@@ -48,6 +46,12 @@ public class BasicHTMLEditors {
         }
     }
 
+    /**
+     *
+     * @param color to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit page
+     */
     public static PageEditor getTextColorEditor(Color color, String sectionName) {
         return template -> {
             final String colorAttributeName = "color";
@@ -65,6 +69,12 @@ public class BasicHTMLEditors {
         };
     }
 
+    /**
+     *
+     * @param color to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit page
+     */
     public static PageEditor getBackgroundColorEditor(Color color, String sectionName) {
         return template -> {
             final String backgroundColorAttributeName = "background-color";
@@ -82,6 +92,13 @@ public class BasicHTMLEditors {
         };
     }
 
+    /**
+     *
+     * @param color to be inserted in css document
+     * @param selectorType type of selector
+     * @param sectionName name of a tag, or name of a class
+     * @return editor to edit page
+     */
     public static PageEditor getTextColorEditor(String color, CSSSelectorTypes selectorType, String sectionName) {
         return template -> {
             final  String colorAttributeName = "color";;
@@ -97,10 +114,22 @@ public class BasicHTMLEditors {
         };
     }
 
+    /**
+     *
+     * @param color to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit template
+     */
     public static PageEditor getTextColorEditor(String color, String sectionName) {
         return getTextColorEditor(color, CSSSelectorTypes.CLASS, sectionName);
     }
 
+    /**
+     *
+     * @param color to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit page
+     */
     public static PageEditor getBackgroundColorEditor(String color, String sectionName) {
         return template -> {
             final String backgroundAttColorName = "background-color";
@@ -141,6 +170,12 @@ public class BasicHTMLEditors {
         return fontStyle == 0;
     }
 
+    /**
+     *
+     * @param font to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit page
+     */
     public static PageEditor getFontEditor(Font font, String sectionName) {
         return template -> {
             final String fontFamilyAttributeName = "font-family";
@@ -149,11 +184,9 @@ public class BasicHTMLEditors {
             final String fontWeightAttributeName = "font-weight";
 
             CSSDocument cssDoc = template.getCSSDoc();
-            CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
-
 
             try {
-                CSSElement sectionElement = handler.getElement(cssDoc,
+                CSSElement sectionElement = CSSDocumentHandler.getElement(cssDoc,
                         new CSSSelector(CSSSelectorTypes.CLASS, sectionName));
 
                 /**
@@ -212,6 +245,12 @@ public class BasicHTMLEditors {
         };
     }
 
+    /**
+     *
+     * @param position to be inserted in css document
+     * @param sectionName selector name
+     * @return editor to edit template
+     */
     public static PageEditor getPositionEditor(String position, String sectionName) {
         return template -> {
             final String positionAttributeName = "text-align";
@@ -227,13 +266,18 @@ public class BasicHTMLEditors {
         };
     }
 
+    /**
+     *
+     * @param text to be inserted in html document
+     * @param sectionName name of a selector
+     * @return editor to edit page
+     */
     public static PageEditor getTextEditor(String text, String sectionName) {
         return template -> {
             HTMLDocument htmlDocument = template.getHTMLDoc();
-            HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
 
             try {
-                TextTag textTag = (TextTag) handler.getTag(htmlDocument, HTMLContainerTags.DIV,
+                TextTag textTag = (TextTag) HTMLDocumentHandler.getTag(htmlDocument, HTMLContainerTags.DIV,
                         Arrays.asList(new TagAttribute("class", sectionName)), 0);
                 textTag.setText(text);
             }

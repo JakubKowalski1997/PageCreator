@@ -41,17 +41,15 @@ public class HTMLTitleEditorTest extends TestCase {
             editor.edit(template);
         }
 
-        HTMLDocumentHandler htmlHandler = HTMLDocumentHandler.getInstance();
         HTMLDocument htmlDocument = template.getHTMLDoc();
 
-        CSSDocumentHandler cssDocumentHandler = CSSDocumentHandler.getInstance();
         CSSDocument cssDocument = template.getCSSDoc();
 
-        TextTag title = (TextTag) htmlHandler.getTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Title")), 0);
+        TextTag title = (TextTag) HTMLDocumentHandler.getTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Title")), 0);
 
         assertEquals(titleText, title.getText());
 
-        CSSElement titleElement = cssDocumentHandler.getElement(cssDocument, new CSSSelector(CSSSelectorTypes.CLASS, "Title"));
+        CSSElement titleElement = CSSDocumentHandler.getElement(cssDocument, new CSSSelector(CSSSelectorTypes.CLASS, "Title"));
 
         ArrayList<String> expected = new ArrayList<>();
         Collections.addAll(expected, fontFamily, fontSize, fontStyle, textColor, backgroundColor, position);

@@ -12,7 +12,6 @@ public class CSSDocumentTest extends TestCase {
 
     public void testToString() throws Exception {
         CSSDocument cssDocument = new CSSDocument();
-        CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
         CSSElement element1 = new CSSElement(new CSSSelector(CSSSelectorTypes.CLASS, "container"));
         element1.addAttribute(new CSSAttribute("width", "20%"));
@@ -20,8 +19,8 @@ public class CSSDocumentTest extends TestCase {
         CSSElement element2 = new CSSElement((new CSSSelector(CSSSelectorTypes.TAG, "p")));
         element2.addAttribute(new CSSAttribute("margin", "0px"));
 
-        handler.addElement(cssDocument, element1);
-        handler.addElement(cssDocument, element2);
+        CSSDocumentHandler.addElement(cssDocument, element1);
+        CSSDocumentHandler.addElement(cssDocument, element2);
 
         String correctOutput = ".container {\n" +
                 "\twidth : 20%;\n" +
@@ -51,9 +50,8 @@ public class CSSDocumentTest extends TestCase {
         CSSElement element2 = new CSSElement(new CSSSelector(CSSSelectorTypes.TAG, "p"), atts2);
 
         CSSDocument correct = new CSSDocument();
-        CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
-        handler.addElement(correct, element1);
-        handler.addElement(correct, element2);
+        CSSDocumentHandler.addElement(correct, element1);
+        CSSDocumentHandler.addElement(correct, element2);
 
         CSSDocument parsed = CSSDocument.parseFromString(input);
 

@@ -11,15 +11,8 @@ import java.util.jar.Attributes;
 //BUG: cycle reference results with stack overflow
 
 public class HTMLDocumentHandler {
-    private HTMLDocumentHandler() {}
 
-    private static HTMLDocumentHandler instance = new HTMLDocumentHandler();
-
-    public static HTMLDocumentHandler getInstance() {
-        return instance;
-    }
-
-    public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind)
             throws Exception {
 
         List<TagAttribute> atts = new ArrayList<TagAttribute>();
@@ -37,7 +30,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(newTag);
     }
 
-    public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, int pos)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, int pos)
             throws Exception {
 
         List<TagAttribute> atts = new ArrayList<TagAttribute>();
@@ -55,7 +48,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(pos, newTag);
     }
 
-    public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
             throws Exception {
 
         ContainerTag found;
@@ -71,7 +64,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(pos, newTag);
     }
 
-    public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, List<TagAttribute> atts)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, HTMLContainerTags kind, List<TagAttribute> atts)
             throws Exception {
 
         ContainerTag found;
@@ -88,7 +81,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(newTag);
     }
 
-    public void addTag(HTMLDocument doc, HTMLTag newTag, ContainerTag parent, int pos)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, ContainerTag parent, int pos)
             throws Exception {
 
         ContainerTag found;
@@ -105,7 +98,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(pos, newTag);
     }
 
-    public void addTag(HTMLDocument doc, HTMLTag newTag, ContainerTag parent)
+    static public void addTag(HTMLDocument doc, HTMLTag newTag, ContainerTag parent)
             throws Exception {
 
         ContainerTag found;
@@ -122,7 +115,7 @@ public class HTMLDocumentHandler {
         found.addNestedTag(newTag);
     }
 
-    public void eraseTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
+    static public void eraseTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
             throws Exception {
 
         ContainerTag found;
@@ -138,7 +131,7 @@ public class HTMLDocumentHandler {
         found.eraseNestedTag(pos);
     }
 
-    public void eraseTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts)
+    static public void eraseTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts)
             throws Exception {
 
         ContainerTag found;
@@ -154,7 +147,7 @@ public class HTMLDocumentHandler {
         found.popNestedTag();
     }
 
-    public void eraseTag(HTMLDocument doc, HTMLTag tagToErase)
+    static public void eraseTag(HTMLDocument doc, HTMLTag tagToErase)
             throws Exception {
 
         ContainerTag found;
@@ -170,7 +163,7 @@ public class HTMLDocumentHandler {
         found.getParent().popNestedTag();
     }
 
-    public HTMLTag getTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
+    static public HTMLTag getTag(HTMLDocument doc, HTMLContainerTags kind, List<TagAttribute> atts, int pos)
             throws Exception {
 
         ContainerTag found;

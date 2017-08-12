@@ -32,10 +32,9 @@ public class HTMLMenuEditorTest extends TestCase {
         final String expectedFirstOptionText = "Opcja1";
         final String expectedSecondOptionText = "Opcja2";
 
-        HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
         HTMLDocument document = template.getHTMLDoc();
 
-        ContainerTag table = (ContainerTag) handler.getTag(document, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Menu")), 0);
+        ContainerTag table = (ContainerTag) HTMLDocumentHandler.getTag(document, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Menu")), 0);
         ContainerTag firstRow = (ContainerTag) table.getNestedTag(0);
         ContainerTag firstOption = (ContainerTag) firstRow.getNestedTag(0);
 
@@ -68,10 +67,9 @@ public class HTMLMenuEditorTest extends TestCase {
         final String expectedFirstOptionText = "Opcja1";
         final String expectedSecondOptionText = "Opcja2";
 
-        HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
         HTMLDocument document = template.getHTMLDoc();
 
-        ContainerTag table = (ContainerTag) handler.getTag(document, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Menu")), 0);
+        ContainerTag table = (ContainerTag) HTMLDocumentHandler.getTag(document, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", "Menu")), 0);
         ContainerTag row = (ContainerTag) table.getNestedTag(0);
         ContainerTag firstOption = (ContainerTag) row.getNestedTag(0);
         ContainerTag secondOption = (ContainerTag) row.getNestedTag(1);

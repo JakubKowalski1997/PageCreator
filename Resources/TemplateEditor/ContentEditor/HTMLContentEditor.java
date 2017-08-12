@@ -18,17 +18,21 @@ public class HTMLContentEditor {
 
     static final String sectionName = "Content";
 
+    /**
+     * While creating subpage this editor must be used first
+     * @param charset to be added to head section
+     * @param text  text to be inserted into html document
+     * @return editor that creates subpage
+     */
     public static PageEditor getHTMLContentEditor(String charset, String text) {
         return page -> {
-            HTMLDocumentHandler htmlHandler = HTMLDocumentHandler.getInstance();
-            CSSDocumentHandler cssHandler = CSSDocumentHandler.getInstance();
 
             ContainerTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
             headTag.addNestedTag(new SelfClosingTag(HTMLSelfClosingTags.META, Arrays.asList(new TagAttribute("charset", charset))));
             try {
-                htmlHandler.addTag(page.getHTMLDoc(), headTag, HTMLContainerTags.HTML);
-                htmlHandler.addTag(page.getHTMLDoc(), new ContainerTag(HTMLContainerTags.BODY), HTMLContainerTags.HTML);
-                htmlHandler.addTag(page.getHTMLDoc(), new TextTag(HTMLTextTags.P, Arrays.asList(new TagAttribute("class", "Content")), text), HTMLContainerTags.BODY);
+                HTMLDocumentHandler.addTag(page.getHTMLDoc(), headTag, HTMLContainerTags.HTML);
+                HTMLDocumentHandler.addTag(page.getHTMLDoc(), new ContainerTag(HTMLContainerTags.BODY), HTMLContainerTags.HTML);
+                HTMLDocumentHandler.addTag(page.getHTMLDoc(), new TextTag(HTMLTextTags.P, Arrays.asList(new TagAttribute("class", "Content")), text), HTMLContainerTags.BODY);
 
                 CSSElement htmlBodyContentElement = new CSSElement(
                         Arrays.asList(
@@ -41,8 +45,8 @@ public class HTMLContentEditor {
                                 new CSSAttribute("height", "100%")
                         )
                 );
-                cssHandler.addElement(page.getCSSDoc(), htmlBodyContentElement);
-                cssHandler.addElement(page.getCSSDoc(), new CSSElement(new CSSSelector(CSSSelectorTypes.CLASS, "Content")));
+                CSSDocumentHandler.addElement(page.getCSSDoc(), htmlBodyContentElement);
+                CSSDocumentHandler.addElement(page.getCSSDoc(), new CSSElement(new CSSSelector(CSSSelectorTypes.CLASS, "Content")));
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -50,14 +54,17 @@ public class HTMLContentEditor {
         };
     }
 
+    /**
+     *
+     * @return editor that converts css document to style tag and inserts it into html document
+     */
     public static PageEditor getSubPageStyleEditor() {
         return page -> {
             HTMLDocument htmlDocument = page.getHTMLDoc();
-            HTMLDocumentHandler htmlHandler = HTMLDocumentHandler.getInstance();
             CSSDocument cssDocument = page.getCSSDoc();
             TextTag styleTag = new TextTag(HTMLTextTags.STYLE, '\n' + cssDocument.toString() + '\n');
             try {
-                htmlHandler.addTag(htmlDocument, styleTag, HTMLContainerTags.HEAD);
+                HTMLDocumentHandler.addTag(htmlDocument, styleTag, HTMLContainerTags.HEAD);
             }
             catch (Exception e) {
                 e.printStackTrace();

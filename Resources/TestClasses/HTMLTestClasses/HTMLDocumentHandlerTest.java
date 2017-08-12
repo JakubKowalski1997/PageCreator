@@ -12,17 +12,16 @@ public class HTMLDocumentHandlerTest extends TestCase {
 
     public void test1() {
         HTMLDocument doc = new HTMLDocument();
-        HTMLDocumentHandler docHandler = HTMLDocumentHandler.getInstance();
 
         HTMLTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
         HTMLTag bodyTag = new ContainerTag(HTMLContainerTags.BODY);
         HTMLTag divTag = new ContainerTag(HTMLContainerTags.DIV);
 
         try {
-            docHandler.addTag(doc, headTag, HTMLContainerTags.HTML, new ArrayList<TagAttribute>());
+            HTMLDocumentHandler.addTag(doc, headTag, HTMLContainerTags.HTML, new ArrayList<TagAttribute>());
             //System.out.println("tak");
-            docHandler.addTag(doc, bodyTag, HTMLContainerTags.HEAD, new ArrayList<TagAttribute>());
-            docHandler.addTag(doc, divTag, (ContainerTag) bodyTag);
+            HTMLDocumentHandler.addTag(doc, bodyTag, HTMLContainerTags.HEAD, new ArrayList<TagAttribute>());
+            HTMLDocumentHandler.addTag(doc, divTag, (ContainerTag) bodyTag);
         }
         catch(Exception e) {
             System.out.println(e.getCause());
@@ -45,18 +44,17 @@ public class HTMLDocumentHandlerTest extends TestCase {
 
     public void test2() {
         HTMLDocument doc = new HTMLDocument();
-        HTMLDocumentHandler docHandler = HTMLDocumentHandler.getInstance();
 
         HTMLTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
         HTMLTag bodyTag = new ContainerTag(HTMLContainerTags.BODY);
         HTMLTag divTag = new ContainerTag(HTMLContainerTags.DIV);
 
         try {
-            docHandler.addTag(doc, headTag, HTMLContainerTags.HTML, new ArrayList<TagAttribute>());
+            HTMLDocumentHandler.addTag(doc, headTag, HTMLContainerTags.HTML, new ArrayList<TagAttribute>());
             //System.out.println("tak");
-            docHandler.addTag(doc, bodyTag, HTMLContainerTags.HEAD, new ArrayList<TagAttribute>());
-            docHandler.addTag(doc, divTag, (ContainerTag) bodyTag);
-            docHandler.eraseTag(doc, bodyTag);
+            HTMLDocumentHandler.addTag(doc, bodyTag, HTMLContainerTags.HEAD, new ArrayList<TagAttribute>());
+            HTMLDocumentHandler.addTag(doc, divTag, (ContainerTag) bodyTag);
+            HTMLDocumentHandler.eraseTag(doc, bodyTag);
         }
         catch(Exception e) {
             System.out.println(e.getCause());

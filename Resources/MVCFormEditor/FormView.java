@@ -89,6 +89,7 @@ public class FormView extends JFrame {
         return new MVCFormEditor.FormModel(formController.getPageMetaData());
     }
 
+    //creates head section basing on user's input
     private ContainerTag getHeadSection(Map<HeadAttrib, String> formData) {
         ContainerTag headTag = new ContainerTag(HTMLContainerTags.HEAD);
         java.util.List<HTMLTag> tagsToInsert = getTagsBasedOnInput(formData);
@@ -106,6 +107,7 @@ public class FormView extends JFrame {
         return headTag;
     }
 
+    //helper method to get head inner tags
     private java.util.List<HTMLTag> getTagsBasedOnInput(Map<HeadAttrib, String> formData) {
         java.util.List<HTMLTag> tags = new ArrayList<HTMLTag>();
 

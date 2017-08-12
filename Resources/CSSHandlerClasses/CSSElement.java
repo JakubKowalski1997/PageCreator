@@ -154,12 +154,14 @@ public class CSSElement {
 
         ArrayList<CSSAttribute> attributes = new ArrayList<>();
 
+        //get element content
         while (textRep.charAt(i) != rightAttSep) {
             if (Character.isWhitespace(textRep.charAt(i))) {
                 ++i;
                 continue;
             }
             else {
+                //parse attributes
                 Pair<CSSAttribute, Integer> parsedAttribute = CSSAttribute.parseFromString(textRep, i);
                 attributes.add(parsedAttribute.getKey());
                 i = parsedAttribute.getValue();

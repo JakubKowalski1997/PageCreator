@@ -73,6 +73,11 @@ public class MainEditorWindow extends JFrame{
         setIconImage(icon);
     }
 
+    /**
+     * method that runs dialog to save page
+     * @param title indicates name of directory in which all files will be saved
+     * @param subpages list of subpages to be saved
+     */
     private void setChooser(String title, java.util.List<Page> subpages)
     {
         chooser = new JFileChooser();

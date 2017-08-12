@@ -73,6 +73,7 @@ public class CSSSelector {
 
         int i = initPos;
 
+        //check type of selector
         if (textRep.charAt(initPos) == classPrefix) {
             type = CSSSelectorTypes.CLASS;
             ++i;
@@ -86,6 +87,7 @@ public class CSSSelector {
         }
 
 
+        //parse selector name
         StringBuilder builder = new StringBuilder();
         while (textRep.charAt(i) != '{' && textRep.charAt(i) != ',') {
             if (!Character.isWhitespace(textRep.charAt(i))) {

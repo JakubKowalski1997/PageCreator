@@ -7,33 +7,27 @@ import java.util.ArrayList;
  */
 public class CSSDocumentHandler {
 
-    private static CSSDocumentHandler instance = new CSSDocumentHandler();
-
-    public static CSSDocumentHandler getInstance() {
-        return instance;
-    }
-
-    public void addElement(CSSDocument doc, CSSElement elem) {
+    static public void addElement(CSSDocument doc, CSSElement elem) {
         doc.getElements().add(elem);
     }
 
-    public void eraseElement(CSSDocument doc, int pos) {
+    static public void eraseElement(CSSDocument doc, int pos) {
         doc.getElements().remove(pos);
     }
 
-    public void eraseElement(CSSDocument doc, CSSElement elemToErase) {
+    static public void eraseElement(CSSDocument doc, CSSElement elemToErase) {
         doc.getElements().remove(elemToErase);
     }
 
-    public void popElement(CSSDocument doc) {
+    static public void popElement(CSSDocument doc) {
         doc.getElements().remove(doc.getElements().size() - 1);
     }
 
-    public CSSElement getElement(CSSDocument doc, int pos) {
+    static  public CSSElement getElement(CSSDocument doc, int pos) {
         return doc.getElements().get(pos);
     }
 
-    public CSSElement getElement(CSSDocument doc, CSSSelector selector) throws Exception {
+    static public CSSElement getElement(CSSDocument doc, CSSSelector selector) throws Exception {
         ArrayList<CSSElement> elements = doc.getElements();
 
         for (CSSElement element : elements) {

@@ -7,6 +7,10 @@ package CSSHandlerClasses;
 import java.util.ArrayList;
 import javafx.util.Pair;
 
+
+/**
+ * This class represents css document that can be build through the code
+ */
 public class CSSDocument  {
     private ArrayList<CSSElement> elements = new ArrayList<>();
 
@@ -57,8 +61,8 @@ public class CSSDocument  {
             throw new Exception("Too short input string to constitute a css document");
 
         CSSDocument newDoc = new CSSDocument();
-        CSSDocumentHandler handler = CSSDocumentHandler.getInstance();
 
+        //position in string representing document
         int i = 0;
 
         while (i < textRep.length()) {
@@ -67,10 +71,12 @@ public class CSSDocument  {
                 continue;
             }
 
+            //get parsed element and position where parsing was terminated
             Pair<CSSElement, Integer> parsedElement = CSSElement.parseFromString(textRep, i);
             i  = parsedElement.getValue();
+            CSSDocumentHandler.addElement(newDoc, parsedElement.getKey());
+            //prepare for parsing next element
             ++i;
-            handler.addElement(newDoc, parsedElement.getKey());
         }
 
         return newDoc;

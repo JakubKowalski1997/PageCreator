@@ -23,7 +23,6 @@ public class HTMLMenuEditor {
         if (kind.equals(Templates.SECOND)) {
             return template -> {
                 HTMLDocument htmlDocument = template.getHTMLDoc();
-                HTMLDocumentHandler handler =  HTMLDocumentHandler.getInstance();
                 ArrayList<HTMLTag> newTags = new ArrayList<>();
 
                 for (String option : options) {
@@ -35,7 +34,7 @@ public class HTMLMenuEditor {
                 }
 
                 try {
-                    handler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    HTMLDocumentHandler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
                     ContainerTag optionsTable = new ContainerTag(HTMLContainerTags.TABLE);
                     ContainerTag tr = new ContainerTag(HTMLContainerTags.TR);
 
@@ -44,7 +43,7 @@ public class HTMLMenuEditor {
                     }
 
                     optionsTable.addNestedTag(tr);
-                    handler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
+                    HTMLDocumentHandler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -54,7 +53,6 @@ public class HTMLMenuEditor {
         else {
             return template -> {
                 HTMLDocument htmlDocument = template.getHTMLDoc();
-                HTMLDocumentHandler handler =  HTMLDocumentHandler.getInstance();
                 ArrayList<HTMLTag> newTags = new ArrayList<>();
 
                 for (String option : options) {
@@ -68,13 +66,13 @@ public class HTMLMenuEditor {
                 }
 
                 try {
-                    handler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
+                    HTMLDocumentHandler.eraseTag(htmlDocument, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)), 0);
                     ContainerTag optionsTable = new ContainerTag(HTMLContainerTags.TABLE, Arrays.asList(new TagAttribute("class", "fillParent")));
                     for (HTMLTag newTag : newTags) {
                         optionsTable.addNestedTag(newTag);
                     }
 
-                    handler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
+                    HTMLDocumentHandler.addTag(htmlDocument, optionsTable, HTMLContainerTags.DIV, Arrays.asList(new TagAttribute("class", sectionName)));
                 }
                 catch (Exception e) {
                     e.printStackTrace();

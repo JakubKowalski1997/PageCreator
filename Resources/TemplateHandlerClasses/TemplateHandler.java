@@ -55,10 +55,9 @@ public class TemplateHandler {
         addCSSLink();
         setCharset();
 
-        HTMLDocumentHandler handler = HTMLDocumentHandler.getInstance();
         HTMLDocument templateDoc = template.getHTMLDoc();
         try {
-            handler.addTag(templateDoc, headSection, HTMLContainerTags.HTML, 0);
+            HTMLDocumentHandler.addTag(templateDoc, headSection, HTMLContainerTags.HTML, 0);
         }
         catch (Exception e) {
             e.printStackTrace();
