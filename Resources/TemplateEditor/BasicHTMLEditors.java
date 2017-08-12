@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class BasicHTMLEditors {
 
-    private static String buildRgbColor(Color color) {
+    static String buildRgbColor(Color color) {
         StringBuilder valueBuilder = new StringBuilder();
         valueBuilder.append("rgb(");
         valueBuilder.append(Integer.toString(color.getRed()));
@@ -26,12 +26,7 @@ public class BasicHTMLEditors {
     }
 
     private static String convertColor(String color) {
-        switch (color) {
-            case "dark_gray":
-                return "dimgray";
-            default:
-                return color.toLowerCase();
-        }
+        return ColorFactory.getInstance().create(color);
     }
 
     private static void setCSSAttribute(CSSDocument cssDocument, CSSSelector cssSelector, String attributeName, String value) throws Exception {
@@ -106,7 +101,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribute(cssDoc, new CSSSelector(selectorType, sectionName), colorAttributeName, convertColor(color));
+                setCSSAttribute(cssDoc, new CSSSelector(selectorType, sectionName), colorAttributeName, convertColor(color.toUpperCase()));
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -137,7 +132,7 @@ public class BasicHTMLEditors {
             CSSDocument cssDoc = template.getCSSDoc();
 
             try {
-                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, convertColor(color));
+                setCSSAttribute(cssDoc, new CSSSelector(CSSSelectorTypes.CLASS, sectionName), backgroundAttColorName, convertColor(color.toUpperCase()));
             }
             catch (Exception e) {
                 e.printStackTrace();
