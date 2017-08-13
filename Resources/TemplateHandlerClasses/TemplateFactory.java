@@ -19,7 +19,7 @@ public class TemplateFactory {
     private Map<Templates, PageTemplate> templatesMap = new HashMap<>();
 
     TemplateFactory() {
-        final String directoryPath = "Resources/TemplateHandlerClasses/";
+        final String directoryPath = "Resources/Templates/";
         registerTemplate(Templates.FIRST,  directoryPath + "First/index.htm", directoryPath + "First/main.css");
         registerTemplate(Templates.SECOND, directoryPath + "Second/index.htm", directoryPath + "Second/main.css");
         registerTemplate(Templates.THIRD, directoryPath + "Third/index.htm",  directoryPath + "Third/main.css");
