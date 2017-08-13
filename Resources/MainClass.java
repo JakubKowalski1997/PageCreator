@@ -24,6 +24,8 @@ public class MainClass {
         colorFactory.registerColor("DARK_GRAY", new Color(64, 64, 64));
         colorFactory.registerColor("GRAY", new Color(128, 128, 128));
         colorFactory.registerColor("BLACK", new Color(0, 0, 0));
+        colorFactory.registerColor("CYAN", new Color(0, 255, 255));
+        colorFactory.registerColor("RED", new Color(255, 0, 0));
     }
 
     public static void main(String[] args){
